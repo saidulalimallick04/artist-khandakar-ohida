@@ -9,11 +9,13 @@ import { Footer } from '@/components/footer';
 import { Press } from '@/components/press';
 import { Separator } from '@/components/ui/separator';
 import { Contact } from '@/components/contact';
+import { SideNav } from '@/components/side-nav';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
+      <SideNav />
       <main className="flex-1">
         <Hero />
         <About />
