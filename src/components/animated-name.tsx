@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -15,7 +16,8 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
   const words = name.split(' ');
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsMounted(true), 100); // Small delay to trigger animation
+    // A short delay helps ensure the animation triggers after the component is painted.
+    const timer = setTimeout(() => setIsMounted(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,13 +32,14 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
       {words.map((word, wordIndex) => (
         <div key={wordIndex} className="flex" aria-hidden="true">
           {word.split('').map((char, charIndex) => {
-            // Generate a random set of letters for the jackpot roll
+            // Generate a random set of letters for the slot machine roll effect.
             const randomChars = Array.from({ length: 10 }, () => 
                 allChars[Math.floor(Math.random() * allChars.length)]
             );
 
-            // The final letter column for animation
+            // The final letter column includes the random characters and the correct one at the end.
             const letterColumn = [...randomChars, char];
+            const animationDelay = `${wordIndex * 200 + charIndex * 75}ms`;
 
             return (
               <div
@@ -48,14 +51,11 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
               >
                 <div
                   className={cn(
-                    'flex flex-col',
-                    isMounted ? 'animate-roll-down' : '-translate-y-full'
+                    'flex flex-col transition-transform duration-700 ease-in-out',
+                     !isMounted && '-translate-y-[90.9%]'
                   )}
                   style={{
-                    animationDelay: `${wordIndex * 200 + charIndex * 75}ms`,
-                    transform: isMounted ? 'translateY(0)' : `translateY(-${10 * 100}%)`,
-                    transition: 'transform 0.8s cubic-bezier(0.6, 0, 0.2, 1)',
-                    transitionDelay: `${wordIndex * 200 + charIndex * 75}ms`
+                    transitionDelay: animationDelay,
                   }}
                 >
                   {letterColumn.map((letter, index) => (
