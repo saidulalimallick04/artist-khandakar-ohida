@@ -18,11 +18,13 @@ import {
   Mail,
   Heart,
   Briefcase,
+  Map,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const desktopNavLinks = [
   { id: "#home", label: "Home", icon: Home },
@@ -33,25 +35,26 @@ const desktopNavLinks = [
   { id: "#education", label: "Education", icon: BookOpen },
   { id: "#hobbies", label: "Hobbies", icon: Heart },
   { id: "#events", label: "Events", icon: Calendar },
-  { id: "#contact", label: "Contact", icon: Mail },
+  { id: "/journey", label: "Life Journey", icon: Map },
 ];
 
 const mobileNavLinks = [
   { id: "#home", label: "Home", icon: Home },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#events", label: "Events", icon: Calendar },
-  { id: "#contact", label: "Contact", icon: Mail },
+  { id: "/journey", label: "Life Journey", icon: Map },
 ];
 
 
 export function BottomNav() {
     const isMobile = useIsMobile();
     const [activeSection, setActiveSection] = useState("#home");
+    const router = useRouter();
 
     const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
 
     useEffect(() => {
-        const sectionIds = navLinks.map(link => link.id.substring(1)).filter(Boolean);
+        const sectionIds = navLinks.map(link => link.id.substring(1)).filter(id => !id.startsWith('/'));
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -81,14 +84,17 @@ export function BottomNav() {
         };
     }, [navLinks]);
 
-    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
-        const element = document.querySelector(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-            // For initial load or direct navigation, this ensures the URL hash is updated.
-            if (history.pushState) {
-                history.pushState(null, "", id);
+        if (id.startsWith('/')) {
+            router.push(id);
+        } else {
+            const element = document.querySelector(id);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+                if (history.pushState) {
+                    history.pushState(null, "", id);
+                }
             }
         }
     };
@@ -101,7 +107,7 @@ export function BottomNav() {
             <Tooltip key={link.id}>
               <TooltipTrigger asChild>
                 <Button asChild variant="ghost" size="icon" className={cn(activeSection === link.id && "bg-accent text-accent-foreground")}>
-                  <Link href={link.id} onClick={(e) => scrollToSection(e, link.id)}>
+                  <Link href={link.id} onClick={(e) => handleNavClick(e, link.id)}>
                     <link.icon className={cn("h-5 w-5 transition-transform duration-300", activeSection === link.id && "scale-125")} />
                     <span className="sr-only">{link.label}</span>
                   </Link>
