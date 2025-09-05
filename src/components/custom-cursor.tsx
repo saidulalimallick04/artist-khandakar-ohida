@@ -51,7 +51,7 @@ export function CustomCursor() {
   return (
     <div
       className={cn(
-        "pointer-events-none fixed z-[9999] hidden lg:block",
+        "pointer-events-none fixed z-[9999]",
         "transition-transform duration-200 ease-out"
       )}
       style={{
