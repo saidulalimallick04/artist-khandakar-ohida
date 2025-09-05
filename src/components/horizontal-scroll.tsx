@@ -58,7 +58,7 @@ export function HorizontalScroll({ children, className, items }: HorizontalScrol
     <div className={cn("relative group", className)}>
       <div
         ref={scrollContainerRef}
-        className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide px-[max(calc((100%-1024px)/2),_1rem)]"
+        className="flex gap-6 overflow-x-auto pb-4 px-[max(calc((100%-1024px)/2),_1rem)]"
       >
         {children}
       </div>
