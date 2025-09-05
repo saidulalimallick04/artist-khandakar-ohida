@@ -8,6 +8,7 @@ import { Socials } from './socials';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { heroData } from '@/lib/data';
 
 export function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -24,7 +25,7 @@ export function Hero() {
     >
        <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1756151224665-eba765e8c3b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={heroData.backgroundImageUrl}
           alt="Artistic background"
           fill
           data-ai-hint="abstract texture"
@@ -38,15 +39,14 @@ export function Hero() {
             isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           )}
         >
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl">Khandakar Ohida</h1>
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl">{heroData.name}</h1>
           <p
             className={cn(
               'mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl transition-all duration-1000 delay-300 ease-out',
               isMounted ? 'opacity-100' : 'opacity-0'
             )}
           >
-            An artist's journey through pixels and passion. Exploring the
-            intersection of digital art, design, and technology.
+            {heroData.tagline}
           </p>
           <div className="mt-8 flex gap-2">
             <Socials />
@@ -60,7 +60,7 @@ export function Hero() {
         >
           <div className="relative aspect-square w-full">
             <Image
-              src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={heroData.profileImageUrl}
               alt="Khandakar Ohida"
               fill
               data-ai-hint="artist portrait"

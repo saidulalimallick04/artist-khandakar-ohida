@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ScrollAnimator } from "./scroll-animator";
+import { aboutData } from "@/lib/data";
 
 export function About() {
   return (
@@ -8,7 +9,7 @@ export function About() {
         <ScrollAnimator className="md:col-span-1">
           <div className="relative aspect-square">
             <Image
-              src="https://images.unsplash.com/photo-1752649935477-70bf4243ee23?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={aboutData.imageUrl}
               alt="Artist Portrait"
               fill
               data-ai-hint="artist portrait"
@@ -17,12 +18,12 @@ export function About() {
           </div>
         </ScrollAnimator>
         <ScrollAnimator delay={200} className="md:col-span-2">
-          <h2 className="font-headline text-3xl md:text-4xl">About Khandakar Ohida</h2>
+          <h2 className="font-headline text-3xl md:text-4xl">{aboutData.title}</h2>
           <p className="mt-4 text-muted-foreground">
-            I am a multi-disciplinary artist. My art practice is centered on the exploration of futuristic and cross-cultural ideas. I fuse mysticism and storytelling to bridge the gap between my traditional training and the digital landscape. I live and work in New York City.
+            {aboutData.bio}
           </p>
           <p className="mt-4 text-muted-foreground">
-            With a background in fine arts and over a decade of experience in the digital realm, I specialize in creating immersive experiences, compelling brand identities, and evocative digital paintings. I believe that art has the power to connect, inspire, and transform. This portfolio is a curated selection of my journey.
+            {aboutData.mission}
           </p>
         </ScrollAnimator>
       </div>

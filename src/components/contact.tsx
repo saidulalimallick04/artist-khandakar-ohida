@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Send } from "lucide-react";
-import Link from 'next/link';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useToast } from '@/hooks/use-toast';
 import { ScrollAnimator } from './scroll-animator';
 import { Socials } from './socials';
+import { contactData } from '@/lib/data';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -38,7 +38,7 @@ export function Contact() {
     setIsSubmitting(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(values);
+    console.log("Contact Form Submission:", values);
     setIsSubmitting(false);
     toast({
       title: "Message Sent!",
@@ -50,9 +50,9 @@ export function Contact() {
   return (
     <section id="contact" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
       <ScrollAnimator>
-        <h2 className="font-headline text-3xl md:text-4xl text-center">Get in Touch</h2>
+        <h2 className="font-headline text-3xl md:text-4xl text-center">{contactData.title}</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-          Have a question or want to work together? Drop me a line.
+          {contactData.subtitle}
         </p>
       </ScrollAnimator>
       <div className="mt-12 grid gap-12 md:grid-cols-3">
@@ -120,10 +120,10 @@ export function Contact() {
             <div>
               <h3 className="font-headline text-xl">Contact Details</h3>
               <p className="text-muted-foreground mt-2">
-                For inquiries, commissions, or collaborations, feel free to reach out.
+                {contactData.details}
               </p>
-              <a href="mailto:hello@khandakarohida.com" className="mt-2 block text-primary hover:underline">
-                hello@khandakarohida.com
+              <a href={`mailto:${contactData.email}`} className="mt-2 block text-primary hover:underline">
+                {contactData.email}
               </a>
             </div>
              <div>

@@ -1,4 +1,46 @@
 
+export type SocialLink = {
+    name: string;
+    url: string;
+    icon: string;
+};
+
+export const socialLinks: SocialLink[] = [
+  { name: 'Facebook', icon: 'Facebook', url: '#' },
+  { name: 'Instagram', icon: 'Instagram', url: '#' },
+  { name: 'Twitter', icon: 'Twitter', url: '#' },
+  { name: 'LinkedIn', icon: 'Linkedin', url: '#' },
+  { name: 'GitHub', icon: 'Github', url: '#' },
+];
+
+export const heroData = {
+    name: 'Khandakar Ohida',
+    tagline: "An artist's journey through pixels and passion. Exploring the intersection of digital art, design, and technology.",
+    profileImageUrl: 'https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    backgroundImageUrl: 'https://images.unsplash.com/photo-1756151224665-eba765e8c3b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+};
+
+export const aboutData = {
+    title: 'About Khandakar Ohida',
+    bio: "I am a multi-disciplinary artist. My art practice is centered on the exploration of futuristic and cross-cultural ideas. I fuse mysticism and storytelling to bridge the gap between my traditional training and the digital landscape. I live and work in New York City.",
+    mission: "With a background in fine arts and over a decade of experience in the digital realm, I specialize in creating immersive experiences, compelling brand identities, and evocative digital paintings. I believe that art has the power to connect, inspire, and transform. This portfolio is a curated selection of my journey.",
+    imageUrl: "https://images.unsplash.com/photo-1752649935477-70bf4243ee23?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+};
+
+export const studioData = {
+    title: 'Khandakar Ohida Studio',
+    description1: "Welcome to my creative sanctuary. The Khandakar Ohida Studio is where concepts come to life, pixels find their purpose, and stories are woven into visual tapestries. It is a space for experimentation, collaboration, and the relentless pursuit of artistic expression.",
+    description2: "From initial sketches to final renders, every project is nurtured with passion and precision. The studio is equipped for a range of digital and traditional mediums, allowing for a fluid workflow that bridges the physical and virtual worlds. This is where the magic happens.",
+    imageUrl: "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+};
+
+export const contactData = {
+    title: 'Get in Touch',
+    subtitle: "Have a question or want to work together? Drop me a line.",
+    details: "For inquiries, commissions, or collaborations, feel free to reach out.",
+    email: "hello@khandakarohida.com",
+};
+
 export type WorkItem = {
   id: number;
   title: string;

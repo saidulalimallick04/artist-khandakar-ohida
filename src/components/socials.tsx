@@ -1,25 +1,29 @@
 import { Facebook, Instagram, Twitter, Linkedin, Github } from 'lucide-react';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import { socialLinks } from '@/lib/data';
 
-const socialLinks = [
-  { name: 'Facebook', icon: Facebook, url: '#' },
-  { name: 'Instagram', icon: Instagram, url: '#' },
-  { name: 'Twitter', icon: Twitter, url: '#' },
-  { name: 'LinkedIn', icon: Linkedin, url: '#' },
-  { name: 'GitHub', icon: Github, url: '#' },
-];
+const iconComponents: { [key: string]: React.ComponentType<any> } = {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Github
+};
 
 export function Socials() {
   return (
     <>
-      {socialLinks.map((social) => (
-        <Button key={social.name} variant="outline" size="icon" asChild>
-          <Link href={social.url} aria-label={social.name}>
-            <social.icon className="h-5 w-5" />
-          </Link>
-        </Button>
-      ))}
+      {socialLinks.map((social) => {
+        const Icon = iconComponents[social.icon];
+        return (
+          <Button key={social.name} variant="outline" size="icon" asChild>
+            <Link href={social.url} aria-label={social.name} target="_blank" rel="noopener noreferrer">
+              {Icon && <Icon className="h-5 w-5" />}
+            </Link>
+          </Button>
+        )
+      })}
     </>
   );
 }
