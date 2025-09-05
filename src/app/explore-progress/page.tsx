@@ -34,7 +34,7 @@ export default function ExploreProgress() {
           </ScrollAnimator>
 
           <ScrollAnimator delay={200}>
-            <div className="mt-16 space-y-8">
+            <div className="mt-16 space-y-12">
               {progressItems.map((item, index) => (
                 <div key={item.title}>
                   <div className="flex justify-between items-center mb-2">
