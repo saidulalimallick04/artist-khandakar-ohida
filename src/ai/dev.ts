@@ -1,4 +1,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/filter-items-by-keywords.ts';
+import '@/ai/flows/filter-work-by-keywords.ts';

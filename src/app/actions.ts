@@ -1,6 +1,6 @@
 'use server';
 
-import { filterItemsByKeywords } from '@/ai/flows/filter-items-by-keywords';
+import { filterItemsByKeywords } from '@/ai/flows/filter-work-by-keywords';
 import type { WorkItem, EventItem } from '@/lib/data';
 
 export async function filterWorkAction(
