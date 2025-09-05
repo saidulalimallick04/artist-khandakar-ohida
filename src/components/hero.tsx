@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -53,7 +54,7 @@ export function Hero() {
         </div>
         <div
           className={cn(
-            'relative mx-auto w-full max-w-sm transition-all duration-1000 delay-500 ease-out flex flex-col items-center gap-4',
+            'relative mx-auto w-full max-w-sm transition-all duration-1000 delay-500 ease-out',
             isMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           )}
         >
@@ -65,13 +66,13 @@ export function Hero() {
               data-ai-hint="artist portrait"
               className="rounded-full object-cover shadow-lg"
             />
-          </div>
-           <Button asChild className="group" variant="outline">
+            <Button asChild className="group absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2" variant="outline">
               <Link href="/journey">
                 Life Journey
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
+          </div>
         </div>
       </div>
     </section>
