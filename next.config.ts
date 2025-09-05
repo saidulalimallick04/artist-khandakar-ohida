@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Allow cross-origin requests from the development environment.
+  // This is necessary for the preview to work correctly.
+  ...(process.env.NODE_ENV === 'development' && {
+    devServer: {
+      allowedDevOrigins: ['https://*.cloudworkstations.dev'],
+    },
+  }),
 };
 
 export default nextConfig;
