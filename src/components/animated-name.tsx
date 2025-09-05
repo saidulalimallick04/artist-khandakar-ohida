@@ -26,19 +26,17 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
     <div
       aria-label={name}
       className={cn(
-        'font-headline text-5xl md:text-7xl lg:text-8xl flex flex-wrap justify-center md:justify-start gap-x-4',
+        'font-headline text-5xl md:text-7xl lg:text-8xl flex flex-wrap justify-center md:justify-start gap-x-1',
         className
       )}
     >
       {words.map((word, wordIndex) => (
         <span key={wordIndex} className="flex" aria-hidden="true">
           {word.split('').map((char, charIndex) => {
-            // Generate a random set of letters for the slot machine roll effect.
             const randomChars = Array.from({ length: 10 }, () => 
                 allChars[Math.floor(Math.random() * allChars.length)]
             );
 
-            // The final letter column includes the random characters and the correct one at the end.
             const letterColumn = [...randomChars, char];
             const animationDelay = `${wordIndex * 200 + charIndex * 75}ms`;
 
