@@ -1,6 +1,6 @@
 'use server';
 
-import { filterWorkByKeywords } from '@/ai/flows/filter-work-by-keywords';
+import { filterItemsByKeywords } from '@/ai/flows/filter-items-by-keywords';
 import type { WorkItem, EventItem } from '@/lib/data';
 
 export async function filterWorkAction(
@@ -17,14 +17,14 @@ export async function filterWorkAction(
   );
 
   try {
-    const result = await filterWorkByKeywords({
+    const result = await filterItemsByKeywords({
       keywords,
-      workItems: workItemsAsStrings,
+      items: workItemsAsStrings,
     });
 
     // The AI returns a list of strings representing the matched items. We need to parse the IDs from them.
     const filteredIds = new Set<number>();
-    result.filteredWorkItems.forEach((itemString) => {
+    result.filteredItems.forEach((itemString) => {
       // The AI might not return the string exactly as provided, so we look for the ID marker.
       const match = itemString.match(/ID:(\d+)/);
       if (match && match[1]) {
@@ -55,13 +55,13 @@ export async function filterEventsAction(
   );
 
   try {
-    const result = await filterWorkByKeywords({
+    const result = await filterItemsByKeywords({
       keywords,
-      workItems: eventItemsAsStrings,
+      items: eventItemsAsStrings,
     });
 
     const filteredIds = new Set<number>();
-    result.filteredWorkItems.forEach((itemString) => {
+    result.filteredItems.forEach((itemString) => {
       const match = itemString.match(/ID:(\d+)/);
       if (match && match[1]) {
         filteredIds.add(parseInt(match[1], 10));
