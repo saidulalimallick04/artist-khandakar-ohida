@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Github, Twitter, Linkedin, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import Link from 'next/link';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -13,12 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollAnimator } from './scroll-animator';
-
-const socialLinks = [
-  { name: "GitHub", icon: Github, url: "#" },
-  { name: "Twitter", icon: Twitter, url: "#" },
-  { name: "LinkedIn", icon: Linkedin, url: "#" },
-];
+import { Socials } from './socials';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -137,13 +132,7 @@ export function Contact() {
                 Connect with me on social media.
               </p>
               <div className="flex items-center gap-2 mt-2">
-                {socialLinks.map((social) => (
-                  <Button key={social.name} variant="outline" size="icon" asChild>
-                    <Link href={social.url} aria-label={social.name}>
-                      <social.icon className="h-5 w-5" />
-                    </Link>
-                  </Button>
-                ))}
+                <Socials />
               </div>
             </div>
           </div>
