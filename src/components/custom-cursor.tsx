@@ -1,10 +1,9 @@
-
 "use client"
 
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useMousePosition } from "@/hooks/use-mouse-position";
-import { Feather } from "lucide-react";
+import { Brush } from "lucide-react";
 
 export function CustomCursor() {
   const { x, y } = useMousePosition();
@@ -52,18 +51,17 @@ export function CustomCursor() {
     if (!iconEl || !circleEl || x === null || y === null) return;
     
     let animationFrameId: number;
-    const offset = 5; // The offset in pixels to shift the cursor
 
     const animate = () => {
-      // Move the icon directly to the mouse position with an offset
-      iconEl.style.transform = `translate3d(${x + offset}px, ${y + offset}px, 0)`;
+      // Move the icon directly to the mouse position
+      iconEl.style.transform = `translate3d(${x}px, ${y}px, 0)`;
 
       // Smoothly move the circle towards the mouse position (lerping)
       const currentX = previousCirclePos.current.x;
       const currentY = previousCirclePos.current.y;
       
-      const dx = (x + offset) - currentX;
-      const dy = (y + offset) - currentY;
+      const dx = x - currentX;
+      const dy = y - currentY;
       
       const newX = currentX + dx * 0.15;
       const newY = currentY + dy * 0.15;
@@ -95,7 +93,7 @@ export function CustomCursor() {
           "pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2 text-accent"
         )}
       >
-        <Feather className="h-5 w-5" />
+        <Brush className="h-5 w-5" />
       </div>
       <div
         ref={cursorCircleRef}
