@@ -7,10 +7,8 @@ export function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isPointer, setIsPointer] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
 
@@ -46,8 +44,6 @@ export function CustomCursor() {
     };
   }, []);
 
-  if (!isMounted) return null;
-
   return (
     <div
       className={cn(
@@ -63,8 +59,8 @@ export function CustomCursor() {
       <div
         className={cn(
           "rounded-full transition-all duration-300 ease-out",
-          isClicking ? "scale-125 h-10 w-10 bg-primary/30" : "h-8 w-8",
-          isPointer ? "h-12 w-12 bg-primary/25 shadow-[0_0_40px_20px] shadow-primary/25" : "bg-primary/20 shadow-[0_0_30px_15px] shadow-primary/20",
+          isClicking ? "scale-125 h-10 w-10 bg-accent/30" : "h-8 w-8",
+          isPointer ? "h-12 w-12 bg-accent/25 shadow-[0_0_40px_20px] shadow-accent/25" : "bg-accent/20 shadow-[0_0_30px_15px] shadow-accent/20",
           "backdrop-blur-sm"
         )}
       />
