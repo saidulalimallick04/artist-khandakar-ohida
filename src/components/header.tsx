@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -35,7 +34,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <Link href="/" onClick={(e) => scrollToSection(e, '#')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
           Saks Afridi
