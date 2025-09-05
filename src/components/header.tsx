@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -19,25 +21,34 @@ const navLinks = [
   { href: "#press", label: "Press" },
   { href: "#education", label: "Info" },
   { href: "#events", label: "Events" },
+  { href: "/explore-progress", label: "Explore Progress" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
     setIsMobileMenuOpen(false);
+
+    if (href.startsWith('/')) {
+      router.push(href);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        router.push('/' + href);
+      }
+    }
   };
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href="/" onClick={(e) => scrollToSection(e, '#')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
+        <Link href="/" onClick={(e) => handleNavClick(e, '/')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
           Khandakar Ohida
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -45,7 +56,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -78,7 +89,7 @@ export function Header() {
                   <SheetClose asChild key={link.href}>
                     <Link
                       href={link.href}
-                      onClick={(e) => scrollToSection(e, link.href)}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
                     >
                       {link.label}
