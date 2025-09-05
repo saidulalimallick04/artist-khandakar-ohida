@@ -2,19 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { Feather } from 'lucide-react';
 import { useMousePosition } from "@/hooks/use-mouse-position";
-
-const TRAIL_LENGTH = 15;
-const IDLE_TIMEOUT = 200; // ms
 
 export function CustomCursor() {
   const { x, y } = useMousePosition();
   const [isPointer, setIsPointer] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [isIdle, setIsIdle] = useState(true);
-  const [trails, setTrails] = useState<{ x: number; y: number }[]>([]);
-  const idleTimer = useRef<NodeJS.Timeout | null>(null);
+  
+  const cursorDotRef = useRef<HTMLDivElement>(null);
+  const cursorCircleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,12 +25,6 @@ export function CustomCursor() {
                             target.closest('button');
 
       setIsPointer(isInteractive);
-
-      setIsIdle(false);
-      if (idleTimer.current) {
-        clearTimeout(idleTimer.current);
-      }
-      idleTimer.current = setTimeout(() => setIsIdle(true), IDLE_TIMEOUT);
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -48,75 +38,35 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
-      if (idleTimer.current) {
-        clearTimeout(idleTimer.current);
-      }
     };
   }, []);
-
+  
   useEffect(() => {
-    if (x === null || y === null) return;
-    
-    const newTrails = [...trails, { x, y }];
-    if (newTrails.length > TRAIL_LENGTH) {
-      newTrails.shift();
+    if (cursorDotRef.current && cursorCircleRef.current) {
+      if (x !== null && y !== null) {
+        cursorDotRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        cursorCircleRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
     }
-    setTrails(newTrails);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [x, y]);
-
-  // Always render the main cursor icon (the last one in the trail)
-  const mainCursor = trails.length > 0 ? trails[trails.length - 1] : null;
 
   return (
     <>
-      {/* Render trails only when not idle */}
-      {!isIdle && trails.slice(0, -1).map((trail, index) => (
-        <Feather
-          key={`trail-${index}`}
-          className="pointer-events-none fixed z-[9999] text-accent transition-opacity duration-300 ease-out h-6 w-6"
-          style={{
-            left: `${trail.x}px`,
-            top: `${trail.y}px`,
-            transform: 'translate(-10%, -20%)',
-            opacity: (index / TRAIL_LENGTH) * 0.5,
-          }}
-        />
-      ))}
-
-      {/* Always render the main cursor icon */}
-      {mainCursor && (
-         <Feather
-            key="main-cursor"
-            className={cn(
-              "pointer-events-none fixed z-[9999] text-accent transition-all duration-300 ease-out",
-              isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50",
-              isIdle && "opacity-0" // Fade out the main cursor when it appears if idle
-            )}
-            style={{
-              left: `${mainCursor.x}px`,
-              top: `${mainCursor.y}px`,
-              transform: `translate(-10%, -20%) ${isClicking ? 'scale(1.25) rotate(-12deg)' : ''}`,
-               opacity: isIdle ? 0 : 1, // Control opacity for fade-in/out
-            }}
-          />
-      )}
-      
-       {/* A separate, always-visible cursor when idle */}
-       {mainCursor && isIdle && (
-         <Feather
-            key="idle-cursor"
-            className={cn(
-              "pointer-events-none fixed z-[9999] text-accent transition-opacity duration-300 ease-out",
-               isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50"
-            )}
-            style={{
-              left: `${mainCursor.x}px`,
-              top: `${mainCursor.y}px`,
-              transform: `translate(-10%, -20%) ${isClicking ? 'scale(1.25) rotate(-12deg)' : ''}`,
-            }}
-          />
-       )}
+      <div
+        ref={cursorDotRef}
+        className={cn(
+          "pointer-events-none fixed top-0 left-0 z-[9999] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent transition-[width,height] duration-200",
+           isPointer && "h-0 w-0"
+        )}
+      />
+      <div
+        ref={cursorCircleRef}
+        className={cn(
+          "pointer-events-none fixed top-0 left-0 z-[9999] h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-accent transition-all duration-300 ease-out",
+          isPointer && "h-14 w-14 scale-125 border-accent/50",
+          isClicking && "h-12 w-12 scale-110"
+        )}
+      />
     </>
   );
 }
