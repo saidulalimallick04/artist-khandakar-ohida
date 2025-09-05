@@ -3,7 +3,7 @@
 
 import * as React from "react"
 
-type Theme = "dark" | "light" | "system"
+type Theme = "dark" | "light"
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -19,7 +19,7 @@ type ThemeProviderState = {
 }
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "dark",
   setTheme: () => null,
 }
 
@@ -27,9 +27,9 @@ const ThemeProviderContext = React.createContext<ThemeProviderState>(initialStat
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "dark",
   storageKey = "ui-theme",
-  enableSystem = true,
+  enableSystem = false,
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = React.useState<Theme>(() => {
