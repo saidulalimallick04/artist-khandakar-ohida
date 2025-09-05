@@ -118,7 +118,13 @@ export const pressData: PressItem[] = [
     imageUrl: 'https://images.unsplash.com/photo-1494935362342-566c6d6e75b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    title: 'Artforum',
+    title: 'Generator Co-operative Art Fund',
+    description: 'Awarded a production grant to support the creation of new artistic projects.',
+    year: '2023',
+    imageUrl: 'https://images.unsplash.com/photo-1582139883588-a874294c7744?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    title: 'Artforum International',
     description: 'A feature review of the "Dream Your Museum" installation.',
     year: '2023',
     imageUrl: 'https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=730&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -145,22 +151,43 @@ export const eventsData: EventItem[] = [
     title: 'Solo Exhibition: A Thousand Thunders',
     location: 'Project 88, Mumbai',
     date: '2024',
-    description: 'A solo show exhibiting new works.'
+    description: 'A major solo show exhibiting a new body of work.'
   },
   {
     id: 2,
-    title: 'Jameel Prize Exhibition',
+    title: 'Jameel Prize: Moving Images',
     location: 'V&A Museum, London',
     date: '2024-2025',
     description: 'Exhibition of works by the Jameel Prize winner and finalists.'
   },
   {
     id: 3,
-    title: 'Berlin Biennale',
+    title: 'Film Screening at Venice Biennale',
+    location: 'Venice, Italy',
+    date: '2022',
+    description: 'Screening of "Dream Your Museum" at the 59th International Art Exhibition.'
+  },
+  {
+    id: 4,
+    title: 'Film Screening at Berlin Biennale',
     location: 'Berlin, Germany',
     date: '2022',
-    description: 'Screened the film component of "Dream Your Museum".'
+    description: 'Screened the film component of "Dream Your Museum" at the 12th Berlin Biennale.'
   },
+  {
+    id: 5,
+    title: 'Group Exhibition at MUDAM',
+    location: 'Luxembourg',
+    date: '2024',
+    description: 'Featured in "A Model: An exhibition in three parts" at a leading European modern art museum.'
+  },
+  {
+    id: 6,
+    title: 'Serendipity Arts Festival',
+    location: 'Goa, India',
+    date: '2019 & 2023',
+    description: 'Participated in a major interdisciplinary arts festival on two separate occasions.'
+  }
 ]
 
 
@@ -176,31 +203,31 @@ export type JourneyItem = {
 export const journeyData: JourneyItem[] = [
   {
     year: '2016',
-    title: 'BFA, Govt. College of Art & Craft',
-    description: 'Completed Bachelor of Fine Arts in Painting, laying the foundation for my artistic practice.',
+    title: 'Graduated: BFA in Painting',
+    description: 'Completed Bachelor of Fine Arts from Govt. College of Art & Craft, Kolkata, laying the foundation for my artistic practice.',
     icon: 'GraduationCap',
     type: 'Education',
     location: 'Kolkata, India'
   },
   {
     year: '2018',
-    title: 'MFA, Jamia Millia Islamia',
-    description: 'Completed Master of Fine Arts, honing my conceptual framework and moving towards an interdisciplinary practice.',
+    title: 'Graduated: MFA in Painting',
+    description: 'Completed Master of Fine Arts from Jamia Millia Islamia, honing my conceptual framework and moving towards an interdisciplinary practice.',
     icon: 'GraduationCap',
     type: 'Education',
     location: 'New Delhi, India'
   },
   {
     year: '2019',
-    title: 'Serendipity Arts Festival',
-    description: 'Participated in a major group exhibition, gaining early career visibility.',
+    title: 'Group Exhibition: Ahang',
+    description: 'Participated in a travelling group show across major cities in Pakistan, fostering cross-border artistic dialogue.',
     icon: 'Milestone',
     type: 'Group Exhibition',
-    location: 'Goa, India'
+    location: 'Pakistan'
   },
   {
     year: '2022',
-    title: 'Screening at 59th Venice Biennale',
+    title: 'Screening: 59th Venice Biennale',
     description: 'The film for "Dream Your Museum" was screened at one of the world\'s most prestigious art events.',
     icon: 'Film',
     type: 'Film Screening',
@@ -208,7 +235,7 @@ export const journeyData: JourneyItem[] = [
   },
   {
     year: '2022',
-    title: 'Screening at 12th Berlin Biennale',
+    title: 'Screening: 12th Berlin Biennale',
     description: 'Further international exposure for "Dream Your Museum" at the Berlin Biennale for Contemporary Art.',
     icon: 'Film',
     type: 'Film Screening',
@@ -216,7 +243,7 @@ export const journeyData: JourneyItem[] = [
   },
   {
     year: '2023',
-    title: 'Inlaks Fine Arts Award',
+    title: 'Recipient: Inlaks Fine Arts Award',
     description: 'Received a significant award supporting innovative contemporary artists in India.',
     icon: 'Award',
     type: 'Award',
@@ -224,7 +251,7 @@ export const journeyData: JourneyItem[] = [
   },
   {
     year: '2023',
-    title: 'Generator Co-operative Art Production Fund',
+    title: 'Recipient: Generator Co-operative Fund',
     description: 'Received a grant to support the creation of new artistic projects.',
     icon: 'Award',
     type: 'Award',
@@ -232,15 +259,15 @@ export const journeyData: JourneyItem[] = [
   },
   {
     year: '2024',
-    title: 'Solo Exhibition at Project 88',
-    description: '"A Thousand Thunders" marked a significant solo exhibition in my career.',
+    title: 'Solo Show: "A Thousand Thunders"',
+    description: '"A Thousand Thunders" at Project 88 marked a significant solo exhibition in my career.',
     icon: 'Palette',
     type: 'Solo Exhibition',
     location: 'Mumbai, India'
   },
   {
     year: '2024',
-    title: 'Winner of the Jameel Prize',
+    title: 'Winner: Jameel Prize',
     description: 'Awarded the prestigious Jameel Prize from the V&A and Art Jameel for "Dream Your Museum".',
     icon: 'Award',
     type: 'Award',
@@ -248,7 +275,7 @@ export const journeyData: JourneyItem[] = [
   },
   {
     year: '2025',
-    title: 'Jan Van Eyck Artist Residency',
+    title: 'Residency: Jan Van Eyck Academie',
     description: 'Upcoming residency to further develop my practice and the "Dream Your Museum" project.',
     icon: 'Briefcase',
     type: 'Artist Residency',
