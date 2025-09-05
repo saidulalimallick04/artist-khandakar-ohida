@@ -6,7 +6,6 @@ import { Search, Loader2 } from 'lucide-react';
 import { workData, type WorkItem } from '@/lib/data';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { filterWorkAction } from '@/app/actions';
 import { ScrollAnimator } from './scroll-animator';
 import { Lightbox } from './lightbox';
 import { Badge } from './ui/badge';
@@ -15,34 +14,41 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Work() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [filteredWork, setFilteredWork] = useState<WorkItem[]>(workData);
   const [isPending, startTransition] = useTransition();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 300);
+    startTransition(() => {
+      if (searchTerm.trim() === '') {
+        setFilteredWork(workData);
+        return;
+      }
+      
+      const lowercasedKeywords = searchTerm.toLowerCase().trim().split(/\s+/);
 
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchTerm]);
+      const results = workData.filter((item) => {
+        const itemText = [
+          item.title,
+          item.description,
+          item.category,
+          ...item.tags,
+        ]
+          .join(' ')
+          .toLowerCase();
 
-  useEffect(() => {
-    startTransition(async () => {
-      const results = await filterWorkAction(debouncedSearchTerm, workData);
+        return lowercasedKeywords.every((keyword) => itemText.includes(keyword));
+      });
       setFilteredWork(results);
     });
-  }, [debouncedSearchTerm]);
+  }, [searchTerm]);
 
   const highlightText = (text: string, highlight: string) => {
     if (!highlight.trim()) {
       return text;
     }
-    const keywords = highlight.split(' ').filter(Boolean);
+    const keywords = highlight.trim().split(/\s+/).filter(Boolean);
     if(keywords.length === 0) return text;
 
     const regex = new RegExp(`(${keywords.join('|')})`, 'gi');
@@ -77,14 +83,14 @@ export function Work() {
             />
             </div>
             <CardContent className="p-4 flex-grow flex flex-col">
-            <h3 className="font-headline text-xl">{highlightText(item.title, debouncedSearchTerm)}</h3>
+            <h3 className="font-headline text-xl">{highlightText(item.title, searchTerm)}</h3>
             <p className="mt-2 text-sm text-muted-foreground flex-grow">
-                {highlightText(item.description, debouncedSearchTerm)}
+                {highlightText(item.description, searchTerm)}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
                  <Badge variant="outline">{item.period}</Badge>
                 {item.tags.map(tag => (
-                    <Badge variant="secondary" key={tag}>{highlightText(tag, debouncedSearchTerm)}</Badge>
+                    <Badge variant="secondary" key={tag}>{highlightText(tag, searchTerm)}</Badge>
                 ))}
             </div>
             </CardContent>

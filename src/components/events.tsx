@@ -6,39 +6,45 @@ import { ScrollAnimator } from "./scroll-animator";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Calendar, Search, Loader2 } from "lucide-react";
 import { Input } from './ui/input';
-import { filterEventsAction } from '@/app/actions';
 import { HorizontalScroll } from './horizontal-scroll';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Events() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [filteredEvents, setFilteredEvents] = useState<EventItem[]>(eventsData);
   const [isPending, startTransition] = useTransition();
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 300);
+    startTransition(() => {
+      if (searchTerm.trim() === '') {
+        setFilteredEvents(eventsData);
+        return;
+      }
 
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchTerm]);
+      const lowercasedKeywords = searchTerm.toLowerCase().trim().split(/\s+/);
 
-  useEffect(() => {
-    startTransition(async () => {
-      const results = await filterEventsAction(debouncedSearchTerm, eventsData);
+      const results = eventsData.filter((item) => {
+        const itemText = [
+          item.title,
+          item.description,
+          item.location,
+          item.date,
+        ]
+          .join(' ')
+          .toLowerCase();
+
+        return lowercasedKeywords.every((keyword) => itemText.includes(keyword));
+      });
       setFilteredEvents(results);
     });
-  }, [debouncedSearchTerm]);
+  }, [searchTerm]);
 
   const highlightText = (text: string, highlight: string) => {
     if (!highlight.trim()) {
       return text;
     }
-    const keywords = highlight.split(' ').filter(Boolean);
+    const keywords = highlight.trim().split(/\s+/).filter(Boolean);
     if(keywords.length === 0) return text;
 
     const regex = new RegExp(`(${keywords.join('|')})`, 'gi');
@@ -63,7 +69,7 @@ export function Events() {
      <ScrollAnimator delay={100 * index} className="h-full w-full">
        <Card className="h-full">
          <CardHeader>
-           <CardTitle className="font-headline text-xl">{highlightText(event.title, debouncedSearchTerm)}</CardTitle>
+           <CardTitle className="font-headline text-xl">{highlightText(event.title, searchTerm)}</CardTitle>
            <CardDescription className="flex items-center gap-2 pt-1">
              <Calendar className="h-4 w-4" />
              {event.date}
@@ -71,7 +77,7 @@ export function Events() {
          </CardHeader>
          <CardContent>
            <p className="text-sm text-muted-foreground">
-             {highlightText(event.description, debouncedSearchTerm)} at <span className="font-semibold text-foreground">{highlightText(event.location, debouncedSearchTerm)}</span>.
+             {highlightText(event.description, searchTerm)} at <span className="font-semibold text-foreground">{highlightText(event.location, searchTerm)}</span>.
            </p>
          </CardContent>
        </Card>
