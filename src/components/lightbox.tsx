@@ -46,7 +46,7 @@ export function Lightbox({ imageUrl, onClose }: LightboxProps) {
         aria-label="Close lightbox"
         variant="ghost"
         size="icon"
-        className="absolute top-4 right-4 text-white rounded-full h-10 w-10 hover:text-white hover:bg-white/10"
+        className="absolute top-4 right-4 text-white rounded-full h-10 w-10 bg-black/30 hover:bg-black/50 hover:scale-110 transition-all duration-200"
         onClick={onClose}
       >
         <X className="h-6 w-6" />
