@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <section
-      id="#"
+      id="home"
       className="relative container mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl items-center px-4 py-16 md:py-24"
     >
        <div className="absolute inset-0 -z-10 overflow-hidden">

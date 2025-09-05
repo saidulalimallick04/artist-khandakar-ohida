@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const desktopNavLinks = [
-  { id: "#", label: "Home", icon: Home },
+  { id: "#home", label: "Home", icon: Home },
   { id: "#about", label: "About", icon: User },
   { id: "#studio", label: "Studio", icon: Briefcase },
   { id: "#work", label: "Work", icon: Palette },
@@ -36,7 +36,7 @@ const desktopNavLinks = [
 ];
 
 const mobileNavLinks = [
-  { id: "#", label: "Home", icon: Home },
+  { id: "#home", label: "Home", icon: Home },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#events", label: "Events", icon: Calendar },
   { id: "#contact", label: "Contact", icon: Mail },
@@ -45,7 +45,7 @@ const mobileNavLinks = [
 
 export function BottomNav() {
     const isMobile = useIsMobile();
-    const [activeSection, setActiveSection] = useState("#");
+    const [activeSection, setActiveSection] = useState("#home");
 
     const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
 
@@ -69,17 +69,6 @@ export function BottomNav() {
             }
         });
 
-        // Special case for home section at the top
-        const homeElement = document.getElementById('#');
-        if(homeElement) {
-             const homeObserver = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    setActiveSection('#');
-                }
-            }, { threshold: 0.8 });
-            homeObserver.observe(homeElement);
-        }
-
 
         return () => {
             sectionIds.forEach((id) => {
@@ -88,10 +77,6 @@ export function BottomNav() {
                     observer.unobserve(element);
                 }
             });
-             if(homeElement) {
-                const homeObserver = new IntersectionObserver(()=>{});
-                homeObserver.unobserve(homeElement);
-             }
         };
     }, [navLinks]);
 
@@ -100,6 +85,10 @@ export function BottomNav() {
         const element = document.querySelector(id);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
+            // For initial load or direct navigation, this ensures the URL hash is updated.
+            if (history.pushState) {
+                history.pushState(null, "", id);
+            }
         }
     };
 
