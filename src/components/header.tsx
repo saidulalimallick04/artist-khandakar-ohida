@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -13,6 +13,7 @@ import {
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -28,6 +29,13 @@ const navLinks = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const isMobile = useIsMobile();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -67,38 +75,40 @@ export function Header() {
         </nav>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px]">
-                <div className="flex justify-between items-center p-4 border-b">
-                   <h2 className="font-headline text-lg">Menu</h2>
-                    <SheetClose asChild>
-                         <Button variant="ghost" size="icon">
-                            <X className="h-6 w-6" />
-                            <span className="sr-only">Close menu</span>
-                        </Button>
+          {isClient && isMobile && (
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px]">
+                  <div className="flex justify-between items-center p-4 border-b">
+                     <h2 className="font-headline text-lg">Menu</h2>
+                      <SheetClose asChild>
+                           <Button variant="ghost" size="icon">
+                              <X className="h-6 w-6" />
+                              <span className="sr-only">Close menu</span>
+                          </Button>
+                      </SheetClose>
+                  </div>
+                <nav className="mt-8 flex flex-col gap-6 px-4">
+                  {navLinks.map((link) => (
+                    <SheetClose asChild key={link.href}>
+                      <Link
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {link.label}
+                      </Link>
                     </SheetClose>
-                </div>
-              <nav className="mt-8 flex flex-col gap-6 px-4">
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>
