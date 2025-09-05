@@ -1,3 +1,4 @@
+
 export type WorkItem = {
   id: number;
   title: string;
@@ -172,45 +173,53 @@ export type JourneyItem = {
 
 export const journeyData: JourneyItem[] = [
   {
-    year: '1990',
-    title: 'Born in Dhaka, Bangladesh',
-    description: 'My journey began in a city teeming with culture and creativity.',
+    year: '1993',
+    title: 'Born in West Bengal, India',
+    description: 'My journey began in a rural village, which has profoundly shaped my focus on amplifying marginalized voices.',
     icon: 'Milestone',
   },
   {
-    year: '2008',
-    title: 'First Digital Painting',
-    description: 'Discovered the magic of digital art and created my first piece using a simple tablet.',
-    icon: 'Palette',
-  },
-  {
-    year: '2012',
-    title: 'Started Art School',
-    description: 'Enrolled at the Govt. College of Art & Craft in Kolkata, where I honed my skills in traditional painting.',
+    year: '2016',
+    title: 'Bachelor of Fine Arts, Government College of Arts and Crafts',
+    description: 'Completed my undergraduate studies in painting in Kolkata, building a strong technical foundation.',
     icon: 'GraduationCap',
   },
   {
-    year: '2016',
-    title: 'Moved to New Delhi for Masters',
-    description: 'Continued my academic journey at Jamia Millia Islamia, exploring more complex themes in my work.',
-    icon: 'Plane',
+    year: '2018',
+    title: 'Master of Fine Arts, Jamia Millia Islamia',
+    description: 'Honed my conceptual framework in New Delhi, moving towards an interdisciplinary practice.',
+    icon: 'GraduationCap',
   },
   {
-    year: '2019',
-    title: 'First International Residency',
-    description: 'Spent three months in Paris, collaborating with artists from around the world.',
-    icon: 'Briefcase',
+    year: '2022',
+    title: 'Began "Dream Your Museum"',
+    description: 'Started digitally archiving my uncle\'s collection during the COVID-19 lockdown, a project that evolved into a critique of museum culture.',
+    icon: 'Palette',
   },
   {
-    year: '2021',
-    title: 'Jameel Prize Finalist',
-    description: 'A significant recognition that opened up new opportunities and pushed my career forward.',
-    icon: 'Building',
+    year: '2022',
+    title: 'Screenings at Venice and Berlin Biennales',
+    description: 'The film component of "Dream Your Museum" was screened at two of the most prestigious international art exhibitions.',
+    icon: 'Film',
   },
   {
     year: '2023',
-    title: 'Solo Exhibition in London',
-    description: 'My first solo show at a major international museum, the V&A.',
-    icon: 'Palette',
+    title: 'Received Inlaks Fine Arts Award',
+    description: 'Recognized with a significant award supporting innovative contemporary artists in India.',
+    icon: 'Award',
+  },
+  {
+    year: '2024',
+    title: 'Winner of the Jameel Prize',
+    description: 'Awarded the prize for my work "Dream Your Museum," with plans to use the funds to build a community museum.',
+    icon: 'Award',
+  },
+  {
+    year: '2025',
+    title: 'Artist Residency at Jan Van Eyck Academie',
+    description: 'Upcoming residency in The Netherlands to further develop my practice and the "Dream Your Museum" project.',
+    icon: 'Briefcase',
   },
 ];
+
+    
