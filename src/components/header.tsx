@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
@@ -83,16 +85,16 @@ export function Header() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px]">
-                  <div className="flex justify-between items-center p-4 border-b">
-                     <h2 className="font-headline text-lg">Menu</h2>
+              <SheetContent side="right" className="w-[280px] p-0">
+                  <SheetHeader className="flex flex-row justify-between items-center p-4 border-b">
+                     <SheetTitle className="font-headline text-lg">Menu</SheetTitle>
                       <SheetClose asChild>
                            <Button variant="ghost" size="icon">
                               <X className="h-6 w-6" />
                               <span className="sr-only">Close menu</span>
                           </Button>
                       </SheetClose>
-                  </div>
+                  </SheetHeader>
                 <nav className="mt-8 flex flex-col gap-6 px-4">
                   {navLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
