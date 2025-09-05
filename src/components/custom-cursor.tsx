@@ -15,9 +15,16 @@ export function CustomCursor() {
       setPosition({ x: e.clientX, y: e.clientY });
 
       const target = e.target as HTMLElement;
-      setIsPointer(
-        window.getComputedStyle(target).getPropertyValue("cursor") === "pointer"
-      );
+      const computedStyle = window.getComputedStyle(target);
+      const cursorStyle = computedStyle.getPropertyValue("cursor");
+      
+      const isInteractive = cursorStyle === "pointer" || 
+                            target.tagName === 'A' || 
+                            target.tagName === 'BUTTON' ||
+                            target.closest('a') ||
+                            target.closest('button');
+
+      setIsPointer(isInteractive);
     };
 
     const handleMouseDown = () => {
@@ -45,19 +52,19 @@ export function CustomCursor() {
     <div
       className={cn(
         "pointer-events-none fixed z-[9999] hidden lg:block",
-        "transition-transform duration-200 ease-out",
-        isClicking ? "scale-90" : "scale-100"
+        "transition-transform duration-200 ease-out"
       )}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        transform: `translate(-50%, -50%) scale(${isPointer ? 1.5 : 1})`,
+        transform: `translate(-50%, -50%)`,
       }}
     >
       <div
         className={cn(
-          "h-8 w-8 rounded-full bg-primary/20",
-          "shadow-[0_0_20px_10px] shadow-primary/20",
+          "rounded-full transition-all duration-300 ease-out",
+          isClicking ? "scale-90 h-10 w-10" : "h-8 w-8",
+          isPointer ? "h-12 w-12 bg-primary/25 shadow-[0_0_30px_15px] shadow-primary/20" : "bg-primary/20 shadow-[0_0_20px_10px] shadow-primary/20",
           "backdrop-blur-sm"
         )}
       />

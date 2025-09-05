@@ -52,12 +52,12 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: none;
   }
   body {
     @apply bg-background text-foreground;
-    cursor: none;
   }
-  a, button, [role=button], input[type=submit], input[type=button] {
+  a, button, [role=button], input[type=submit], input[type=button], select, textarea {
     cursor: none;
   }
 }
