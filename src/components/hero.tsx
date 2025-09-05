@@ -19,8 +19,17 @@ export function Hero() {
   return (
     <section
       id="#"
-      className="container mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl items-center px-4 py-16 md:py-24"
+      className="relative container mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl items-center px-4 py-16 md:py-24"
     >
+       <div className="absolute inset-0 -z-10 overflow-hidden">
+        <Image
+          src="https://picsum.photos/1200/800?random=12"
+          alt="Artistic background"
+          fill
+          data-ai-hint="abstract texture"
+          className="object-cover opacity-10 blur-md"
+        />
+      </div>
       <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div
           className={cn(
