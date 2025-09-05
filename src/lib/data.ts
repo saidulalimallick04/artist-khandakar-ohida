@@ -3,42 +3,42 @@ export type WorkItem = {
   title: string;
   description: string;
   imageUrl: string;
-  category: 'Project' | 'Artwork';
+  category: 'Project' | 'Artwork' | 'Installation';
   tags: string[];
 };
 
 export const workData: WorkItem[] = [
   {
     id: 1,
-    title: 'Ethereal Dreams',
-    description: 'A series of digital paintings exploring surreal landscapes and dream logic. Created using Procreate and Photoshop.',
-    imageUrl: 'https://picsum.photos/600/800?random=1',
-    category: 'Artwork',
-    tags: ['digital painting', 'surrealism', 'procreate', 'photoshop'],
+    title: 'Dream Your Museum',
+    description: 'An interactive installation questioning the concept of a museum in the digital age.',
+    imageUrl: 'https://picsum.photos/800/600?random=1',
+    category: 'Installation',
+    tags: ['interactive', 'digital art', 'installation'],
   },
   {
     id: 2,
-    title: 'Kinetic Typography',
-    description: 'An animated short film showcasing typography that moves and interacts with music. Made with After Effects.',
+    title: 'Museum on the Moon',
+    description: 'A conceptual project envisioning a cultural institution on the lunar surface.',
     imageUrl: 'https://picsum.photos/800/600?random=2',
     category: 'Project',
-    tags: ['animation', 'typography', 'after effects', 'motion graphics'],
+    tags: ['conceptual art', 'space', 'architecture'],
   },
   {
     id: 3,
-    title: 'Abstract Forms',
-    description: 'Generative art created with p5.js, exploring the beauty of mathematical formulas and randomness.',
-    imageUrl: 'https://picsum.photos/600/600?random=3',
+    title: 'Ethereal Dreams',
+    description: 'A series of digital paintings exploring surreal landscapes and dream logic. Created using Procreate and Photoshop.',
+    imageUrl: 'https://picsum.photos/600/800?random=3',
     category: 'Artwork',
-    tags: ['generative art', 'p5.js', 'creative coding', 'abstract'],
+    tags: ['digital painting', 'surrealism', 'procreate'],
   },
   {
     id: 4,
-    title: 'Brand Identity Redesign',
-    description: 'Complete brand overhaul for a local coffee shop, including logo, packaging, and web design.',
+    title: 'Kinetic Typography',
+    description: 'An animated short film showcasing typography that moves and interacts with music. Made with After Effects.',
     imageUrl: 'https://picsum.photos/800/600?random=4',
     category: 'Project',
-    tags: ['branding', 'logo design', 'ui/ux', 'figma'],
+    tags: ['animation', 'typography', 'motion graphics'],
   },
   {
     id: 5,
@@ -46,56 +46,65 @@ export const workData: WorkItem[] = [
     description: 'An atmospheric concept art piece for a sci-fi game, depicting a futuristic city at sunset.',
     imageUrl: 'https://picsum.photos/800/500?random=5',
     category: 'Artwork',
-    tags: ['concept art', 'sci-fi', 'environment design', 'photoshop'],
-  },
-  {
-    id: 6,
-    title: 'Portfolio Website',
-    description: 'The very website you are on now, built with Next.js, Tailwind CSS, and a touch of magic.',
-    imageUrl: 'https://picsum.photos/800/600?random=6',
-    category: 'Project',
-    tags: ['web development', 'next.js', 'react', 'tailwind css'],
+    tags: ['concept art', 'sci-fi', 'environment'],
   },
 ];
 
 export const educationData = [
     {
-        degree: 'Master of Fine Arts in Digital Media',
-        institution: 'Rhode Island School of Design',
-        period: '2018 - 2020',
+        degree: 'Master of Fine Arts in Painting',
+        institution: 'Jamia Millia Islamia, New Delhi',
+        period: '2016 - 2018',
     },
     {
-        degree: 'Bachelor of Science in Graphic Design',
-        institution: 'University of the Arts',
-        period: '2014 - 2018',
+        degree: 'Bachelor of Fine Arts in Painting',
+        institution: 'Govt. College of Art & Craft, Kolkata',
+        period: '2012 - 2016',
     },
 ];
 
 export const interestsData = [
-  { name: 'Oil Painting', icon: 'palette' },
-  { name: 'Photography', icon: 'camera' },
-  { name: 'Creative Coding', icon: 'code' },
-  { name: 'Reading Sci-Fi', icon: 'book' },
-  { name: 'Hiking', icon: 'mountain' },
+  { name: 'Exploring Museums', icon: 'museum' },
+  { name: 'Film-making', icon: 'film' },
+  { name: 'Miniature Painting', icon: 'palette' },
+  { name: 'Travel', icon: 'plane' },
 ];
+
+export const pressData = [
+  {
+    title: 'Jameel Prize',
+    description: 'Finalist for the prestigious Jameel Prize for contemporary art and design inspired by Islamic tradition.',
+    year: '2021',
+  },
+  {
+    title: 'The New York Times',
+    description: 'Featured in an article on the future of digital art.',
+    year: '2022',
+  },
+  {
+    title: 'Artforum',
+    description: 'Review of the "Dream Your Museum" installation.',
+    year: '2023',
+  },
+]
 
 export const eventsData = [
   {
-    title: 'Solo Exhibition: "Digital Dreams"',
-    location: 'Agora Gallery, New York',
+    title: 'Berlin Biennale',
+    location: 'Berlin, Germany',
+    date: 'June 2024',
+    description: 'Presenting "Museum on the Moon" concept.'
+  },
+  {
+    title: 'Solo Exhibition: Digital Dreams',
+    location: 'V&A Museum, London',
     date: 'October 2023',
     description: 'Showcased a series of 15 surreal digital paintings.'
   },
   {
-    title: 'Speaker at "Future of Design" Conference',
-    location: 'Online',
-    date: 'March 2023',
-    description: 'Gave a talk on "The Intersection of AI and Art".'
-  },
-  {
-    title: 'Live Painting Session',
-    location: 'Art Basel, Miami',
-    date: 'December 2022',
-    description: 'Participated in a live digital art creation event.'
+    title: 'Group Show: Future Forward',
+    location: 'Mudam Luxembourg',
+    date: 'May 2023',
+    description: 'Exhibited generative artworks.'
   }
 ]

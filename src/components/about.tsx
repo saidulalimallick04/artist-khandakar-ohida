@@ -17,9 +17,9 @@ export function About() {
           </div>
         </ScrollAnimator>
         <ScrollAnimator delay={200} className="md:col-span-2">
-          <h2 className="font-headline text-3xl md:text-4xl">About the Artist</h2>
+          <h2 className="font-headline text-3xl md:text-4xl">About Saks Afridi</h2>
           <p className="mt-4 text-muted-foreground">
-            Welcome to my digital canvas. I am a multidisciplinary artist and designer with a passion for storytelling through visual media. My work bridges the gap between traditional art principles and modern technology, resulting in pieces that are both timeless and innovative.
+            I am a multi-disciplinary artist. My art practice is centered on the exploration of futuristic and cross-cultural ideas. I fuse mysticism and storytelling to bridge the gap between my traditional training and the digital landscape. I live and work in New York City.
           </p>
           <p className="mt-4 text-muted-foreground">
             With a background in fine arts and over a decade of experience in the digital realm, I specialize in creating immersive experiences, compelling brand identities, and evocative digital paintings. I believe that art has the power to connect, inspire, and transform. This portfolio is a curated selection of my journey.

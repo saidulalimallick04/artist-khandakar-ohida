@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
+  { href: "#press", label: "Press" },
   { href: "#education", label: "Info" },
   { href: "#events", label: "Events" },
 ];
@@ -38,7 +39,7 @@ export function Header() {
     )}>
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <Link href="/" onClick={(e) => scrollToSection(e, '#')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
-          Chromatic Canvas
+          Saks Afridi
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (

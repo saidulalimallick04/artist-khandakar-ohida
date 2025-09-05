@@ -6,6 +6,7 @@ import { Education } from '@/components/education';
 import { Interests } from '@/components/interests';
 import { Events } from '@/components/events';
 import { Footer } from '@/components/footer';
+import { Press } from '@/components/press';
 import { Separator } from '@/components/ui/separator';
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
         <About />
         <SectionSeparator />
         <Work />
+        <SectionSeparator />
+        <Press />
         <SectionSeparator />
         <div className="container mx-auto grid max-w-5xl gap-16 px-4 md:grid-cols-5 md:gap-8 lg:gap-16">
           <Education />

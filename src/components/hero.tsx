@@ -17,13 +17,13 @@ export function Hero() {
         "font-headline text-5xl md:text-7xl lg:text-8xl transition-all duration-1000 ease-out",
         isMounted ? "opacity-100 scale-100" : "opacity-0 scale-90"
       )}>
-        Chromatic Canvas
+        Saks Afridi
       </h1>
       <p className={cn(
         "mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl transition-all duration-1000 delay-300 ease-out",
         isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       )}>
-        An artist&apos;s journey through pixels and passion. Exploring the intersection of digital art, design, and technology.
+        An artist's journey through pixels and passion. Exploring the intersection of digital art, design, and technology.
       </p>
     </section>
   );
