@@ -21,7 +21,7 @@ export function ArtLine() {
   }, []);
 
   return (
-    <div className="fixed left-4 md:left-8 top-0 bottom-0 w-0.5 bg-border/50 z-50 hidden md:block">
+    <div className="fixed left-4 md:left-8 top-16 bottom-0 w-0.5 bg-border/50 z-40 hidden md:block">
       <div 
         className="w-full bg-accent transition-all duration-200 ease-out"
         style={{ height: `${scrollPosition}%` }}
