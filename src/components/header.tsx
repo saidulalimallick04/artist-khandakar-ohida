@@ -19,7 +19,7 @@ const navLinks = [
   { href: "#studio", label: "Studio" },
   { href: "#work", label: "Work" },
   { href: "#press", label: "Press" },
-  { href: "#education", label: "Info" },
+  { href: "#education", label: "Education" },
   { href: "#events", label: "Events" },
   { href: "#contact", label: "Contact" },
 ];

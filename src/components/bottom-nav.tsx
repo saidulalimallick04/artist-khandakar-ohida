@@ -43,7 +43,7 @@ const mobileNavLinks = [
 ];
 
 
-export function SideNav() {
+export function BottomNav() {
     const isMobile = useIsMobile();
     const [activeSection, setActiveSection] = useState("#");
 
