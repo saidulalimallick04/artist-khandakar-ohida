@@ -18,7 +18,6 @@ import {
   Mail,
   Heart,
   Briefcase,
-  ArrowLeft,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -94,25 +93,10 @@ export function BottomNav() {
         }
     };
 
-    const handleBackClick = () => {
-        window.history.back();
-    };
-
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 flex">
-        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
-           <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" onClick={handleBackClick}>
-                  <ArrowLeft className="h-5 w-5" />
-                  <span className="sr-only">Go Back</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Go Back</p>
-              </TooltipContent>
-            </Tooltip>
+      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
+        <div className="flex items-center gap-2">
           {navLinks.map((link) => (
             <Tooltip key={link.id}>
               <TooltipTrigger asChild>
