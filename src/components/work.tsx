@@ -33,6 +33,7 @@ export function Work() {
           item.title,
           item.description,
           item.category,
+          item.period,
           ...item.tags,
         ]
           .join(' ')
@@ -88,7 +89,7 @@ export function Work() {
                 {highlightText(item.description, searchTerm)}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-                 <Badge variant="outline">{item.period}</Badge>
+                 <Badge variant="outline">{highlightText(item.period, searchTerm)}</Badge>
                 {item.tags.map(tag => (
                     <Badge variant="secondary" key={tag}>{highlightText(tag, searchTerm)}</Badge>
                 ))}
@@ -115,7 +116,7 @@ export function Work() {
             <Input
               type="text"
               aria-label="Search work"
-              placeholder="e.g., 'surrealism', 'branding'"
+              placeholder="e.g., 'surrealism', 'branding', '2023'"
               className="pl-10"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}

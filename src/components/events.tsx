@@ -72,7 +72,7 @@ export function Events() {
            <CardTitle className="font-headline text-xl">{highlightText(event.title, searchTerm)}</CardTitle>
            <CardDescription className="flex items-center gap-2 pt-1">
              <Calendar className="h-4 w-4" />
-             {event.date}
+             {highlightText(event.date, searchTerm)}
            </CardDescription>
          </CardHeader>
          <CardContent>
@@ -102,7 +102,7 @@ export function Events() {
             <Input
               type="text"
               aria-label="Search events"
-              placeholder="e.g., 'Berlin', 'Solo Exhibition'"
+              placeholder="e.g., 'Berlin', 'Solo Exhibition', '2023'"
               className="pl-10"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
