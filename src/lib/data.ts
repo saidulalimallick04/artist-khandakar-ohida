@@ -161,3 +161,56 @@ export const eventsData: EventItem[] = [
     description: 'Exhibited generative artworks.'
   }
 ]
+
+
+export type JourneyItem = {
+    year: string;
+    title: string;
+    description: string;
+    icon: string;
+};
+
+export const journeyData: JourneyItem[] = [
+  {
+    year: '1990',
+    title: 'Born in Dhaka, Bangladesh',
+    description: 'My journey began in a city teeming with culture and creativity.',
+    icon: 'Milestone',
+  },
+  {
+    year: '2008',
+    title: 'First Digital Painting',
+    description: 'Discovered the magic of digital art and created my first piece using a simple tablet.',
+    icon: 'Palette',
+  },
+  {
+    year: '2012',
+    title: 'Started Art School',
+    description: 'Enrolled at the Govt. College of Art & Craft in Kolkata, where I honed my skills in traditional painting.',
+    icon: 'GraduationCap',
+  },
+  {
+    year: '2016',
+    title: 'Moved to New Delhi for Masters',
+    description: 'Continued my academic journey at Jamia Millia Islamia, exploring more complex themes in my work.',
+    icon: 'Plane',
+  },
+  {
+    year: '2019',
+    title: 'First International Residency',
+    description: 'Spent three months in Paris, collaborating with artists from around the world.',
+    icon: 'Briefcase',
+  },
+  {
+    year: '2021',
+    title: 'Jameel Prize Finalist',
+    description: 'A significant recognition that opened up new opportunities and pushed my career forward.',
+    icon: 'Building',
+  },
+  {
+    year: '2023',
+    title: 'Solo Exhibition in London',
+    description: 'My first solo show at a major international museum, the V&A.',
+    icon: 'Palette',
+  },
+];

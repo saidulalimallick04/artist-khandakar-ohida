@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { PageTransition } from '@/components/page-transition';
 
 export const metadata: Metadata = {
   title: 'Khandakar Ohida',
@@ -26,7 +27,9 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
           <Toaster />
         </ThemeProvider>
       </body>
