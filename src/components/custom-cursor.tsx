@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { Paintbrush } from "lucide-react";
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
@@ -53,17 +54,14 @@ export function CustomCursor() {
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        transform: `translate(-50%, -50%)`,
+        transform: `translate(-10%, -20%)`,
       }}
     >
-      <div
-        className={cn(
-          "rounded-full transition-all duration-300 ease-out",
-          isClicking ? "scale-125 h-10 w-10 bg-accent/30" : "h-8 w-8",
-          isPointer ? "h-12 w-12 bg-accent/25 shadow-[0_0_40px_20px] shadow-accent/25" : "bg-accent/20 shadow-[0_0_30px_15px] shadow-accent/20",
-          "backdrop-blur-sm"
-        )}
-      />
+      <Paintbrush className={cn(
+        "transition-all duration-300 ease-out text-accent",
+        isClicking ? "scale-125 -rotate-12" : "scale-100",
+        isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50",
+      )} />
     </div>
   );
 }
