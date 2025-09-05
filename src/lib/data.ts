@@ -91,6 +91,7 @@ export type PressItem = {
     title: string;
     description: string;
     year: string;
+    imageUrl: string;
 };
 
 export const pressData: PressItem[] = [
@@ -98,16 +99,19 @@ export const pressData: PressItem[] = [
     title: 'Jameel Prize',
     description: 'Finalist for the prestigious Jameel Prize for contemporary art and design inspired by Islamic tradition.',
     year: '2021',
+    imageUrl: 'https://picsum.photos/800/600?random=6',
   },
   {
     title: 'The New York Times',
     description: 'Featured in an article on the future of digital art.',
     year: '2022',
+    imageUrl: 'https://picsum.photos/800/600?random=7',
   },
   {
     title: 'Artforum',
     description: 'Review of the "Dream Your Museum" installation.',
     year: '2023',
+    imageUrl: 'https://picsum.photos/800/600?random=8',
   },
 ]
 

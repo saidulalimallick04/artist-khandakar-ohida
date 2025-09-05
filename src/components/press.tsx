@@ -2,10 +2,11 @@
 
 import { pressData } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
-import { Award } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
 import { HorizontalScroll } from "./horizontal-scroll";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Image from "next/image";
+import { Badge } from "./ui/badge";
 
 export function Press() {
   const isMobile = useIsMobile();
@@ -13,21 +14,26 @@ export function Press() {
   const pressItems = pressData.map((item, index) => (
     <div key={index} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
       <ScrollAnimator delay={100 * index} className="h-full w-full">
-        <Card className="h-full">
-          <CardHeader>
-            <div className="flex items-start justify-between">
-              <div className="flex-grow">
-                <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
-                <CardDescription className="pt-1">{item.year}</CardDescription>
-              </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary ml-4 flex-shrink-0">
-                <Award className="h-5 w-5 text-secondary-foreground" />
-              </div>
+        <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
+            <div className="overflow-hidden">
+              <Image
+                  src={item.imageUrl}
+                  alt={item.title}
+                  width={600}
+                  height={400}
+                  data-ai-hint="publication award"
+                  className="object-cover w-full h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
+              />
             </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">{item.description}</p>
-          </CardContent>
+            <CardContent className="p-4 flex-grow flex flex-col">
+              <h3 className="font-headline text-xl">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground flex-grow">
+                  {item.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Badge variant="secondary">{item.year}</Badge>
+              </div>
+            </CardContent>
         </Card>
       </ScrollAnimator>
     </div>
