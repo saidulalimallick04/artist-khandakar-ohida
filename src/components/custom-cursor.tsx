@@ -3,13 +3,14 @@
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useMousePosition } from "@/hooks/use-mouse-position";
+import { Feather } from "lucide-react";
 
 export function CustomCursor() {
   const { x, y } = useMousePosition();
   const [isPointer, setIsPointer] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   
-  const cursorDotRef = useRef<HTMLDivElement>(null);
+  const cursorIconRef = useRef<HTMLDivElement>(null);
   const cursorCircleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,9 +43,9 @@ export function CustomCursor() {
   }, []);
   
   useEffect(() => {
-    if (cursorDotRef.current && cursorCircleRef.current) {
+    if (cursorIconRef.current && cursorCircleRef.current) {
       if (x !== null && y !== null) {
-        cursorDotRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        cursorIconRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         cursorCircleRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       }
     }
@@ -53,12 +54,14 @@ export function CustomCursor() {
   return (
     <>
       <div
-        ref={cursorDotRef}
+        ref={cursorIconRef}
         className={cn(
-          "pointer-events-none fixed top-0 left-0 z-[9999] h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent transition-[width,height] duration-200",
-           isPointer && "h-0 w-0"
+          "pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2 text-accent transition-opacity duration-200",
+           isPointer && "opacity-0"
         )}
-      />
+      >
+        <Feather className="h-5 w-5" />
+      </div>
       <div
         ref={cursorCircleRef}
         className={cn(
