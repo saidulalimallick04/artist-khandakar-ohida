@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, useRef } from "react";
@@ -90,7 +91,8 @@ export function CustomCursor() {
       <div
         ref={cursorIconRef}
         className={cn(
-          "pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2 text-accent"
+          "pointer-events-none fixed top-0 left-0 z-[9999] -translate-x-1/2 -translate-y-1/2 text-accent transition-transform",
+          isClicking ? "scale-125" : ""
         )}
       >
         <Brush className="h-5 w-5" />
