@@ -43,7 +43,7 @@ export function Hero() {
               isMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
             )}
           >
-            Saks Afridi
+            Khandakar Ohida
           </h1>
           <p
             className={cn(
@@ -66,7 +66,7 @@ export function Hero() {
         >
           <Image
             src="https://picsum.photos/500/500?random=11"
-            alt="Saks Afridi"
+            alt="Khandakar Ohida"
             fill
             data-ai-hint="artist portrait"
             className="rounded-full object-cover shadow-lg"

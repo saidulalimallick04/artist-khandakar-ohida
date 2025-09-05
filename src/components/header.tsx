@@ -14,6 +14,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#studio", label: "Studio" },
   { href: "#work", label: "Work" },
   { href: "#press", label: "Press" },
   { href: "#education", label: "Info" },
@@ -37,7 +38,7 @@ export function Header() {
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
       <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
         <Link href="/" onClick={(e) => scrollToSection(e, '#')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
-          Saks Afridi
+          Khandakar Ohida
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (

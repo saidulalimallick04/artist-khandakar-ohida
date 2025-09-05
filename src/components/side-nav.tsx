@@ -16,6 +16,7 @@ import {
   Calendar,
   Mail,
   Heart,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -25,6 +26,7 @@ import { cn } from "@/lib/utils";
 const desktopNavLinks = [
   { id: "#", label: "Home", icon: Home },
   { id: "#about", label: "About", icon: User },
+  { id: "#studio", label: "Studio", icon: Briefcase },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#press", label: "Press", icon: Newspaper },
   { id: "#education", label: "Education", icon: BookOpen },

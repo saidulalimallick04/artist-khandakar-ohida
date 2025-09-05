@@ -122,8 +122,8 @@ export function Contact() {
               <p className="text-muted-foreground mt-2">
                 For inquiries, commissions, or collaborations, feel free to reach out.
               </p>
-              <a href="mailto:saks@saks.me" className="mt-2 block text-primary hover:underline">
-                saks@saks.me
+              <a href="mailto:hello@khandakarohida.com" className="mt-2 block text-primary hover:underline">
+                hello@khandakarohida.com
               </a>
             </div>
              <div>

@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Ohids\'s Canvas',
+  title: 'Khandakar Ohida',
   description: 'Artist, Designer & Film-Maker',
 };
 

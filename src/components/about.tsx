@@ -17,7 +17,7 @@ export function About() {
           </div>
         </ScrollAnimator>
         <ScrollAnimator delay={200} className="md:col-span-2">
-          <h2 className="font-headline text-3xl md:text-4xl">About Saks Afridi</h2>
+          <h2 className="font-headline text-3xl md:text-4xl">About Khandakar Ohida</h2>
           <p className="mt-4 text-muted-foreground">
             I am a multi-disciplinary artist. My art practice is centered on the exploration of futuristic and cross-cultural ideas. I fuse mysticism and storytelling to bridge the gap between my traditional training and the digital landscape. I live and work in New York City.
           </p>
