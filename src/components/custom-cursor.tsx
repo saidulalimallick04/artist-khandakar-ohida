@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Paintbrush } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaintbrush } from "@fortawesome/free-solid-svg-icons";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
@@ -57,7 +61,7 @@ export function CustomCursor() {
         transform: `translate(-10%, -20%)`,
       }}
     >
-      <Paintbrush className={cn(
+      <FontAwesomeIcon icon={faPaintbrush} className={cn(
         "transition-all duration-300 ease-out text-accent",
         isClicking ? "scale-125 -rotate-12" : "scale-100",
         isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50",
