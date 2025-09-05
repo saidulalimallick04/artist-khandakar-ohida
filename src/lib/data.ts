@@ -73,7 +73,6 @@ export const educationData: EducationItem[] = [
         institution: 'Govt. College of Art & Craft, Kolkata',
         period: '2012 - 2016',
     },
-    // sample data
     {
         degree: 'Artist Residency',
         institution: 'Fictional Art Institute, Paris',
@@ -81,16 +80,16 @@ export const educationData: EducationItem[] = [
     },
 ];
 
-export type InterestItem = {
+export type HobbyItem = {
     name: string;
     icon: string;
 };
 
-export const interestsData: InterestItem[] = [
-  { name: 'Exploring Museums', icon: 'museum' },
-  { name: 'Film-making', icon: 'film' },
+export const hobbiesData: HobbyItem[] = [
+  { name: 'Museum Hopping', icon: 'museum' },
+  { name: 'Film Making', icon: 'film' },
   { name: 'Miniature Painting', icon: 'palette' },
-  { name: 'Travel', icon: 'plane' },
+  { name: 'Traveling', icon: 'plane' },
 ];
 
 export type PressItem = {

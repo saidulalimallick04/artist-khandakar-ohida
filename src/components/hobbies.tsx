@@ -1,7 +1,6 @@
 import { hobbiesData } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
-import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
+import { Card } from "./ui/card";
 
 const HobbyIcon = ({ iconName }: { iconName: string }) => {
   const iconStyle = "h-8 w-8 mb-4 text-accent";
@@ -31,7 +30,7 @@ export function Hobbies() {
       <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         {hobbiesData.map((hobby, index) => (
           <ScrollAnimator key={hobby.name} delay={100 * (index + 1)}>
-             <Card className="text-center p-6 h-full flex flex-col items-center justify-center">
+             <Card className="text-center p-6 h-full flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                 <HobbyIcon iconName={hobby.icon} />
                 <h3 className="font-semibold">{hobby.name}</h3>
              </Card>

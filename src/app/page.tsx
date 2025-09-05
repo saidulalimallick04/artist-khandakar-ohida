@@ -3,7 +3,7 @@ import { Hero } from '@/components/hero';
 import { About } from '@/components/about';
 import { Work } from '@/components/work';
 import { Education } from '@/components/education';
-import { Interests } from '@/components/interests';
+import { Hobbies } from '@/components/hobbies';
 import { Events } from '@/components/events';
 import { Footer } from '@/components/footer';
 import { Press } from '@/components/press';
@@ -26,10 +26,9 @@ export default function Home() {
         <SectionSeparator />
         <Press />
         <SectionSeparator />
-        <div className="container mx-auto grid max-w-5xl gap-16 px-4 md:grid-cols-5 md:gap-8 lg:gap-16">
-          <Education />
-          <Interests />
-        </div>
+        <Education />
+        <SectionSeparator />
+        <Hobbies />
         <SectionSeparator />
         <Events />
         <SectionSeparator />
