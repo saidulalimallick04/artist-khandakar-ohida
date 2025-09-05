@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -32,10 +33,10 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = React.useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem(storageKey) as Theme) || defaultTheme
+    if (typeof window === "undefined") {
+      return defaultTheme
     }
-    return defaultTheme
+    return (localStorage.getItem(storageKey) as Theme) || defaultTheme
   })
 
   React.useEffect(() => {
@@ -45,7 +46,8 @@ export function ThemeProvider({
 
     let effectiveTheme = theme;
     if (theme === "system" && enableSystem) {
-      effectiveTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+      effectiveTheme = systemTheme;
     }
 
     root.classList.add(effectiveTheme)
