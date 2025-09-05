@@ -52,19 +52,20 @@ export function CustomCursor() {
     if (!iconEl || !circleEl || x === null || y === null) return;
     
     let animationFrameId: number;
+    const offset = 5; // The offset in pixels to shift the cursor
 
     const animate = () => {
-      // Move the icon directly to the mouse position
-      iconEl.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      // Move the icon directly to the mouse position with an offset
+      iconEl.style.transform = `translate3d(${x + offset}px, ${y + offset}px, 0)`;
 
       // Smoothly move the circle towards the mouse position (lerping)
       const currentX = previousCirclePos.current.x;
       const currentY = previousCirclePos.current.y;
       
-      const dx = x - currentX;
-      const dy = y - currentY;
+      const dx = (x + offset) - currentX;
+      const dy = (y + offset) - currentY;
       
-      const newX = currentX + dx * 0.15; // The 0.15 is the "smoothness" factor
+      const newX = currentX + dx * 0.15;
       const newY = currentY + dy * 0.15;
       
       circleEl.style.transform = `translate3d(${newX}px, ${newY}px, 0)`;
