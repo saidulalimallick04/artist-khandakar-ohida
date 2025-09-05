@@ -1,5 +1,18 @@
 import { educationData } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
+import { GraduationCap, Briefcase, Award } from "lucide-react";
+
+const EducationIcon = ({ iconName, className }: { iconName: string, className?: string }) => {
+  switch (iconName) {
+    case 'GraduationCap':
+      return <GraduationCap className={className} />;
+    case 'Briefcase':
+      return <Briefcase className={className} />;
+    default:
+      return <Award className={className} />;
+  }
+};
+
 
 export function Education() {
   return (
@@ -19,11 +32,13 @@ export function Education() {
             <ScrollAnimator key={index} delay={100 * (index + 1)}>
               <div className="relative">
                 {/* Timeline Dot */}
-                <div className="absolute top-1 left-4 w-4 h-4 bg-primary rounded-full -translate-x-1/2 md:left-1/2" />
+                <div className="absolute top-1 left-4 w-9 h-9 bg-background border-2 border-primary rounded-full -translate-x-1/2 flex items-center justify-center md:left-1/2">
+                   <EducationIcon iconName={edu.icon} className="w-5 h-5 text-primary" />
+                </div>
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                   <div
-                    className={`pl-10 md:pl-0 ${
+                    className={`pl-16 md:pl-0 ${
                       index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:col-start-2'
                     }`}
                   >
