@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import { CustomCursor } from '@/components/custom-cursor';
 
 export const metadata: Metadata = {
   title: 'Ohids\'s Canvas',
@@ -27,7 +26,6 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <CustomCursor />
           {children}
           <Toaster />
         </ThemeProvider>
