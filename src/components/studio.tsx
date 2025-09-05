@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ScrollAnimator } from "./scroll-animator";
+import { Socials } from "./socials";
 
 export function Studio() {
   return (
@@ -13,6 +14,9 @@ export function Studio() {
           <p className="mt-4 text-muted-foreground">
             From initial sketches to final renders, every project is nurtured with passion and precision. The studio is equipped for a range of digital and traditional mediums, allowing for a fluid workflow that bridges the physical and virtual worlds. This is where the magic happens.
           </p>
+          <div className="mt-6 flex gap-2">
+            <Socials />
+          </div>
         </ScrollAnimator>
         <ScrollAnimator delay={200}>
           <div className="relative aspect-video">
