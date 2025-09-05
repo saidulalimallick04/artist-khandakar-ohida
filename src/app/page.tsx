@@ -11,6 +11,7 @@ import { Press } from '@/components/press';
 import { Separator } from '@/components/ui/separator';
 import { Contact } from '@/components/contact';
 import { BottomNav } from '@/components/bottom-nav';
+import { PublicProfile } from '@/components/public-profile';
 
 export default function Home() {
   return (
@@ -32,6 +33,8 @@ export default function Home() {
         <Hobbies />
         <SectionSeparator />
         <Events />
+        <SectionSeparator />
+        <PublicProfile />
         <SectionSeparator />
         <Contact />
       </main>

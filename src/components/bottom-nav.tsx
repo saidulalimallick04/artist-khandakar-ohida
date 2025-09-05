@@ -15,7 +15,7 @@ import {
   Newspaper,
   BookOpen,
   Calendar,
-  Mail,
+  Link2,
   Heart,
   Briefcase,
   Map,
@@ -35,6 +35,7 @@ const desktopNavLinks = [
   { id: "#education", label: "Education", icon: BookOpen },
   { id: "#hobbies", label: "Hobbies", icon: Heart },
   { id: "#events", label: "Events", icon: Calendar },
+  { id: "#profiles", label: "Profiles", icon: Link2 },
   { id: "/journey", label: "Life Journey", icon: Map },
 ];
 
@@ -42,6 +43,7 @@ const mobileNavLinks = [
   { id: "#home", label: "Home", icon: Home },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#events", label: "Events", icon: Calendar },
+  { id: "#profiles", label: "Profiles", icon: Link2 },
   { id: "/journey", label: "Life Journey", icon: Map },
 ];
 

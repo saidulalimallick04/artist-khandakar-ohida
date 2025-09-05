@@ -24,6 +24,7 @@ const navLinks = [
   { href: "#press", label: "Press" },
   { href: "#education", label: "Education" },
   { href: "#events", label: "Events" },
+  { href: "#profiles", label: "Profiles" },
   { href: "/journey", label: "Life Journey" },
   { href: "#contact", label: "Contact" },
 ];

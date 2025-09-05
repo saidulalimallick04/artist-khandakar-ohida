@@ -169,57 +169,177 @@ export type JourneyItem = {
     title: string;
     description: string;
     icon: string;
+    type?: string;
+    location?: string;
 };
 
 export const journeyData: JourneyItem[] = [
   {
-    year: '1993',
-    title: 'Born in West Bengal, India',
-    description: 'My journey began in a rural village, which has profoundly shaped my focus on amplifying marginalized voices.',
-    icon: 'Milestone',
-  },
-  {
     year: '2016',
-    title: 'Bachelor of Fine Arts, Government College of Arts and Crafts',
-    description: 'Completed my undergraduate studies in painting in Kolkata, building a strong technical foundation.',
-    icon: 'GraduationCap',
+    title: 'Students Biennale',
+    description: 'Group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Kochi, India',
+    icon: 'Milestone'
   },
   {
     year: '2018',
     title: 'Master of Fine Arts, Jamia Millia Islamia',
-    description: 'Honed my conceptual framework in New Delhi, moving towards an interdisciplinary practice.',
-    icon: 'GraduationCap',
+    description: 'Completed my MFA in Painting, honing my conceptual framework and moving towards an interdisciplinary practice.',
+    type: 'Education',
+    location: 'New Delhi, India',
+    icon: 'GraduationCap'
+  },
+  {
+    year: '2019',
+    title: 'Ahang',
+    description: 'Group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Lahore, Islamabad, Karachi, Pakistan',
+    icon: 'Milestone'
+  },
+  {
+    year: '2019',
+    title: 'VAICA – Video Art by Indian Contemporary Artists',
+    description: 'Group exhibition.',
+    type: 'Group Exhibition',
+    location: 'New Delhi & Mumbai, India',
+    icon: 'Milestone'
+  },
+  {
+    year: '2019',
+    title: 'Serendipity Arts Festival',
+    description: 'Participated in a group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Goa, India',
+    icon: 'Milestone'
   },
   {
     year: '2022',
-    title: 'Began "Dream Your Museum"',
-    description: 'Started digitally archiving my uncle\'s collection during the COVID-19 lockdown, a project that evolved into a critique of museum culture.',
-    icon: 'Palette',
+    title: 'Film Screening at 12th Berlin Biennale',
+    description: 'Screened the film component of "Dream Your Museum".',
+    type: 'Film Screening',
+    location: 'Berlin, Germany',
+    icon: 'Film'
   },
   {
     year: '2022',
-    title: 'Screenings at Venice and Berlin Biennales',
-    description: 'The film component of "Dream Your Museum" was screened at two of the most prestigious international art exhibitions.',
-    icon: 'Film',
+    title: 'Film Screening at 59th Venice Biennale',
+    description: 'Screened the film component of "Dream Your Museum".',
+    type: 'Film Screening',
+    location: 'Venice, Italy',
+    icon: 'Film'
+  },
+  {
+    year: '2022',
+    title: 'Emami Art Experimental Film Festival',
+    description: 'Film screening.',
+    type: 'Film Screening',
+    location: 'Kolkata, India',
+    icon: 'Film'
   },
   {
     year: '2023',
-    title: 'Received Inlaks Fine Arts Award',
-    description: 'Recognized with a significant award supporting innovative contemporary artists in India.',
-    icon: 'Award',
+    title: 'Inlaks Fine Arts Award',
+    description: 'Received a significant award supporting innovative contemporary artists in India.',
+    type: 'Award',
+    location: 'India',
+    icon: 'Award'
+  },
+  {
+    year: '2023',
+    title: 'Generator Co-operative Art Production Fund',
+    description: 'Received grant.',
+    type: 'Award',
+    location: 'India',
+    icon: 'Award'
+  },
+  {
+    year: '2023',
+    title: 'Serendipity Arts Festival',
+    description: 'Participated in a group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Goa, India',
+    icon: 'Milestone'
   },
   {
     year: '2024',
-    title: 'Winner of the Jameel Prize',
-    description: 'Awarded the prize for my work "Dream Your Museum," with plans to use the funds to build a community museum.',
-    icon: 'Award',
+    title: 'A Thousand Thunders, Project 88',
+    description: 'Solo exhibition.',
+    type: 'Solo Exhibition',
+    location: 'Mumbai, India',
+    icon: 'Palette'
+  },
+  {
+    year: '2024',
+    title: 'A Model, MUDAM Luxembourg',
+    description: 'Group exhibition in three parts.',
+    type: 'Group Exhibition',
+    location: 'Luxembourg',
+    icon: 'Milestone'
+  },
+  {
+    year: '2024',
+    title: 'Ames Yavuz Gallery',
+    description: 'Group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Sydney, Australia',
+    icon: 'Milestone'
+  },
+  {
+    year: '2024',
+    title: 'Bikaner House',
+    description: 'Group exhibition.',
+    type: 'Group Exhibition',
+    location: 'Delhi, India',
+    icon: 'Milestone'
+  },
+  {
+    year: '2024-2025',
+    title: 'Jameel Prize: Moving Images, V&A',
+    description: 'Winner of the Jameel Prize, with work exhibited at the Victoria and Albert Museum.',
+    type: 'Exhibition & Award',
+    location: 'London, UK',
+    icon: 'Award'
   },
   {
     year: '2025',
-    title: 'Artist Residency at Jan Van Eyck Academie',
-    description: 'Upcoming residency in The Netherlands to further develop my practice and the "Dream Your Museum" project.',
-    icon: 'Briefcase',
+    title: 'Jan Van Eyck Artist Residency',
+    description: 'Upcoming residency to further develop my practice and the "Dream Your Museum" project.',
+    type: 'Artist Residency',
+    location: 'The Netherlands',
+    icon: 'Briefcase'
+  }
+];
+
+
+export type ProfileLinkItem = {
+  name: string;
+  url: string;
+  description: string;
+};
+
+export const profileLinksData: ProfileLinkItem[] = [
+  {
+    name: 'Jan van Eyck Academie',
+    url: 'https://www.janvaneyck.nl/participants/khandakar-ohida/',
+    description: 'Official profile at the prestigious artist residency in The Netherlands.'
   },
+  {
+    name: 'India Foundation for the Arts',
+    url: 'https://indiaifa.org/grants-projects/khandakar-ohida.html',
+    description: 'Details on grants and projects supported by the India Foundation for the Arts.'
+  },
+  {
+    name: 'Project 88',
+    url: 'https://www.project88.in/artists/134-khandakar-ohida/exhibitions/',
+    description: 'Exhibition history at Project 88, a contemporary art gallery in Mumbai.'
+  },
+  {
+    name: '1Shanthiroad Studio/Gallery',
+    url: 'http://1shanthiroad.com/ohida/',
+    description: 'Profile at 1Shanthiroad, an artist-led space in Bangalore.'
+  }
 ];
 
     
