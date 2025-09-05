@@ -1,104 +1,28 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
-import { useState } from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import * as React from "react"
+import * as ProgressPrimitive from "@radix-ui/react-progress"
 
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#studio", label: "Studio" },
-  { href: "#work", label: "Work" },
-  { href: "#press", label: "Press" },
-  { href: "#education", label: "Info" },
-  { href: "#events", label: "Events" },
-  { href: "#contact", label: "Contact" },
-];
+import { cn } from "@/lib/utils"
 
-export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter();
+const Progress = React.forwardRef<
+  React.ElementRef<typeof ProgressPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
+>(({ className, value, ...props }, ref) => (
+  <ProgressPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+      className
+    )}
+    {...props}
+  >
+    <ProgressPrimitive.Indicator
+      className="h-full w-full flex-1 bg-primary transition-all"
+      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+    />
+  </ProgressPrimitive.Root>
+))
+Progress.displayName = ProgressPrimitive.Root.displayName
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-
-    if (href.startsWith('/')) {
-      router.push(href);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      } else {
-        router.push('/' + href);
-      }
-    }
-  };
-
-  return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
-      <div className="container mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href="/" onClick={(e) => handleNavClick(e, '/')} className="font-headline text-xl font-bold transition-colors hover:text-primary">
-          Khandakar Ohida
-        </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.label}
-               <span className="absolute bottom-[-2px] left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-            </Link>
-          ))}
-          <ThemeToggle />
-        </nav>
-        <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px]">
-                <div className="flex justify-between items-center p-4 border-b">
-                   <h2 className="font-headline text-lg">Menu</h2>
-                    <SheetClose asChild>
-                         <Button variant="ghost" size="icon">
-                            <X className="h-6 w-6" />
-                            <span className="sr-only">Close menu</span>
-                        </Button>
-                    </SheetClose>
-                </div>
-              <nav className="mt-8 flex flex-col gap-6 px-4">
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
-                      className="text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </header>
-  );
-}
+export { Progress }
