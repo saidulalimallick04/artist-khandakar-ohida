@@ -41,7 +41,7 @@ export default function Home() {
 }
 
 const SectionSeparator = () => (
-  <div className="container mx-auto max-w-5xl px-4">
-    <Separator className="my-16 md:my-24" />
+  <div className="container mx-auto max-w-5xl px-2">
+    <Separator className="my-8 md:my-12" />
   </div>
 );
