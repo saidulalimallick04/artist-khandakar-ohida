@@ -21,7 +21,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
+const desktopNavLinks = [
   { id: "#", label: "Home", icon: Home },
   { id: "#about", label: "About", icon: User },
   { id: "#work", label: "Work", icon: Palette },
@@ -31,12 +31,22 @@ const navLinks = [
   { id: "#contact", label: "Contact", icon: Mail },
 ];
 
+const mobileNavLinks = [
+  { id: "#", label: "Home", icon: Home },
+  { id: "#work", label: "Work", icon: Palette },
+  { id: "#events", label: "Events", icon: Calendar },
+  { id: "#contact", label: "Contact", icon: Mail },
+];
+
+
 export function SideNav() {
     const isMobile = useIsMobile();
     const [activeSection, setActiveSection] = useState("#");
 
+    const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
+
     useEffect(() => {
-        const sectionIds = navLinks.map(link => link.id.substring(1));
+        const sectionIds = navLinks.map(link => link.id.substring(1)).filter(Boolean);
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -55,6 +65,18 @@ export function SideNav() {
             }
         });
 
+        // Special case for home section at the top
+        const homeElement = document.getElementById('#');
+        if(homeElement) {
+             const homeObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    setActiveSection('#');
+                }
+            }, { threshold: 0.8 });
+            homeObserver.observe(homeElement);
+        }
+
+
         return () => {
             sectionIds.forEach((id) => {
                 const element = document.getElementById(id);
@@ -62,8 +84,12 @@ export function SideNav() {
                     observer.unobserve(element);
                 }
             });
+             if(homeElement) {
+                const homeObserver = new IntersectionObserver(()=>{});
+                homeObserver.unobserve(homeElement);
+             }
         };
-    }, []);
+    }, [navLinks]);
 
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
@@ -73,13 +99,9 @@ export function SideNav() {
         }
     };
 
-    if (isMobile) {
-        return null;
-    }
-
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 hidden md:flex">
+      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 flex">
         <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
           {navLinks.map((link) => (
             <Tooltip key={link.id}>
