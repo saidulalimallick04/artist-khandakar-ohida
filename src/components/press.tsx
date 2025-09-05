@@ -1,6 +1,6 @@
-
 "use client";
 
+import { useState } from "react";
 import { pressData } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
 import { Card, CardContent } from "./ui/card";
@@ -8,15 +8,17 @@ import { HorizontalScroll } from "./horizontal-scroll";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
+import { Lightbox } from "./lightbox";
 
 export function Press() {
   const isMobile = useIsMobile();
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const pressItems = pressData.map((item, index) => (
     <div key={index} className="w-full h-full md:w-auto flex-shrink-0">
       <ScrollAnimator delay={100 * index} className="h-full w-full">
         <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden cursor-pointer" onClick={() => setLightboxImage(item.imageUrl)}>
               <Image
                   src={item.imageUrl}
                   alt={item.title}
@@ -65,6 +67,10 @@ export function Press() {
                 {pressItems}
             </div>
         </div>
+      )}
+
+      {lightboxImage && (
+        <Lightbox imageUrl={lightboxImage} onClose={() => setLightboxImage(null)} />
       )}
     </section>
   );
