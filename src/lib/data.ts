@@ -5,6 +5,7 @@ export type WorkItem = {
   imageUrl: string;
   category: 'Project' | 'Artwork' | 'Installation';
   tags: string[];
+  period: string;
 };
 
 export const workData: WorkItem[] = [
@@ -15,6 +16,7 @@ export const workData: WorkItem[] = [
     imageUrl: 'https://picsum.photos/800/600?random=1',
     category: 'Installation',
     tags: ['interactive', 'digital art', 'installation'],
+    period: '2023',
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ export const workData: WorkItem[] = [
     imageUrl: 'https://picsum.photos/800/600?random=2',
     category: 'Project',
     tags: ['conceptual art', 'space', 'architecture'],
+    period: '2022',
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ export const workData: WorkItem[] = [
     imageUrl: 'https://picsum.photos/600/800?random=3',
     category: 'Artwork',
     tags: ['digital painting', 'surrealism', 'procreate'],
+    period: '2021-2022',
   },
   {
     id: 4,
@@ -39,6 +43,7 @@ export const workData: WorkItem[] = [
     imageUrl: 'https://picsum.photos/800/600?random=4',
     category: 'Project',
     tags: ['animation', 'typography', 'motion graphics'],
+    period: '2020',
   },
   {
     id: 5,
@@ -47,6 +52,7 @@ export const workData: WorkItem[] = [
     imageUrl: 'https://picsum.photos/800/500?random=5',
     category: 'Artwork',
     tags: ['concept art', 'sci-fi', 'environment'],
+    period: '2019',
   },
 ];
 
@@ -113,6 +119,12 @@ export const pressData: PressItem[] = [
     year: '2023',
     imageUrl: 'https://picsum.photos/800/600?random=8',
   },
+   {
+    title: 'Creative Review Annual',
+    description: 'Work featured in the best of digital art section.',
+    year: '2020',
+    imageUrl: 'https://picsum.photos/800/600?random=9',
+  }
 ]
 
 export type EventItem = {

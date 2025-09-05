@@ -82,6 +82,7 @@ export function Work() {
                 {highlightText(item.description, debouncedSearchTerm)}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
+                 <Badge variant="outline">{item.period}</Badge>
                 {item.tags.map(tag => (
                     <Badge variant="secondary" key={tag}>{highlightText(tag, debouncedSearchTerm)}</Badge>
                 ))}

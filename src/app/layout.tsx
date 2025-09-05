@@ -5,8 +5,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { CustomCursor } from '@/components/custom-cursor';
 
 export const metadata: Metadata = {
-  title: 'Saks Afridi',
-  description: 'Artist & Designer',
+  title: 'Ohids\'s Canvas',
+  description: 'Artist, Designer & Film-Maker',
 };
 
 export default function RootLayout({
