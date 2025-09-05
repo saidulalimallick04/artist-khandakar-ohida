@@ -67,4 +67,17 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
+  @keyframes roll-down {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-roll-down {
+    animation: roll-down 0.8s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+  }
 }

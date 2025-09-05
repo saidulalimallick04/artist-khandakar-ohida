@@ -7,6 +7,7 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Socials } from './socials';
+import { AnimatedName } from './animated-name';
 
 export function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -37,14 +38,7 @@ export function Hero() {
             isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           )}
         >
-          <h1
-            className={cn(
-              'font-headline text-5xl md:text-7xl lg:text-8xl transition-all duration-1000 ease-out',
-              isMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            )}
-          >
-            Khandakar Ohida
-          </h1>
+          <AnimatedName name="Khandakar Ohida" />
           <p
             className={cn(
               'mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl transition-all duration-1000 delay-300 ease-out',
