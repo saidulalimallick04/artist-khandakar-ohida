@@ -50,7 +50,13 @@ export const workData: WorkItem[] = [
   },
 ];
 
-export const educationData = [
+export type EducationItem = {
+    degree: string;
+    institution: string;
+    period: string;
+};
+
+export const educationData: EducationItem[] = [
     {
         degree: 'Master of Fine Arts in Painting',
         institution: 'Jamia Millia Islamia, New Delhi',
@@ -61,16 +67,33 @@ export const educationData = [
         institution: 'Govt. College of Art & Craft, Kolkata',
         period: '2012 - 2016',
     },
+    // sample data
+    {
+        degree: 'Artist Residency',
+        institution: 'Fictional Art Institute, Paris',
+        period: '2019',
+    },
 ];
 
-export const interestsData = [
+export type InterestItem = {
+    name: string;
+    icon: string;
+};
+
+export const interestsData: InterestItem[] = [
   { name: 'Exploring Museums', icon: 'museum' },
   { name: 'Film-making', icon: 'film' },
   { name: 'Miniature Painting', icon: 'palette' },
   { name: 'Travel', icon: 'plane' },
 ];
 
-export const pressData = [
+export type PressItem = {
+    title: string;
+    description: string;
+    year: string;
+};
+
+export const pressData: PressItem[] = [
   {
     title: 'Jameel Prize',
     description: 'Finalist for the prestigious Jameel Prize for contemporary art and design inspired by Islamic tradition.',
@@ -88,20 +111,31 @@ export const pressData = [
   },
 ]
 
-export const eventsData = [
+export type EventItem = {
+    id: number;
+    title: string;
+    location: string;
+    date: string;
+    description: string;
+};
+
+export const eventsData: EventItem[] = [
   {
+    id: 1,
     title: 'Berlin Biennale',
     location: 'Berlin, Germany',
     date: 'June 2024',
     description: 'Presenting "Museum on the Moon" concept.'
   },
   {
+    id: 2,
     title: 'Solo Exhibition: Digital Dreams',
     location: 'V&A Museum, London',
     date: 'October 2023',
     description: 'Showcased a series of 15 surreal digital paintings.'
   },
   {
+    id: 3,
     title: 'Group Show: Future Forward',
     location: 'Mudam Luxembourg',
     date: 'May 2023',

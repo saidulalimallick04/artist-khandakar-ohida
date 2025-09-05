@@ -8,6 +8,7 @@ import { Events } from '@/components/events';
 import { Footer } from '@/components/footer';
 import { Press } from '@/components/press';
 import { Separator } from '@/components/ui/separator';
+import { Contact } from '@/components/contact';
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
         </div>
         <SectionSeparator />
         <Events />
+        <SectionSeparator />
+        <Contact />
       </main>
       <Footer />
     </div>

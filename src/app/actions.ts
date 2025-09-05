@@ -1,7 +1,7 @@
 'use server';
 
 import { filterWorkByKeywords } from '@/ai/flows/filter-work-by-keywords';
-import type { WorkItem } from '@/lib/data';
+import type { WorkItem, EventItem } from '@/lib/data';
 
 export async function filterWorkAction(
   keywords: string,
@@ -38,6 +38,39 @@ export async function filterWorkAction(
     console.error('Error filtering work items with AI:', error);
     // On error, return an empty array to indicate failure, or return all items as a fallback.
     // Returning an empty list might be better UX to show the search failed.
+    return [];
+  }
+}
+
+export async function filterEventsAction(
+  keywords: string,
+  eventItems: EventItem[]
+): Promise<EventItem[]> {
+  if (!keywords || keywords.trim() === '') {
+    return eventItems;
+  }
+
+  const eventItemsAsStrings = eventItems.map(
+    (item) => `ID:${item.id} | Title: ${item.title} | Description: ${item.description} | Location: ${item.location} | Date: ${item.date}`
+  );
+
+  try {
+    const result = await filterWorkByKeywords({
+      keywords,
+      workItems: eventItemsAsStrings,
+    });
+
+    const filteredIds = new Set<number>();
+    result.filteredWorkItems.forEach((itemString) => {
+      const match = itemString.match(/ID:(\d+)/);
+      if (match && match[1]) {
+        filteredIds.add(parseInt(match[1], 10));
+      }
+    });
+    
+    return eventItems.filter((item) => filteredIds.has(item.id));
+  } catch (error) {
+    console.error('Error filtering event items with AI:', error);
     return [];
   }
 }
