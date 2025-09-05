@@ -88,8 +88,8 @@ export function Events() {
 
 
   return (
-    <section id="events" className="py-16 md:py-24">
-       <div className="container mx-auto max-w-5xl px-4">
+    <section id="events">
+       <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
           <h2 className="font-headline text-3xl md:text-4xl text-center">Exhibitions & Events</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
@@ -116,7 +116,7 @@ export function Events() {
       </div>
 
       {isMobile ? (
-        <HorizontalScroll className="mt-12" items={filteredEvents}>
+        <HorizontalScroll className="mt-4" items={filteredEvents}>
             {filteredEvents.map((item, index) => (
               <div key={item.id} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
                 {eventItems[index]}

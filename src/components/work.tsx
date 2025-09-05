@@ -102,8 +102,8 @@ export function Work() {
   ));
 
   return (
-    <section id="work" className="py-16 md:py-24">
-      <div className="container mx-auto max-w-5xl px-4">
+    <section id="work">
+      <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
           <h2 className="font-headline text-3xl md:text-4xl text-center">Featured Work</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
@@ -130,7 +130,7 @@ export function Work() {
       </div>
       
       {isMobile ? (
-        <HorizontalScroll className="mt-12" items={filteredWork}>
+        <HorizontalScroll className="mt-4" items={filteredWork}>
             {filteredWork.map((item, index) => (
               <div key={item.id} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
                   {workItems[index]}

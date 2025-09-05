@@ -41,8 +41,8 @@ export function Press() {
   ));
 
   return (
-    <section id="press" className="py-16 md:py-24">
-      <div className="container mx-auto max-w-5xl px-4">
+    <section id="press">
+      <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
           <h2 className="font-headline text-3xl md:text-4xl text-center">Press & Recognition</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
@@ -52,7 +52,7 @@ export function Press() {
       </div>
 
       {isMobile ? (
-         <HorizontalScroll className="mt-12" items={pressData}>
+         <HorizontalScroll className="mt-4" items={pressData}>
             {pressData.map((item, index) => (
               <div key={index} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
                 {pressItems[index]}
