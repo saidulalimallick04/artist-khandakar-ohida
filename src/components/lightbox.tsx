@@ -51,6 +51,16 @@ export function Lightbox({ imageUrl, onClose }: LightboxProps) {
       >
         <X className="h-6 w-6" />
       </Button>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <Button
+          aria-label="Close lightbox"
+          variant="secondary"
+          className="rounded-full px-6 shadow-lg"
+          onClick={onClose}
+        >
+          Back
+        </Button>
+      </div>
     </div>
   );
 }
