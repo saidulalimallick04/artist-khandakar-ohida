@@ -21,7 +21,6 @@ const navLinks = [
   { href: "#press", label: "Press" },
   { href: "#education", label: "Info" },
   { href: "#events", label: "Events" },
-  { href: "/explore-progress", label: "Explore Progress" },
   { href: "#contact", label: "Contact" },
 ];
 
