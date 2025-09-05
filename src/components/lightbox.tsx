@@ -29,7 +29,7 @@ export function Lightbox({ imageUrl, onClose }: LightboxProps) {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"
+      className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in-50"
       onClick={onClose}
     >
       <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
@@ -39,7 +39,7 @@ export function Lightbox({ imageUrl, onClose }: LightboxProps) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           style={{ objectFit: 'contain' }}
-          className="animate-in zoom-in-90"
+          className="animate-in zoom-in-90 fade-in-50 duration-300"
         />
       </div>
       <Button
