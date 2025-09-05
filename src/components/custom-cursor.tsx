@@ -63,8 +63,8 @@ export function CustomCursor() {
       <div
         className={cn(
           "rounded-full transition-all duration-300 ease-out",
-          isClicking ? "scale-90 h-10 w-10" : "h-8 w-8",
-          isPointer ? "h-12 w-12 bg-primary/25 shadow-[0_0_30px_15px] shadow-primary/20" : "bg-primary/20 shadow-[0_0_20px_10px] shadow-primary/20",
+          isClicking ? "scale-125 h-10 w-10 bg-primary/30" : "h-8 w-8",
+          isPointer ? "h-12 w-12 bg-primary/25 shadow-[0_0_40px_20px] shadow-primary/25" : "bg-primary/20 shadow-[0_0_30px_15px] shadow-primary/20",
           "backdrop-blur-sm"
         )}
       />
