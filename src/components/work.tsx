@@ -11,6 +11,7 @@ import { ScrollAnimator } from './scroll-animator';
 import { Lightbox } from './lightbox';
 import { Badge } from './ui/badge';
 import { HorizontalScroll } from './horizontal-scroll';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Work() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +19,7 @@ export function Work() {
   const [filteredWork, setFilteredWork] = useState<WorkItem[]>(workData);
   const [isPending, startTransition] = useTransition();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -60,6 +62,36 @@ export function Work() {
     );
   };
 
+  const workItems = filteredWork.map((item, index) => (
+    <div key={item.id} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
+        <ScrollAnimator delay={index * 100} className="h-full w-full">
+        <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
+            <div className="overflow-hidden cursor-pointer" onClick={() => setLightboxImage(item.imageUrl)}>
+            <Image
+                src={item.imageUrl}
+                alt={item.title}
+                width={600}
+                height={400}
+                data-ai-hint={`${item.category} ${item.tags[0]}`}
+                className="object-cover w-full h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
+            />
+            </div>
+            <CardContent className="p-4 flex-grow flex flex-col">
+            <h3 className="font-headline text-xl">{highlightText(item.title, debouncedSearchTerm)}</h3>
+            <p className="mt-2 text-sm text-muted-foreground flex-grow">
+                {highlightText(item.description, debouncedSearchTerm)}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+                {item.tags.map(tag => (
+                    <Badge variant="secondary" key={tag}>{highlightText(tag, debouncedSearchTerm)}</Badge>
+                ))}
+            </div>
+            </CardContent>
+        </Card>
+        </ScrollAnimator>
+    </div>
+  ));
+
   return (
     <section id="work" className="py-16 md:py-24">
       <div className="container mx-auto max-w-5xl px-4">
@@ -87,38 +119,19 @@ export function Work() {
           </div>
         </ScrollAnimator>
       </div>
+      
+      {isMobile ? (
+        <HorizontalScroll className="mt-12" items={filteredWork}>
+            {workItems}
+        </HorizontalScroll>
+      ) : (
+        <div className="container mx-auto max-w-5xl px-4 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {workItems}
+            </div>
+        </div>
+      )}
 
-      <HorizontalScroll className="mt-12" items={filteredWork}>
-        {filteredWork.map((item, index) => (
-          <div key={item.id} className="w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0">
-             <ScrollAnimator delay={index * 100} className="h-full w-full">
-              <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
-                <div className="overflow-hidden cursor-pointer" onClick={() => setLightboxImage(item.imageUrl)}>
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.title}
-                    width={600}
-                    height={400}
-                    data-ai-hint={`${item.category} ${item.tags[0]}`}
-                    className="object-cover w-full h-48 transition-transform duration-300 ease-in-out group-hover:scale-105"
-                  />
-                </div>
-                <CardContent className="p-4 flex-grow flex flex-col">
-                  <h3 className="font-headline text-xl">{highlightText(item.title, debouncedSearchTerm)}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground flex-grow">
-                    {highlightText(item.description, debouncedSearchTerm)}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {item.tags.map(tag => (
-                        <Badge variant="secondary" key={tag}>{highlightText(tag, debouncedSearchTerm)}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollAnimator>
-          </div>
-        ))}
-      </HorizontalScroll>
 
       {filteredWork.length === 0 && !isPending && (
         <ScrollAnimator className="mt-12 text-center text-muted-foreground">No work found matching your criteria.</ScrollAnimator>

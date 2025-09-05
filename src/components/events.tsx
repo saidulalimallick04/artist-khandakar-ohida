@@ -8,12 +8,14 @@ import { Calendar, Search, Loader2 } from "lucide-react";
 import { Input } from './ui/input';
 import { filterEventsAction } from '@/app/actions';
 import { HorizontalScroll } from './horizontal-scroll';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Events() {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [filteredEvents, setFilteredEvents] = useState<EventItem[]>(eventsData);
   const [isPending, startTransition] = useTransition();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -56,6 +58,27 @@ export function Events() {
     );
   };
 
+  const eventItems = filteredEvents.map((event, index) => (
+    <div key={event.id} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
+     <ScrollAnimator delay={100 * index} className="h-full w-full">
+       <Card className="h-full">
+         <CardHeader>
+           <CardTitle className="font-headline text-xl">{highlightText(event.title, debouncedSearchTerm)}</CardTitle>
+           <CardDescription className="flex items-center gap-2 pt-1">
+             <Calendar className="h-4 w-4" />
+             {event.date}
+           </CardDescription>
+         </CardHeader>
+         <CardContent>
+           <p className="text-sm text-muted-foreground">
+             {highlightText(event.description, debouncedSearchTerm)} at <span className="font-semibold text-foreground">{highlightText(event.location, debouncedSearchTerm)}</span>.
+           </p>
+         </CardContent>
+       </Card>
+     </ScrollAnimator>
+   </div>
+ ));
+
 
   return (
     <section id="events" className="py-16 md:py-24">
@@ -85,28 +108,17 @@ export function Events() {
         </ScrollAnimator>
       </div>
 
-      <HorizontalScroll className="mt-12" items={filteredEvents}>
-        {filteredEvents.map((event, index) => (
-           <div key={event.id} className="w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0">
-            <ScrollAnimator delay={100 * index} className="h-full w-full">
-              <Card className="h-full">
-                <CardHeader>
-                  <CardTitle className="font-headline text-xl">{highlightText(event.title, debouncedSearchTerm)}</CardTitle>
-                  <CardDescription className="flex items-center gap-2 pt-1">
-                    <Calendar className="h-4 w-4" />
-                    {event.date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {highlightText(event.description, debouncedSearchTerm)} at <span className="font-semibold text-foreground">{highlightText(event.location, debouncedSearchTerm)}</span>.
-                  </p>
-                </CardContent>
-              </Card>
-            </ScrollAnimator>
-          </div>
-        ))}
-      </HorizontalScroll>
+      {isMobile ? (
+        <HorizontalScroll className="mt-12" items={filteredEvents}>
+            {eventItems}
+        </HorizontalScroll>
+      ) : (
+        <div className="container mx-auto max-w-5xl px-4 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {eventItems}
+            </div>
+        </div>
+      )}
       
       {filteredEvents.length === 0 && !isPending && (
         <ScrollAnimator className="mt-12 text-center text-muted-foreground">No events found matching your criteria.</ScrollAnimator>
