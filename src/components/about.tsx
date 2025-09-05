@@ -8,7 +8,7 @@ export function About() {
         <ScrollAnimator className="md:col-span-1">
           <div className="relative aspect-square">
             <Image
-              src="https://picsum.photos/500/500?random=10"
+              src="https://images.unsplash.com/photo-1752649935477-70bf4243ee23?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Artist Portrait"
               fill
               data-ai-hint="artist portrait"

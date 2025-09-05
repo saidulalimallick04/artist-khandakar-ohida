@@ -23,7 +23,7 @@ export function Hero() {
     >
        <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="https://picsum.photos/1200/800?random=12"
+          src="https://images.unsplash.com/photo-1756151224665-eba765e8c3b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Artistic background"
           fill
           data-ai-hint="abstract texture"
@@ -58,7 +58,7 @@ export function Hero() {
           )}
         >
           <Image
-            src="https://picsum.photos/500/500?random=11"
+            src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Khandakar Ohida"
             fill
             data-ai-hint="artist portrait"
