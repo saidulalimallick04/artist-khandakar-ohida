@@ -3,9 +3,6 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Socials } from './socials';
 
 export function Hero() {
