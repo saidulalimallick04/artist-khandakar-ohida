@@ -2,7 +2,7 @@ import { Socials } from "./socials";
 
 export function Footer() {
   return (
-    <footer className="border-t">
+    <footer className="border-t mb-24 md:mb-0">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row max-w-5xl">
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} Khandakar Ohida. All rights reserved.
