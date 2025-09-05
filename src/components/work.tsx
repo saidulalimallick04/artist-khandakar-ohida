@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition, useEffect } from 'react';
@@ -70,7 +71,7 @@ export function Work() {
   };
 
   const workItems = filteredWork.map((item, index) => (
-    <div key={item.id} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
+    <div key={item.id} className="w-full h-full md:w-auto flex-shrink-0">
         <ScrollAnimator delay={index * 100} className="h-full w-full">
         <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
             <div className="overflow-hidden cursor-pointer" onClick={() => setLightboxImage(item.imageUrl)}>
@@ -130,7 +131,11 @@ export function Work() {
       
       {isMobile ? (
         <HorizontalScroll className="mt-12" items={filteredWork}>
-            {workItems}
+            {filteredWork.map((item, index) => (
+              <div key={item.id} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
+                  {workItems[index]}
+              </div>
+            ))}
         </HorizontalScroll>
       ) : (
         <div className="container mx-auto max-w-5xl px-4 mt-12">

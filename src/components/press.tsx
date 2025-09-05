@@ -1,3 +1,4 @@
+
 "use client";
 
 import { pressData } from "@/lib/data";
@@ -12,7 +13,7 @@ export function Press() {
   const isMobile = useIsMobile();
 
   const pressItems = pressData.map((item, index) => (
-    <div key={index} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
+    <div key={index} className="w-full h-full md:w-auto flex-shrink-0">
       <ScrollAnimator delay={100 * index} className="h-full w-full">
         <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
             <div className="overflow-hidden">
@@ -51,8 +52,12 @@ export function Press() {
       </div>
 
       {isMobile ? (
-        <HorizontalScroll className="mt-12" items={pressData}>
-          {pressItems}
+         <HorizontalScroll className="mt-12" items={pressData}>
+            {pressData.map((item, index) => (
+              <div key={index} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
+                {pressItems[index]}
+              </div>
+            ))}
         </HorizontalScroll>
       ) : (
         <div className="container mx-auto max-w-5xl px-4 mt-12">

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useTransition, useEffect } from 'react';
@@ -65,7 +66,7 @@ export function Events() {
   };
 
   const eventItems = filteredEvents.map((event, index) => (
-    <div key={event.id} className={isMobile ? "w-[80vw] sm:w-[45vw] md:w-[30vw] flex-shrink-0" : ""}>
+    <div key={event.id} className="w-full h-full md:w-auto flex-shrink-0">
      <ScrollAnimator delay={100 * index} className="h-full w-full">
        <Card className="h-full">
          <CardHeader>
@@ -116,7 +117,11 @@ export function Events() {
 
       {isMobile ? (
         <HorizontalScroll className="mt-12" items={filteredEvents}>
-            {eventItems}
+            {filteredEvents.map((item, index) => (
+              <div key={item.id} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
+                {eventItems[index]}
+              </div>
+            ))}
         </HorizontalScroll>
       ) : (
         <div className="container mx-auto max-w-5xl px-4 mt-12">
