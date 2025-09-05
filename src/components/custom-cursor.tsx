@@ -3,16 +3,18 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Feather } from 'lucide-react';
+import { useMousePosition } from "@/hooks/use-mouse-position";
+
+const TRAIL_LENGTH = 15;
 
 export function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const { x, y } = useMousePosition();
   const [isPointer, setIsPointer] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [trails, setTrails] = useState<{ x: number; y: number }[]>([]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-
       const target = e.target as HTMLElement;
       const computedStyle = window.getComputedStyle(target);
       const cursorStyle = computedStyle.getPropertyValue("cursor");
@@ -26,13 +28,8 @@ export function CustomCursor() {
       setIsPointer(isInteractive);
     };
 
-    const handleMouseDown = () => {
-      setIsClicking(true);
-    };
-
-    const handleMouseUp = () => {
-      setIsClicking(false);
-    };
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
 
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mousedown", handleMouseDown);
@@ -45,23 +42,34 @@ export function CustomCursor() {
     };
   }, []);
 
+  useEffect(() => {
+    if (x === null || y === null) return;
+    
+    const newTrails = [...trails, { x, y }];
+    if (newTrails.length > TRAIL_LENGTH) {
+      newTrails.shift();
+    }
+    setTrails(newTrails);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [x, y]);
+
   return (
-    <div
-      className={cn(
-        "pointer-events-none fixed z-[9999]",
-        "transition-transform duration-200 ease-out"
-      )}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-        transform: `translate(-10%, -20%)`,
-      }}
-    >
-      <Feather className={cn(
-        "transition-all duration-300 ease-out text-accent",
-        isClicking ? "scale-125 -rotate-12" : "scale-100",
-        isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50",
-      )} />
-    </div>
+    <>
+      {trails.map((trail, index) => (
+        <Feather
+          key={index}
+          className={cn(
+            "pointer-events-none fixed z-[9999] text-accent transition-opacity duration-300 ease-out",
+            index === trails.length - 1 ? (isPointer ? "h-8 w-8 drop-shadow-[0_0_8px] drop-shadow-accent" : "h-7 w-7 drop-shadow-[0_0_4px] drop-shadow-accent/50") : "h-6 w-6"
+          )}
+          style={{
+            left: `${trail.x}px`,
+            top: `${trail.y}px`,
+            transform: `translate(-10%, -20%) ${index === trails.length - 1 && isClicking ? 'scale(1.25) rotate(-12deg)' : ''}`,
+            opacity: (index / TRAIL_LENGTH) * 0.5,
+          }}
+        />
+      ))}
+    </>
   );
 }
