@@ -10,11 +10,13 @@ import { Press } from '@/components/press';
 import { Separator } from '@/components/ui/separator';
 import { Contact } from '@/components/contact';
 import { SideNav } from '@/components/side-nav';
+import { ArtLine } from '@/components/art-line';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden">
+    <div className="flex min-h-screen flex-col overflow-x-hidden no-scrollbar">
       <Header />
+      <ArtLine />
       <SideNav />
       <main className="flex-1">
         <Hero />
