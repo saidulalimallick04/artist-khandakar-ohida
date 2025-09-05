@@ -16,8 +16,9 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
   const words = name.split(' ');
 
   useEffect(() => {
-    // A short delay helps ensure the animation triggers after the component is painted.
-    const timer = setTimeout(() => setIsMounted(true), 100);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -30,7 +31,7 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
       )}
     >
       {words.map((word, wordIndex) => (
-        <div key={wordIndex} className="flex" aria-hidden="true">
+        <span key={wordIndex} className="flex" aria-hidden="true">
           {word.split('').map((char, charIndex) => {
             // Generate a random set of letters for the slot machine roll effect.
             const randomChars = Array.from({ length: 10 }, () => 
@@ -42,30 +43,31 @@ export function AnimatedName({ name, className }: AnimatedNameProps) {
             const animationDelay = `${wordIndex * 200 + charIndex * 75}ms`;
 
             return (
-              <div
+              <span
                 key={charIndex}
                 className="h-[1.1em] overflow-hidden"
                 style={{
                     lineHeight: '1.1em',
                 }}
               >
-                <div
+                <span
                   className={cn(
                     'flex flex-col transition-transform duration-700 ease-in-out',
                      !isMounted && '-translate-y-[90.9%]'
                   )}
                   style={{
                     transitionDelay: animationDelay,
+                    transform: isMounted ? 'translateY(-90.9%)' : 'translateY(0)',
                   }}
                 >
                   {letterColumn.map((letter, index) => (
                     <span key={index}>{letter}</span>
                   ))}
-                </div>
-              </div>
+                </span>
+              </span>
             );
           })}
-        </div>
+        </span>
       ))}
     </div>
   );
