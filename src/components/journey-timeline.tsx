@@ -1,9 +1,9 @@
 
 "use client";
 
-import { journeyData } from "@/lib/data";
+import { type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
-import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane } from "lucide-react";
+import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
 
 const JourneyIcon = ({ iconName, className }: { iconName: string, className?: string }) => {
   switch (iconName) {
@@ -17,13 +17,17 @@ const JourneyIcon = ({ iconName, className }: { iconName: string, className?: st
         return <Palette className={className} />;
     case 'Plane':
         return <Plane className={className} />;
+    case 'Award':
+        return <Award className={className} />;
+    case 'Film':
+        return <Film className={className} />;
     default:
       return <Milestone className={className} />;
   }
 };
 
 
-export function JourneyTimeline() {
+export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
   return (
     <section id="journey" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
        <ScrollAnimator>
@@ -36,8 +40,8 @@ export function JourneyTimeline() {
         <div className="absolute left-4 w-0.5 h-full bg-border/70 md:left-1/2 md:-translate-x-1/2" />
 
         <div className="space-y-12">
-          {journeyData.map((item, index) => (
-            <ScrollAnimator key={index} delay={100 * (index + 1)}>
+          {items.map((item, index) => (
+            <ScrollAnimator key={item.title + item.year} delay={100 * (index + 1)}>
               <div className="relative">
                 <div className="absolute top-1 left-4 w-9 h-9 bg-background border-2 border-primary rounded-full -translate-x-1/2 flex items-center justify-center md:left-1/2">
                    <JourneyIcon iconName={item.icon} className="w-5 h-5 text-primary" />
