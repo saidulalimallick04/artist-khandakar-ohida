@@ -124,28 +124,27 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                   <div
-                    className={cn("pl-16 text-left md:pl-0", {
+                    className={cn("pl-16 md:pl-0", {
                         "md:pr-8 md:text-right": !isRightSide,
                         "md:pl-8 md:col-start-2 md:text-left": isRightSide,
                     })}
                   >
                     <div
                       className={cn(
-                          "p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6"
+                          "p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-4"
                       )}
                     >
-                      <p className="font-semibold text-primary text-2xl md:text-center">{year}</p>
-                      <div className="space-y-4">
+                      <p className="font-semibold text-primary text-2xl text-left md:text-center">{year}</p>
+                      <div className="space-y-6">
                         {groupedItems[year].map((item, itemIndex) => (
-                            <div key={item.title + itemIndex}>
-                                <div className={cn(
-                                    "flex items-center gap-3",
-                                    isRightSide ? "md:justify-start" : "md:justify-end md:flex-row-reverse"
-                                )}>
-                                    <JourneyIcon iconName={item.icon} className="w-4 h-4 flex-shrink-0" />
-                                    <h3 className="font-headline text-xl mt-2">{item.title}</h3>
+                            <div key={item.title + itemIndex} className={cn("text-left flex gap-4", isRightSide ? "md:text-left" : "md:text-right md:flex-row-reverse")}>
+                                <div className="flex-shrink-0">
+                                  <JourneyIcon iconName={item.icon} className="w-5 h-5" />
                                 </div>
-                                <p className="text-muted-foreground mt-1">{item.description}</p>
+                                <div className="flex-grow">
+                                    <h3 className="font-headline text-xl">{item.title}</h3>
+                                    <p className="text-muted-foreground mt-1">{item.description}</p>
+                                </div>
                             </div>
                         ))}
                       </div>
