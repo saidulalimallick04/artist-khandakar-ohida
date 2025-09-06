@@ -26,6 +26,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { Separator } from "./ui/separator";
 
 const desktopNavLinks = [
   { id: "#home", label: "Home", icon: Home },
@@ -117,6 +118,9 @@ export function BottomNav() {
                 <p>KO Studio</p>
               </TooltipContent>
             </Tooltip>
+
+            <Separator orientation="vertical" className="h-6" />
+
           {navLinks.map((link) => (
             <Tooltip key={link.id}>
               <TooltipTrigger asChild>
@@ -132,6 +136,9 @@ export function BottomNav() {
               </TooltipContent>
             </Tooltip>
           ))}
+
+          <Separator orientation="vertical" className="h-6" />
+
            <Tooltip>
               <TooltipTrigger asChild>
                 <Button asChild variant="ghost" size="icon">
