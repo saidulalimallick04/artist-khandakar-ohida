@@ -9,34 +9,34 @@ import { cn } from "@/lib/utils";
 
 const iconColorClasses: Record<string, string> = {
     'GraduationCap': 'text-sky-500',
-    'Briefcase': 'text-amber-500',
+    'Briefcase': 'text-green-500',
     'Building': 'text-orange-500',
     'Palette': 'text-rose-500',
     'Plane': 'text-indigo-500',
     'Award': 'text-yellow-500',
+    'Trophy': 'text-yellow-500',
     'Film': 'text-purple-500',
+    'FilmCamera': 'text-fuchsia-500',
     'Milestone': 'text-slate-500',
     'Baby': 'text-pink-500',
     'Book': 'text-cyan-500',
     'Brush': 'text-teal-500',
-    'Trophy': 'text-yellow-500',
-    'FilmCamera': 'text-fuchsia-500',
   };
   
 const borderColorClasses: Record<string, string> = {
     'GraduationCap': 'border-sky-500',
-    'Briefcase': 'border-amber-500',
+    'Briefcase': 'border-green-500',
     'Building': 'border-orange-500',
     'Palette': 'border-rose-500',
     'Plane': 'border-indigo-500',
     'Award': 'border-yellow-500',
+    'Trophy': 'border-yellow-500',
     'Film': 'border-purple-500',
+    'FilmCamera': 'border-fuchsia-500',
     'Milestone': 'border-slate-500',
     'Baby': 'border-pink-500',
     'Book': 'border-cyan-500',
     'Brush': 'border-teal-500',
-    'Trophy': 'border-yellow-500',
-    'FilmCamera': 'border-fuchsia-500',
 };
 
 
@@ -122,15 +122,19 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                     })}
                   >
                     <div
-                      className={cn("p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6")}
+                      className={cn(
+                          "p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6",
+                          isRightSide ? "md:text-left" : "md:text-right"
+                      )}
                     >
-                      <p className={cn("font-semibold text-primary text-2xl",
-                         isRightSide ? 'md:text-left' : 'md:text-right'
-                      )}>{year}</p>
+                      <p className="font-semibold text-primary text-2xl md:text-center">{year}</p>
                       <div className="space-y-4">
                         {groupedItems[year].map((item, itemIndex) => (
-                            <div key={item.title + itemIndex} className="text-center">
-                                <div className="flex items-center justify-center gap-3">
+                            <div key={item.title + itemIndex}>
+                                <div className={cn(
+                                    "flex items-center gap-3",
+                                    isRightSide ? 'md:justify-start' : 'md:justify-end'
+                                )}>
                                     <JourneyIcon iconName={item.icon} className="w-4 h-4" />
                                     <h3 className="font-headline text-xl mt-2">{item.title}</h3>
                                 </div>
@@ -150,4 +154,3 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
     </section>
   );
 }
-
