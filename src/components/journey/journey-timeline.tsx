@@ -138,9 +138,6 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                       <div className="space-y-6">
                         {groupedItems[year].map((item, itemIndex) => (
                             <div key={item.title + itemIndex} className={cn("text-left flex gap-4", isRightSide ? "md:text-left" : "md:text-right md:flex-row-reverse")}>
-                                <div className="flex-shrink-0">
-                                  <JourneyIcon iconName={item.icon} className="w-5 h-5" />
-                                </div>
                                 <div className="flex-grow">
                                     <h3 className="font-headline text-xl">{item.title}</h3>
                                     <p className="text-muted-foreground mt-1">{item.description}</p>
