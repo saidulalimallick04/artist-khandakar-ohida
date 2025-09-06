@@ -23,8 +23,8 @@ export function StudioBottomNav() {
 
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
+      <nav className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2">
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon" onClick={() => scrollTo('top')}>
@@ -47,6 +47,8 @@ export function StudioBottomNav() {
                 <p>Scroll to Bottom</p>
               </TooltipContent>
             </Tooltip>
+        </div>
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon" onClick={() => router.back()}>
