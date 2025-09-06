@@ -9,7 +9,7 @@ import { studioData } from '@/lib/data';
 
 export function StudioSection() {
   return (
-    <section id="studio" className="py-16 md:py-24 bg-secondary">
+    <section id="studio" className="py-16 md:py-24">
       <div className="container mx-auto max-w-5xl px-4">
         <ScrollAnimator className="text-center">
           <h2 className="font-headline text-3xl md:text-4xl">
