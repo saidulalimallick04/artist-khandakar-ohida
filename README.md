@@ -56,34 +56,38 @@ You need to have [Node.js](https://nodejs.org/) (version 18 or later) and `npm` 
 
 ## Project Structure
 
-The project follows a standard Next.js App Router structure:
+The project is organized with a page-centric approach for components and data to ensure clean, maintainable code.
 
 ```
 .
 ├── src
-│   ├── app                 # Main application routes
-│   │   ├── journey         # The /journey page
-│   │   ├── globals.css     # Global styles and theme variables
-│   │   ├── layout.tsx      # Root layout
-│   │   └── page.tsx        # Main homepage
-│   ├── components          # All React components
-│   │   ├── ui              # ShadCN UI components
-│   │   ├── about.tsx
-│   │   ├── header.tsx
-│   │   ├── hero.tsx
-│   │   └── ... (and all other sections)
-│   ├── hooks               # Custom React hooks
+│   ├── app                     # Main application routes (pages)
+│   │   ├── journey/page.tsx    # The /journey page
+│   │   ├── studio/page.tsx     # The /studio page
+│   │   ├── layout.tsx          # Root layout
+│   │   └── page.tsx            # Main homepage
+│   ├── components              # React components
+│   │   ├── home/               # Components used only on the homepage
+│   │   ├── journey/            # Components used only on the journey page
+│   │   ├── studio/             # Components used only on the studio page
+│   │   ├── ui/                 # ShadCN UI library components
+│   │   └── ...                 # Shared components (Header, Footer, etc.)
+│   ├── hooks                   # Custom React hooks
 │   │   └── use-mobile.ts
-│   └── lib                 # Utility functions and data
-│       ├── data.ts         # Centralized content for the entire site
-│       └── utils.ts        # Helper functions
-├── public                  # Static assets
-└── tailwind.config.ts      # Tailwind CSS configuration
+│   └── lib                     # Utility functions and data
+│       ├── data/               # Centralized content for the site
+│       │   ├── home/           # Data for homepage sections
+│       │   ├── journey/        # Data for the journey page
+│       │   ├── studio/         # Data for the studio page
+│       │   └── index.ts        # Exports all data
+│       └── utils.ts            # Helper functions (e.g., cn)
+├── public                      # Static assets
+└── ...                         # Configuration files
 ```
 
 ## Customization
 
-All the text, images, and data points for the portfolio sections (Work, Events, Journey, etc.) are centralized in `src/lib/data.ts`. To customize the content of the website, you can directly edit the data arrays in this file. The application will automatically reflect the changes.
+All the text, images, and data points for the portfolio sections are centralized in their respective folders within `src/lib/data`. To customize the content of the website, you can directly edit the data objects in these files. The application will automatically reflect the changes.
 
 ---
 ---
