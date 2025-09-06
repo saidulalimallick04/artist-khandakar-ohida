@@ -18,6 +18,8 @@ import {
   Link2,
   Heart,
   Briefcase,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -102,6 +104,19 @@ export function BottomNav() {
     <TooltipProvider>
       <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
         <div className="flex items-center gap-2">
+           <Tooltip>
+              <TooltipTrigger asChild>
+                 <Button asChild variant="ghost" size="icon">
+                  <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
+                    <ArrowLeft className="h-5 w-5" />
+                    <span className="sr-only">KO Studio</span>
+                  </Link>
+                 </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>KO Studio</p>
+              </TooltipContent>
+            </Tooltip>
           {navLinks.map((link) => (
             <Tooltip key={link.id}>
               <TooltipTrigger asChild>
@@ -117,6 +132,19 @@ export function BottomNav() {
               </TooltipContent>
             </Tooltip>
           ))}
+           <Tooltip>
+              <TooltipTrigger asChild>
+                <Button asChild variant="ghost" size="icon">
+                  <Link href="/journey" onClick={(e) => handleNavClick(e, '/journey')}>
+                    <ArrowRight className="h-5 w-5" />
+                    <span className="sr-only">Life Journey</span>
+                  </Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Life Journey</p>
+              </TooltipContent>
+            </Tooltip>
         </div>
       </nav>
     </TooltipProvider>

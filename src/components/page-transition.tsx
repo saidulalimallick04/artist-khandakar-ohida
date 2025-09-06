@@ -29,22 +29,25 @@ const variants = {
   }),
 };
 
-export const PageTransition = ({ children }: { children: ReactNode }) => {
-  const pathname = usePathname();
-  
-  const getDirection = (path: string): Direction => {
+const getDirection = (path: string): Direction => {
     if (path === '/journey') return 'right';
     if (path === '/studio') return 'left';
     return 'none';
-  }
-  
+}
+
+let lastPath = '';
+
+export const PageTransition = ({ children }: { children: ReactNode }) => {
+  const pathname = usePathname();
   const direction = getDirection(pathname);
+  const lastDirection = getDirection(lastPath);
+  lastPath = pathname;
 
   return (
-    <AnimatePresence initial={false} mode="wait" custom={{ direction, pathname }}>
+    <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.div
             key={pathname}
-            custom={direction}
+            custom={direction !== 'none' ? direction : lastDirection}
             variants={variants}
             initial="initial"
             animate="animate"
