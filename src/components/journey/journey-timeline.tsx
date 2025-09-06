@@ -4,29 +4,39 @@
 import { useMemo } from "react";
 import { journeyData, type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "@/components/scroll-animator";
-import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
+import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film, Baby, Book, Brush, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconColorClasses: Record<string, string> = {
-    'GraduationCap': 'text-blue-500',
-    'Briefcase': 'text-green-500',
+    'GraduationCap': 'text-sky-500',
+    'Briefcase': 'text-amber-500',
     'Building': 'text-orange-500',
-    'Palette': 'text-red-500',
+    'Palette': 'text-rose-500',
     'Plane': 'text-indigo-500',
     'Award': 'text-yellow-500',
     'Film': 'text-purple-500',
-    'Milestone': 'text-gray-500',
+    'Milestone': 'text-slate-500',
+    'Baby': 'text-pink-500',
+    'Book': 'text-cyan-500',
+    'Brush': 'text-teal-500',
+    'Trophy': 'text-yellow-500',
+    'FilmCamera': 'text-fuchsia-500',
   };
   
 const borderColorClasses: Record<string, string> = {
-'GraduationCap': 'border-blue-500',
-'Briefcase': 'border-green-500',
-'Building': 'border-orange-500',
-'Palette': 'border-red-500',
-'Plane': 'border-indigo-500',
-'Award': 'border-yellow-500',
-'Film': 'border-purple-500',
-'Milestone': 'border-gray-500',
+    'GraduationCap': 'border-sky-500',
+    'Briefcase': 'border-amber-500',
+    'Building': 'border-orange-500',
+    'Palette': 'border-rose-500',
+    'Plane': 'border-indigo-500',
+    'Award': 'border-yellow-500',
+    'Film': 'border-purple-500',
+    'Milestone': 'border-slate-500',
+    'Baby': 'border-pink-500',
+    'Book': 'border-cyan-500',
+    'Brush': 'border-teal-500',
+    'Trophy': 'border-yellow-500',
+    'FilmCamera': 'border-fuchsia-500',
 };
 
 
@@ -46,6 +56,16 @@ const JourneyIcon = ({ iconName, className }: { iconName: string, className?: st
     case 'Award':
         return <Award className={iconClass} />;
     case 'Film':
+        return <Film className={iconClass} />;
+    case 'Baby':
+        return <Baby className={iconClass} />;
+    case 'Book':
+        return <Book className={iconClass} />;
+    case 'Brush':
+        return <Brush className={iconClass} />;
+    case 'Trophy':
+        return <Trophy className={iconClass} />;
+    case 'FilmCamera':
         return <Film className={iconClass} />;
     default:
       return <Milestone className={iconClass} />;
