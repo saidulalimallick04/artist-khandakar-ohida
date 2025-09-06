@@ -12,6 +12,7 @@ const variants = {
     x: direction === 'right' ? '100%' : direction === 'left' ? '-100%' : '0',
     opacity: 0,
     position: 'absolute',
+    width: '100%',
     transition: { type: 'tween', ease: 'easeInOut', duration: 0.4 }
   }),
   animate: {
@@ -20,8 +21,10 @@ const variants = {
     transition: { type: 'tween', ease: 'easeInOut', duration: 0.4 }
   },
   exit: (direction: Direction) => ({
-    x: direction === 'right' ? '-100%' : direction === 'left' ? '100%' : '0',
+    x: direction === 'right' ? '-100%' : direction === 'left' ? '-100%' : '0',
     opacity: 0,
+    position: 'absolute',
+    width: '100%',
     transition: { type: 'tween', ease: 'easeInOut', duration: 0.4 }
   }),
 };
@@ -38,7 +41,7 @@ export const PageTransition = ({ children }: { children: ReactNode }) => {
   const direction = getDirection(pathname);
 
   return (
-    <AnimatePresence initial={false} mode="wait" custom={direction}>
+    <AnimatePresence initial={false} mode="wait" custom={{ direction, pathname }}>
         <motion.div
             key={pathname}
             custom={direction}
