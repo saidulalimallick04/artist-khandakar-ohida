@@ -20,7 +20,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "/studio", label: "Studio" },
+  { href: "#studio", label: "Studio" },
   { href: "#work", label: "Work" },
   { href: "#press", label: "Press" },
   { href: "#education", label: "Education" },
@@ -48,8 +48,7 @@ export function Header() {
 
     if (href.startsWith('/')) {
       if (pathname === href) {
-        // If on the same page, scroll to top
-         window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         router.push(href);
       }
@@ -65,14 +64,24 @@ export function Header() {
     }
   };
   
-  const currentNavLinks = navLinks.filter(link => {
-    if (pathname === '/journey') return ['/', '/journey'].includes(link.href);
-    if (pathname === '/studio') return ['/', '/studio'].includes(link.href);
-    return true;
-  });
-
-
-  const desktopNavs = navLinks.filter(link => link.href !== '/' && link.href !== '/journey' && link.href !== '/studio');
+  const getNavLinks = () => {
+    if (pathname === '/journey') {
+        return [
+            { href: "/", label: "Home" },
+            { href: "/journey", label: "Life Journey" },
+        ];
+    }
+     if (pathname === '/studio') {
+        return [
+            { href: "/", label: "Home" },
+            { href: "/studio", label: "Studio" },
+        ];
+    }
+    return navLinks;
+  }
+  
+  const currentNavLinks = getNavLinks();
+  const desktopNavs = navLinks.filter(link => !['/', '/journey', '/studio'].includes(link.href));
 
 
   return (

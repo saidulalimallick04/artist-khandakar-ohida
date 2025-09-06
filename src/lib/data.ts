@@ -6,11 +6,11 @@ export type SocialLink = {
 };
 
 export const socialLinks: SocialLink[] = [
-  { name: 'Facebook', icon: 'Facebook', url: '#' },
-  { name: 'Instagram', icon: 'Instagram', url: '#' },
-  { name: 'Twitter', icon: 'Twitter', url: '#' },
-  { name: 'LinkedIn', icon: 'Linkedin', url: '#' },
-  { name: 'GitHub', icon: 'Github', url: '#' },
+  { name: 'Facebook', icon: 'Facebook', url: 'https://facebook.com' },
+  { name: 'Instagram', icon: 'Instagram', url: 'https://instagram.com' },
+  { name: 'Twitter', icon: 'Twitter', url: 'https://twitter.com' },
+  { name: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com' },
+  { name: 'GitHub', icon: 'Github', url: 'https://github.com' },
 ];
 
 export const heroData = {
@@ -29,6 +29,7 @@ export const aboutData = {
 
 export const studioData = {
     title: 'Khandakar Ohida Studio',
+    subtitle: "A space for experimentation, collaboration, and the relentless pursuit of artistic expression.",
     description1: "Welcome to my creative sanctuary. The Khandakar Ohida Studio is where concepts come to life, pixels find their purpose, and stories are woven into visual tapestries. It is a space for experimentation, collaboration, and the relentless pursuit of artistic expression.",
     description2: "From initial sketches to final renders, every project is nurtured with passion and precision. The studio is equipped for a range of digital and traditional mediums, allowing for a fluid workflow that bridges the physical and virtual worlds. This is where the magic happens.",
     imageUrl: "https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -74,7 +75,7 @@ export const workData: WorkItem[] = [
     id: 2,
     title: 'Museum on the Moon',
     description: 'A conceptual project and feature documentary envisioning a cultural institution on the lunar surface, expanding on the themes of "Dream Your Museum".',
-    imageUrl: 'https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Project',
     tags: ['conceptual art', 'film', 'documentary'],
     period: 'Ongoing',
@@ -92,7 +93,7 @@ export const workData: WorkItem[] = [
     id: 4,
     title: 'Kinetic Typography',
     description: 'An animated short film showcasing typography that moves and interacts with music, created with After Effects.',
-    imageUrl: 'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=1170&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Project',
     tags: ['animation', 'typography', 'motion graphics'],
     period: '2020',
@@ -101,7 +102,7 @@ export const workData: WorkItem[] = [
     id: 5,
     title: 'Periodic Affliction',
     description: 'An unfinished photo series documenting marks left by a hot water bag, critiquing the societal dismissal of female pain.',
-    imageUrl: 'https://images.unsplash.com/photo-1754079132758-5dfb65298934?q=80&w=1398&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1754079132758-5dfb65298934?q=80&w=1398&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     category: 'Artwork',
     tags: ['photography', 'gender', 'body'],
     period: 'Ongoing',
@@ -160,31 +161,31 @@ export const pressData: PressItem[] = [
     title: 'Jameel Prize Winner',
     description: 'Winner of the prestigious Jameel Prize for contemporary art, for the film "Dream Your Museum".',
     year: '2024',
-    imageUrl: 'https://images.unsplash.com/photo-1518977877150-35db786d223a?q=80&w=1326&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1518977877150-35db786d223a?q=80&w=1326&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Inlaks Fine Arts Award',
     description: 'Recipient of a significant award supporting innovative contemporary artists in India.',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1494935362342-566c6d6e75b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1494935362342-566c6d6e75b5?q=80&w=1170&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Generator Co-operative Art Fund',
     description: 'Awarded a production grant to support the creation of new artistic projects.',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1582139883588-a874294c7744?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1582139883588-a874294c7744?q=80&w=1170&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     title: 'Artforum International',
     description: 'A feature review of the "Dream Your Museum" installation.',
     year: '2023',
-    imageUrl: 'https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=730&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1541675154750-0444c7d51e8e?q=80&w=730&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
    {
     title: 'The New York Times',
     description: 'Featured in an article on the future of digital art and archival practices.',
     year: '2022',
-    imageUrl: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1259&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    imageUrl: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1259&auto=format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   }
 ]
 

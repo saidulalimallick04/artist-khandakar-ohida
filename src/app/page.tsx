@@ -11,6 +11,7 @@ import { Separator } from '@/components/ui/separator';
 import { Contact } from '@/components/contact';
 import { BottomNav } from '@/components/bottom-nav';
 import { PublicProfile } from '@/components/public-profile';
+import { StudioSection } from '@/components/studio-section';
 
 export default function Home() {
   return (
@@ -20,6 +21,8 @@ export default function Home() {
       <main className="flex-1 pt-16">
         <Hero />
         <About />
+        <SectionSeparator />
+        <StudioSection />
         <SectionSeparator />
         <Work />
         <SectionSeparator />
