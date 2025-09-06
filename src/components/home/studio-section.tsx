@@ -1,9 +1,9 @@
 
 'use client';
 
-import { ScrollAnimator } from './scroll-animator';
+import { ScrollAnimator } from '@/components/scroll-animator';
 import { studioSectionData } from '@/lib/data';
-import { Socials } from './socials';
+import { Socials } from '@/components/socials';
 import Image from 'next/image';
 
 export function StudioSection() {

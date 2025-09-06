@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 import { Marquee } from '@/components/marquee';
 import { studioData } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { StudioBottomNav } from '@/components/studio-bottom-nav';
+import { StudioBottomNav } from '@/components/studio/studio-bottom-nav';
 
 export default function StudioPage() {
   return (

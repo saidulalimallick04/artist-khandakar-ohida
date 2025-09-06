@@ -1,8 +1,8 @@
 "use client";
 
 import { hobbiesData } from "@/lib/data";
-import { ScrollAnimator } from "./scroll-animator";
-import { Card } from "./ui/card";
+import { ScrollAnimator } from "@/components/scroll-animator";
+import { Card } from "@/components/ui/card";
 import { Heart, Building, Film, Paintbrush, Plane } from 'lucide-react';
 
 const HobbyIcon = ({ iconName }: { iconName: string }) => {

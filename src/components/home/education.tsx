@@ -1,5 +1,5 @@
 import { educationData } from "@/lib/data";
-import { ScrollAnimator } from "./scroll-animator";
+import { ScrollAnimator } from "@/components/scroll-animator";
 import { GraduationCap, Briefcase, Award } from "lucide-react";
 
 const EducationIcon = ({ iconName, className }: { iconName: string, className?: string }) => {

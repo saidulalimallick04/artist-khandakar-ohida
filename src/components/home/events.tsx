@@ -3,11 +3,11 @@
 
 import { useState, useTransition, useEffect } from 'react';
 import { eventsData, type EventItem } from "@/lib/data";
-import { ScrollAnimator } from "./scroll-animator";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "./ui/card";
+import { ScrollAnimator } from "@/components/scroll-animator";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Calendar, Search, Loader2 } from "lucide-react";
-import { Input } from './ui/input';
-import { HorizontalScroll } from './horizontal-scroll';
+import { Input } from '@/components/ui/input';
+import { HorizontalScroll } from '@/components/horizontal-scroll';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Events() {

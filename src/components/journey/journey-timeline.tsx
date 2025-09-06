@@ -3,7 +3,7 @@
 
 import { useMemo } from "react";
 import { type JourneyItem } from "@/lib/data";
-import { ScrollAnimator } from "./scroll-animator";
+import { ScrollAnimator } from "@/components/scroll-animator";
 import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
 import { cn } from "@/lib/utils";
 

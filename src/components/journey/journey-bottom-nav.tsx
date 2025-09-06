@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ArrowLeft, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 interface JourneyBottomNavProps {
     onSortToggle: () => void;

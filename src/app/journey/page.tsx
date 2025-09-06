@@ -4,8 +4,8 @@
 import { useState } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { JourneyTimeline } from '@/components/journey-timeline';
-import { JourneyBottomNav } from '@/components/journey-bottom-nav';
+import { JourneyTimeline } from '@/components/journey/journey-timeline';
+import { JourneyBottomNav } from '@/components/journey/journey-bottom-nav';
 import { journeyData, type JourneyItem } from '@/lib/data';
 
 export default function JourneyPage() {

@@ -1,9 +1,9 @@
 
 import Link from 'next/link';
 import { profileLinksData } from '@/lib/data';
-import { ScrollAnimator } from './scroll-animator';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/card';
-import { Button } from './ui/button';
+import { ScrollAnimator } from '@/components/scroll-animator';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 export function PublicProfile() {

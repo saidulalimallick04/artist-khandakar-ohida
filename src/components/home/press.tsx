@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { pressData } from "@/lib/data";
-import { ScrollAnimator } from "./scroll-animator";
-import { Card, CardContent } from "./ui/card";
-import { HorizontalScroll } from "./horizontal-scroll";
+import { ScrollAnimator } from "@/components/scroll-animator";
+import { Card, CardContent } from "@/components/ui/card";
+import { HorizontalScroll } from "@/components/horizontal-scroll";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Image from "next/image";
-import { Badge } from "./ui/badge";
-import { Lightbox } from "./lightbox";
+import { Badge } from "@/components/ui/badge";
+import { Lightbox } from "@/components/lightbox";
 
 export function Press() {
   const isMobile = useIsMobile();

@@ -7,10 +7,10 @@ import { Search, Loader2 } from 'lucide-react';
 import { workData, type WorkItem } from '@/lib/data';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { ScrollAnimator } from './scroll-animator';
-import { Lightbox } from './lightbox';
-import { Badge } from './ui/badge';
-import { HorizontalScroll } from './horizontal-scroll';
+import { ScrollAnimator } from '@/components/scroll-animator';
+import { Lightbox } from '@/components/lightbox';
+import { Badge } from '@/components/ui/badge';
+import { HorizontalScroll } from '@/components/horizontal-scroll';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Work() {

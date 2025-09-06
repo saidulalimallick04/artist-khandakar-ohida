@@ -4,8 +4,8 @@
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Socials } from './socials';
-import { Button } from './ui/button';
+import { Socials } from '@/components/socials';
+import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Briefcase, Milestone } from 'lucide-react';
 import { heroData } from '@/lib/data';

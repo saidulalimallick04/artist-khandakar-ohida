@@ -1,17 +1,17 @@
 import { Header } from '@/components/header';
-import { Hero } from '@/components/hero';
-import { About } from '@/components/about';
-import { Work } from '@/components/work';
-import { Education } from '@/components/education';
-import { Interests } from '@/components/interests';
-import { Events } from '@/components/events';
+import { Hero } from '@/components/home/hero';
+import { About } from '@/components/home/about';
+import { Work } from '@/components/home/work';
+import { Education } from '@/components/home/education';
+import { Interests } from '@/components/home/interests';
+import { Events } from '@/components/home/events';
 import { Footer } from '@/components/footer';
-import { Press } from '@/components/press';
+import { Press } from '@/components/home/press';
 import { Separator } from '@/components/ui/separator';
-import { Contact } from '@/components/contact';
-import { BottomNav } from '@/components/bottom-nav';
-import { PublicProfile } from '@/components/public-profile';
-import { StudioSection } from '@/components/studio-section';
+import { Contact } from '@/components/home/contact';
+import { BottomNav } from '@/components/home/bottom-nav';
+import { PublicProfile } from '@/components/home/public-profile';
+import { StudioSection } from '@/components/home/studio-section';
 
 export default function Home() {
   return (

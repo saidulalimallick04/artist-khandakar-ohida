@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ScrollAnimator } from "./scroll-animator";
+import { ScrollAnimator } from "@/components/scroll-animator";
 import { aboutData } from "@/lib/data";
 
 export function About() {

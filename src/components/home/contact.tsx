@@ -5,14 +5,14 @@ import { Send } from "lucide-react";
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { ScrollAnimator } from './scroll-animator';
-import { Socials } from './socials';
+import { ScrollAnimator } from '@/components/scroll-animator';
+import { Socials } from '@/components/socials';
 import { contactData } from '@/lib/data';
 
 const formSchema = z.object({
