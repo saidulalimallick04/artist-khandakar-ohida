@@ -102,6 +102,8 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
         <div className="space-y-12">
           {years.map((year, index) => {
             const firstItemIcon = groupedItems[year][0].icon;
+            const isRightSide = index % 2 !== 0;
+
             return (
             <ScrollAnimator key={year} delay={100 * (index + 1)}>
               <div className="relative">
@@ -114,21 +116,22 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                   <div
-                    className={`pl-16 md:pl-0 ${
-                      index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:col-start-2'
-                    }`}
+                    className={cn("pl-16 md:pl-0", {
+                        "md:pr-8": !isRightSide,
+                        "md:pl-8 md:col-start-2": isRightSide,
+                    })}
                   >
                     <div
-                      className={`p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6 ${
-                        index % 2 === 0 ? 'md:text-right' : 'md:text-left'
-                      }`}
+                      className={cn("p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6")}
                     >
-                      <p className={`font-semibold text-primary text-2xl ${ index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{year}</p>
+                      <p className={cn("font-semibold text-primary text-2xl",
+                         isRightSide ? 'md:text-left' : 'md:text-right'
+                      )}>{year}</p>
                       <div className="space-y-4">
                         {groupedItems[year].map((item, itemIndex) => (
-                            <div key={item.title + itemIndex}>
-                                <div className="flex items-center gap-3">
-                                    <JourneyIcon iconName={item.icon} className="w-4 h-4 hidden md:block" />
+                            <div key={item.title + itemIndex} className="text-center">
+                                <div className="flex items-center justify-center gap-3">
+                                    <JourneyIcon iconName={item.icon} className="w-4 h-4" />
                                     <h3 className="font-headline text-xl mt-2">{item.title}</h3>
                                 </div>
                                 <p className="text-muted-foreground mt-1">{item.description}</p>
@@ -147,3 +150,4 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
     </section>
   );
 }
+
