@@ -37,8 +37,8 @@ export function Hero() {
          <Button asChild className="group" variant="outline">
             <Link href="/studio">
                 <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                <Briefcase className="mr-2 h-4 w-4" />
                 KO Studio
+                <Briefcase className="mr-2 h-4 w-4" />
             </Link>
         </Button>
       </div>
@@ -46,8 +46,8 @@ export function Hero() {
        <div className="absolute top-8 right-4 md:right-8">
          <Button asChild className="group" variant="outline">
             <Link href="/journey">
-                Life Journey
                 <Milestone className="ml-2 h-4 w-4" />
+                Life Journey
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
         </Button>

@@ -18,8 +18,9 @@ import {
   Link2,
   Heart,
   Briefcase,
-  ArrowLeft,
-  ArrowRight,
+  Milestone,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -108,7 +109,8 @@ export function BottomNav() {
             <TooltipTrigger asChild>
                 <Button asChild variant="ghost" size="icon">
                 <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
-                  <ArrowLeft className="h-5 w-5" />
+                  <ChevronLeft className="h-5 w-5" />
+                  <Briefcase className="mr-2 h-4 w-4" />
                   <span className="sr-only">KO Studio</span>
                 </Link>
                 </Button>
@@ -142,7 +144,8 @@ export function BottomNav() {
             <TooltipTrigger asChild>
               <Button asChild variant="ghost" size="icon">
                 <Link href="/journey" onClick={(e) => handleNavClick(e, '/journey')}>
-                  <ArrowRight className="h-5 w-5" />
+                  <Milestone className="ml-2 h-4 w-4" />
+                  <ChevronRight className="h-5 w-5" />
                   <span className="sr-only">Life Journey</span>
                 </Link>
               </Button>
