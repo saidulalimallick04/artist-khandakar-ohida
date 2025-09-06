@@ -37,8 +37,6 @@ export function Header() {
   const isMobile = useIsMobile();
   const [isClient, setIsClient] = useState(false);
 
-  const isJourneyPage = pathname === '/journey';
-
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -92,7 +90,7 @@ export function Header() {
         </nav>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          {isClient && isMobile && !isJourneyPage && (
+          {isClient && isMobile && (
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
