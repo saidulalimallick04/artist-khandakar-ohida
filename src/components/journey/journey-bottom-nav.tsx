@@ -28,7 +28,8 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
 
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2">
+      <nav className="fixed bottom-4 left-1/2 z-50 flex w-full max-w-sm -translate-x-1/2 items-center justify-between gap-2 px-4">
+        {/* Left-side buttons */}
         <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
             <Tooltip>
               <TooltipTrigger asChild>
@@ -39,19 +40,6 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>Return</p>
-              </TooltipContent>
-            </Tooltip>
-        </div>
-        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
-             <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" onClick={onSortToggle}>
-                    <ArrowUpDown className="h-5 w-5" />
-                    <span className="sr-only">Toggle Sort Order</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Sort {sortOrder === 'asc' ? 'Descending' : 'Ascending'}</p>
               </TooltipContent>
             </Tooltip>
             <Tooltip>
@@ -74,6 +62,21 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>Scroll to Bottom</p>
+              </TooltipContent>
+            </Tooltip>
+        </div>
+
+        {/* Right-side button */}
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
+             <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" onClick={onSortToggle}>
+                    <ArrowUpDown className="h-5 w-5" />
+                    <span className="sr-only">Toggle Sort Order</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Sort {sortOrder === 'asc' ? 'Descending' : 'Ascending'}</p>
               </TooltipContent>
             </Tooltip>
         </div>
