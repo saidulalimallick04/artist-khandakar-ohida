@@ -29,7 +29,7 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
   return (
     <TooltipProvider>
       <nav className="fixed bottom-4 left-1/2 z-50 flex w-full max-w-sm -translate-x-1/2 items-center justify-between gap-2 px-4">
-        {/* Left-side buttons */}
+        {/* Section 1: Return */}
         <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
             <Tooltip>
               <TooltipTrigger asChild>
@@ -42,6 +42,10 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
                 <p>Return</p>
               </TooltipContent>
             </Tooltip>
+        </div>
+
+        {/* Section 2: Others */}
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon" onClick={() => scrollTo('top')}>
@@ -66,7 +70,7 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
             </Tooltip>
         </div>
 
-        {/* Right-side button */}
+        {/* Section 3: Order */}
         <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
              <Tooltip>
               <TooltipTrigger asChild>
@@ -76,7 +80,7 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>Sort {sortOrder === 'asc' ? 'Descending' : 'Ascending'}</p>
+                <p>Sort by Year ({sortOrder === 'asc' ? 'Newest First' : 'Oldest First'})</p>
               </TooltipContent>
             </Tooltip>
         </div>
