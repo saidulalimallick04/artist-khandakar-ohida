@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { Socials } from './socials';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Briefcase, Milestone } from 'lucide-react';
 import { heroData } from '@/lib/data';
 
 export function Hero() {
@@ -32,6 +32,27 @@ export function Hero() {
           className="object-cover opacity-10 blur-md"
         />
       </div>
+
+      <div className="absolute top-8 left-4 md:left-8">
+         <Button asChild className="group" variant="outline">
+            <Link href="/studio">
+                <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                <Briefcase className="mr-2 h-4 w-4" />
+                KO Studio
+            </Link>
+        </Button>
+      </div>
+
+       <div className="absolute top-8 right-4 md:right-8">
+         <Button asChild className="group" variant="outline">
+            <Link href="/journey">
+                Life Journey
+                <Milestone className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+        </Button>
+      </div>
+
       <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div
           className={cn(
