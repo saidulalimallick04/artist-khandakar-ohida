@@ -15,7 +15,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Work() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredWork, setFilteredWork] = useState<WorkItem[]>(workData);
+  const [filteredWork, setFilteredWork] = useState<WorkItem[]>(workData.items);
   const [isPending, startTransition] = useTransition();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const isMobile = useIsMobile();
@@ -23,13 +23,13 @@ export function Work() {
   useEffect(() => {
     startTransition(() => {
       if (searchTerm.trim() === '') {
-        setFilteredWork(workData);
+        setFilteredWork(workData.items);
         return;
       }
       
       const lowercasedKeywords = searchTerm.toLowerCase().trim().split(/\s+/);
 
-      const results = workData.filter((item) => {
+      const results = workData.items.filter((item) => {
         const itemText = [
           item.title,
           item.description,
@@ -105,9 +105,9 @@ export function Work() {
     <section id="work">
       <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
-          <h2 className="font-headline text-3xl md:text-4xl text-center">Featured Work</h2>
+          <h2 className="font-headline text-3xl md:text-4xl text-center">{workData.title}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-            A collection of projects and artwork. Use the search below to filter by keywords like &quot;digital painting&quot; or &quot;animation&quot;.
+            {workData.subtitle}
           </p>
         </ScrollAnimator>
 

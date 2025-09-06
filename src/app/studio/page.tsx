@@ -17,7 +17,7 @@ export default function StudioPage() {
         <section id="top" className="relative flex h-svh w-full items-center justify-center pt-16">
           <div className="absolute inset-0 -z-10 bg-black">
             <Image
-              src={studioData.imageUrl}
+              src={studioData.hero.imageUrl}
               alt="Studio Background"
               fill
               data-ai-hint="artist studio dark"
@@ -26,10 +26,10 @@ export default function StudioPage() {
           </div>
           <div className="container mx-auto max-w-5xl px-4 text-center text-white">
             <h1 className="font-headline text-5xl md:text-7xl">
-              {studioData.title}
+              {studioData.hero.title}
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300">
-              {studioData.description1}
+              {studioData.hero.description1}
             </p>
           </div>
         </section>
@@ -50,9 +50,9 @@ export default function StudioPage() {
         </section>
         
         <section className="container mx-auto max-w-5xl px-4 py-16 md:py-24 text-center">
-            <h2 className="font-headline text-3xl md:text-4xl">The Creative Process</h2>
+            <h2 className="font-headline text-3xl md:text-4xl">{studioData.creativeProcess.title}</h2>
              <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
-                {studioData.description2}
+                {studioData.creativeProcess.description}
             </p>
         </section>
 

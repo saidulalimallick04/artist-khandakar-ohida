@@ -12,20 +12,20 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 export function Events() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredEvents, setFilteredEvents] = useState<EventItem[]>(eventsData);
+  const [filteredEvents, setFilteredEvents] = useState<EventItem[]>(eventsData.items);
   const [isPending, startTransition] = useTransition();
   const isMobile = useIsMobile();
 
   useEffect(() => {
     startTransition(() => {
       if (searchTerm.trim() === '') {
-        setFilteredEvents(eventsData);
+        setFilteredEvents(eventsData.items);
         return;
       }
 
       const lowercasedKeywords = searchTerm.toLowerCase().trim().split(/\s+/);
 
-      const results = eventsData.filter((item) => {
+      const results = eventsData.items.filter((item) => {
         const itemText = [
           item.title,
           item.description,
@@ -91,9 +91,9 @@ export function Events() {
     <section id="events">
        <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
-          <h2 className="font-headline text-3xl md:text-4xl text-center">Exhibitions & Events</h2>
+          <h2 className="font-headline text-3xl md:text-4xl text-center">{eventsData.title}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-            A log of past exhibitions, speaking engagements, and other notable events.
+            {eventsData.subtitle}
           </p>
         </ScrollAnimator>
 

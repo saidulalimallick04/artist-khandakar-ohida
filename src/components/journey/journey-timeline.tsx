@@ -2,7 +2,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { type JourneyItem } from "@/lib/data";
+import { journeyData, type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "@/components/scroll-animator";
 import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -71,9 +71,9 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
   return (
     <section id="journey" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
        <ScrollAnimator>
-        <h2 id="top" className="font-headline text-3xl md:text-4xl text-center">My Life Journey</h2>
+        <h2 id="top" className="font-headline text-3xl md:text-4xl text-center">{journeyData.title}</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-          A timeline of my personal and professional milestones.
+          {journeyData.subtitle}
         </p>
       </ScrollAnimator>
       <div className="mt-12 relative">

@@ -14,7 +14,7 @@ export function Press() {
   const isMobile = useIsMobile();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
-  const pressItems = pressData.map((item, index) => (
+  const pressItems = pressData.items.map((item, index) => (
     <div key={index} className="w-full h-full md:w-auto flex-shrink-0">
       <ScrollAnimator delay={100 * index} className="h-full w-full">
         <Card className="group overflow-hidden h-full flex flex-col transition-shadow hover:shadow-lg">
@@ -46,16 +46,16 @@ export function Press() {
     <section id="press">
       <div className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
         <ScrollAnimator>
-          <h2 className="font-headline text-3xl md:text-4xl text-center">Press & Recognition</h2>
+          <h2 className="font-headline text-3xl md:text-4xl text-center">{pressData.title}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-            A selection of awards, publications, and mentions.
+            {pressData.subtitle}
           </p>
         </ScrollAnimator>
       </div>
 
       {isMobile ? (
-         <HorizontalScroll className="mt-4" items={pressData}>
-            {pressData.map((item, index) => (
+         <HorizontalScroll className="mt-4" items={pressData.items}>
+            {pressData.items.map((item, index) => (
               <div key={index} className="w-[80vw] sm:w-[45vw] flex-shrink-0">
                 {pressItems[index]}
               </div>

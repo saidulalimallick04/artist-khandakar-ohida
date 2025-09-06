@@ -25,13 +25,13 @@ export function Interests() {
   return (
     <section id="interests" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
        <ScrollAnimator>
-        <h2 className="font-headline text-3xl md:text-4xl text-center">Hobbies & Interests</h2>
+        <h2 className="font-headline text-3xl md:text-4xl text-center">{hobbiesData.title}</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-          When I'm not in the studio, you can find me exploring new passions and seeking inspiration.
+          {hobbiesData.subtitle}
         </p>
       </ScrollAnimator>
       <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-        {hobbiesData.map((hobby, index) => (
+        {hobbiesData.items.map((hobby, index) => (
           <ScrollAnimator key={hobby.name} delay={100 * (index + 1)}>
              <Card className="text-center p-6 h-full flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
                 <HobbyIcon iconName={hobby.icon} />

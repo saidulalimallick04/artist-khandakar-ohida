@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { profileLinksData } from '@/lib/data';
 import { ScrollAnimator } from '@/components/scroll-animator';
@@ -10,13 +9,13 @@ export function PublicProfile() {
   return (
     <section id="profiles" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
       <ScrollAnimator>
-        <h2 className="font-headline text-3xl md:text-4xl text-center">Public Profiles</h2>
+        <h2 className="font-headline text-3xl md:text-4xl text-center">{profileLinksData.title}</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-          Explore my work and career in more detail on these official platforms.
+          {profileLinksData.subtitle}
         </p>
       </ScrollAnimator>
       <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {profileLinksData.map((item, index) => (
+        {profileLinksData.items.map((item, index) => (
           <ScrollAnimator key={item.name} delay={100 * (index + 1)}>
             <Card className="h-full flex flex-col">
               <CardHeader>

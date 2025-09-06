@@ -18,9 +18,9 @@ export function Education() {
   return (
     <section id="education" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
       <ScrollAnimator>
-        <h2 className="font-headline text-3xl md:text-4xl text-center">Education</h2>
+        <h2 className="font-headline text-3xl md:text-4xl text-center">{educationData.title}</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">
-          My academic background and key qualifications.
+          {educationData.subtitle}
         </p>
       </ScrollAnimator>
       <div className="mt-12 relative">
@@ -28,7 +28,7 @@ export function Education() {
         <div className="absolute left-4 w-0.5 h-full bg-border/70 md:left-1/2 md:-translate-x-1/2" />
 
         <div className="space-y-12">
-          {educationData.map((edu, index) => (
+          {educationData.items.map((edu, index) => (
             <ScrollAnimator key={index} delay={100 * (index + 1)}>
               <div className="relative">
                 {/* Timeline Dot */}
