@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
+  { href: "/", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#studio", label: "Studio" },
   { href: "#work", label: "Work" },
@@ -32,29 +33,42 @@ const navLinks = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const isMobile = useIsMobile();
   const [isClient, setIsClient] = useState(false);
+
+  const isJourneyPage = pathname === '/journey';
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
 
     if (href.startsWith('/')) {
-      router.push(href);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      if (pathname === href) {
+        // If on the same page, scroll to top
+         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
+        router.push(href);
+      }
+    } else {
+       if (pathname !== '/') {
         router.push('/' + href);
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
+
+  const desktopNavs = navLinks.filter(link => link.href !== '/');
+  const mobileNavs = navLinks.filter(link => link.href.startsWith('/') || link.href.startsWith('#'));
+
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transition-all duration-300">
@@ -63,7 +77,7 @@ export function Header() {
           Khandakar Ohida
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
+          {desktopNavs.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -78,7 +92,7 @@ export function Header() {
         </nav>
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          {isClient && isMobile && (
+          {isClient && isMobile && !isJourneyPage && (
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -97,7 +111,7 @@ export function Header() {
                       </SheetClose>
                   </SheetHeader>
                 <nav className="mt-8 flex flex-col gap-6 px-4">
-                  {navLinks.map((link) => (
+                  {mobileNavs.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <Link
                         href={link.href}
