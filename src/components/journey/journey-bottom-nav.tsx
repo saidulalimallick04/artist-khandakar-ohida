@@ -80,7 +80,7 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>Sort by Year ({sortOrder === 'asc' ? 'Newest First' : 'Oldest First'})</p>
+                <p>Sort by Year ({sortOrder === 'asc' ? 'Oldest First' : 'Newest First'})</p>
               </TooltipContent>
             </Tooltip>
         </div>

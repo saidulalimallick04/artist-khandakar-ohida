@@ -12,13 +12,16 @@ export default function JourneyPage() {
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
 
   const toggleSortOrder = () => {
-    setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc');
+    setSortOrder(prev => (prev === 'desc' ? 'asc' : 'desc'));
   };
 
   const sortedJourneyData = [...journeyData.items].sort((a, b) => {
     const yearA = parseInt(a.year, 10);
     const yearB = parseInt(b.year, 10);
-    return sortOrder === 'asc' ? yearA - yearB : yearB - yearA;
+    if (sortOrder === 'asc') {
+      return yearA - yearB; // Oldest to newest
+    }
+    return yearB - yearA; // Newest to oldest
   });
 
   return (
