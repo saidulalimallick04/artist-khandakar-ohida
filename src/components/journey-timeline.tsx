@@ -5,25 +5,50 @@ import { useMemo } from "react";
 import { type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
 import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+const iconColorClasses: Record<string, string> = {
+    'GraduationCap': 'text-blue-500',
+    'Briefcase': 'text-green-500',
+    'Building': 'text-orange-500',
+    'Palette': 'text-red-500',
+    'Plane': 'text-indigo-500',
+    'Award': 'text-yellow-500',
+    'Film': 'text-purple-500',
+    'Milestone': 'text-gray-500',
+  };
+  
+const borderColorClasses: Record<string, string> = {
+'GraduationCap': 'border-blue-500',
+'Briefcase': 'border-green-500',
+'Building': 'border-orange-500',
+'Palette': 'border-red-500',
+'Plane': 'border-indigo-500',
+'Award': 'border-yellow-500',
+'Film': 'border-purple-500',
+'Milestone': 'border-gray-500',
+};
+
 
 const JourneyIcon = ({ iconName, className }: { iconName: string, className?: string }) => {
+  const iconClass = cn(iconColorClasses[iconName] || 'text-primary', className);
   switch (iconName) {
     case 'GraduationCap':
-      return <GraduationCap className={className} />;
+      return <GraduationCap className={iconClass} />;
     case 'Briefcase':
-      return <Briefcase className={className} />;
+      return <Briefcase className={iconClass} />;
     case 'Building':
-        return <Building className={className} />;
+        return <Building className={iconClass} />;
     case 'Palette':
-        return <Palette className={className} />;
+        return <Palette className={iconClass} />;
     case 'Plane':
-        return <Plane className={className} />;
+        return <Plane className={iconClass} />;
     case 'Award':
-        return <Award className={className} />;
+        return <Award className={iconClass} />;
     case 'Film':
-        return <Film className={className} />;
+        return <Film className={iconClass} />;
     default:
-      return <Milestone className={className} />;
+      return <Milestone className={iconClass} />;
   }
 };
 
@@ -55,11 +80,16 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
         <div className="absolute left-4 w-0.5 h-full bg-border/70 md:left-1/2 md:-translate-x-1/2" />
 
         <div className="space-y-12">
-          {years.map((year, index) => (
+          {years.map((year, index) => {
+            const firstItemIcon = groupedItems[year][0].icon;
+            return (
             <ScrollAnimator key={year} delay={100 * (index + 1)}>
               <div className="relative">
-                <div className="absolute top-1 left-4 w-9 h-9 bg-background border-2 border-primary rounded-full -translate-x-1/2 flex items-center justify-center md:left-1/2">
-                   <JourneyIcon iconName={groupedItems[year][0].icon} className="w-5 h-5 text-primary" />
+                <div className={cn(
+                    "absolute top-1 left-4 w-9 h-9 bg-background border-2 rounded-full -translate-x-1/2 flex items-center justify-center md:left-1/2",
+                    borderColorClasses[firstItemIcon] || 'border-primary'
+                    )}>
+                   <JourneyIcon iconName={firstItemIcon} className="w-5 h-5" />
                 </div>
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
@@ -77,7 +107,10 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                       <div className="space-y-4">
                         {groupedItems[year].map((item, itemIndex) => (
                             <div key={item.title + itemIndex}>
-                                <h3 className="font-headline text-xl mt-2">{item.title}</h3>
+                                <div className="flex items-center gap-3">
+                                    <JourneyIcon iconName={item.icon} className="w-4 h-4 hidden md:block" />
+                                    <h3 className="font-headline text-xl mt-2">{item.title}</h3>
+                                </div>
                                 <p className="text-muted-foreground mt-1">{item.description}</p>
                             </div>
                         ))}
@@ -87,7 +120,7 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                 </div>
               </div>
             </ScrollAnimator>
-          ))}
+          )})}
         </div>
       </div>
       <div id="bottom" />
