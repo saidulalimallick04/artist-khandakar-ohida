@@ -18,7 +18,6 @@ import {
   Link2,
   Heart,
   Briefcase,
-  Map,
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -36,7 +35,6 @@ const desktopNavLinks = [
   { id: "#interests", label: "Interests", icon: Heart },
   { id: "#events", label: "Events", icon: Calendar },
   { id: "#profiles", label: "Profiles", icon: Link2 },
-  { id: "/journey", label: "Life Journey", icon: Map },
 ];
 
 const mobileNavLinks = [
@@ -44,7 +42,6 @@ const mobileNavLinks = [
   { id: "#work", label: "Work", icon: Palette },
   { id: "#events", label: "Events", icon: Calendar },
   { id: "#profiles", label: "Profiles", icon: Link2 },
-  { id: "/journey", label: "Life Journey", icon: Map },
 ];
 
 

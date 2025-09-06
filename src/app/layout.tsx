@@ -3,6 +3,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { PageTransition } from '@/components/page-transition';
+import { SideNav } from '@/components/side-nav';
 
 export const metadata: Metadata = {
   title: 'Khandakar Ohida',
@@ -27,6 +28,7 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
+          <SideNav />
           <PageTransition>
             {children}
           </PageTransition>
