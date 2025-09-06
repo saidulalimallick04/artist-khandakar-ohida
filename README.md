@@ -84,3 +84,17 @@ The project follows a standard Next.js App Router structure:
 ## Customization
 
 All the text, images, and data points for the portfolio sections (Work, Events, Journey, etc.) are centralized in `src/lib/data.ts`. To customize the content of the website, you can directly edit the data arrays in this file. The application will automatically reflect the changes.
+
+---
+---
+## 👨‍💻 Author
+
+|Profile                                                                                                   | Member Name                   | Role                                              | GitHub                                                            | LinkedIn                                                          |
+|----------------------------------------------------------------------------------------------------------|-------------------------------|---------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
+| [![Sami](https://github.com/saidulalimallick04.png?size=75)](https://github.com/saidulalimallick04)      | Saidul Ali Mallick (Sami)     | Backend Developer & AIML Engineer & Team Lead     | [@saidulalimallick04](https://github.com/saidulalimallick04)      | [@saidulalimallick04](https://linkedin.com/in/saidulalimallick04) |
+
+> ❤️ I believe in building impact, not just writing code.
+
+
+---
+---
