@@ -8,7 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ArrowLeft, ArrowUp, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowUp, ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function StudioBottomNav() {
@@ -25,17 +25,6 @@ export function StudioBottomNav() {
     <TooltipProvider>
       <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
         <div className="flex items-center gap-2">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" onClick={() => router.back()}>
-                    <ArrowLeft className="h-5 w-5" />
-                    <span className="sr-only">Return</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Return</p>
-              </TooltipContent>
-            </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button variant="ghost" size="icon" onClick={() => scrollTo('top')}>
@@ -56,6 +45,17 @@ export function StudioBottomNav() {
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>Scroll to Bottom</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" onClick={() => router.back()}>
+                    <ArrowRight className="h-5 w-5" />
+                    <span className="sr-only">Return</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>Return</p>
               </TooltipContent>
             </Tooltip>
         </div>

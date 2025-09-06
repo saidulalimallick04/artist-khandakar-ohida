@@ -21,7 +21,7 @@ const variants = {
     transition: { type: 'tween', ease: 'easeInOut', duration: 0.4 }
   },
   exit: (direction: Direction) => ({
-    x: direction === 'right' ? '-100%' : direction === 'left' ? '-100%' : '0',
+    x: direction === 'right' ? '-100%' : direction === 'left' ? '100%' : '0',
     opacity: 0,
     position: 'absolute',
     width: '100%',
