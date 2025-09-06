@@ -13,13 +13,13 @@ export const pressData = {
             title: 'Jameel Prize Winner',
             description: 'Winner of the prestigious Jameel Prize for contemporary art, for the film "Dream Your Museum".',
             year: '2024',
-            imageUrl: 'https://images.unsplash.com/photo-1518977877150-35db786d223a?q=80&w=1326&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            imageUrl: 'https://res.cloudinary.com/dcfurdz3u/image/upload/v1757143601/jameel-prize-winner_xqwksq.jpg',
         },
         {
             title: 'Inlaks Fine Arts Award',
             description: 'Recipient of a significant award supporting innovative contemporary artists in India.',
             year: '2023',
-            imageUrl: 'https://images.unsplash.com/photo-1494935362342-566c6d6e75b5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            imageUrl: 'https://res.cloudinary.com/dcfurdz3u/image/upload/v1757143601/inlaks-fine-arts-award_zvm1de.jpg',
         },
         {
             title: 'Generator Co-operative Art Fund',
