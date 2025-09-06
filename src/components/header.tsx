@@ -13,14 +13,14 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#studio", label: "Studio" },
+  { href: "/studio", label: "Studio" },
   { href: "#work", label: "Work" },
   { href: "#press", label: "Press" },
   { href: "#education", label: "Education" },
@@ -64,9 +64,15 @@ export function Header() {
       }
     }
   };
+  
+  const currentNavLinks = navLinks.filter(link => {
+    if (pathname === '/journey') return ['/', '/journey'].includes(link.href);
+    if (pathname === '/studio') return ['/', '/studio'].includes(link.href);
+    return true;
+  });
 
-  const desktopNavs = navLinks.filter(link => link.href !== '/' && link.href !== '/journey');
-  const mobileNavs = navLinks.filter(link => link.href.startsWith('/') || link.href.startsWith('#'));
+
+  const desktopNavs = navLinks.filter(link => link.href !== '/' && link.href !== '/journey' && link.href !== '/studio');
 
 
   return (
@@ -99,18 +105,12 @@ export function Header() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[280px] p-0">
+              <SheetContent side="right" className="w-[280px]">
                   <SheetHeader className="flex flex-row justify-between items-center p-4 border-b">
                      <SheetTitle className="font-headline text-lg">Menu</SheetTitle>
-                      <SheetClose asChild>
-                           <Button variant="ghost" size="icon">
-                              <X className="h-6 w-6" />
-                              <span className="sr-only">Close menu</span>
-                          </Button>
-                      </SheetClose>
                   </SheetHeader>
                 <nav className="mt-8 flex flex-col gap-6 px-4">
-                  {mobileNavs.map((link) => (
+                  {currentNavLinks.map((link) => (
                     <SheetClose asChild key={link.href}>
                       <Link
                         href={link.href}

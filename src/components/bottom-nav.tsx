@@ -29,7 +29,7 @@ import { useRouter } from "next/navigation";
 const desktopNavLinks = [
   { id: "#home", label: "Home", icon: Home },
   { id: "#about", label: "About", icon: User },
-  { id: "#studio", label: "Studio", icon: Briefcase },
+  { id: "/studio", label: "Studio", icon: Briefcase },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#press", label: "Press", icon: Newspaper },
   { id: "#education", label: "Education", icon: BookOpen },
