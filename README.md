@@ -1,4 +1,4 @@
-# Chromatic Canvas - A Portfolio for Khandakar Ohida
+# Ohida's Canvas - A Portfolio for Khandakar Ohida
 
 This is a personal portfolio website for the visual artist and filmmaker, Khandakar Ohida. Built with a modern tech stack, it showcases her work, journey, and artistic practice in a clean, interactive, and visually engaging single-page application, with a dedicated page for her life journey.
 

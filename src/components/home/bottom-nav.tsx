@@ -51,16 +51,18 @@ const mobileNavLinks = [
 export function BottomNav() {
     const isMobile = useIsMobile();
     const [activeSection, setActiveSection] = useState("#home");
-    const [isClient, setIsClient] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
-        setIsClient(true);
+        setIsMounted(true);
     }, []);
 
     const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
 
     useEffect(() => {
+        if (!isMounted) return;
+
         const sectionIds = navLinks.map(link => link.id.substring(1)).filter(id => !id.startsWith('/'));
         const observer = new IntersectionObserver(
             (entries) => {
@@ -89,7 +91,7 @@ export function BottomNav() {
                 }
             });
         };
-    }, [navLinks]);
+    }, [isMounted, navLinks]);
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
@@ -106,8 +108,8 @@ export function BottomNav() {
         }
     };
     
-  if (!isClient) {
-    return null; // Don't render on the server to avoid hydration mismatch
+  if (!isMounted) {
+    return null; // Don't render on the server or until client-side check is done
   }
 
   return (
