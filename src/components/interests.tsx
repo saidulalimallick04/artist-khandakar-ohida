@@ -23,7 +23,7 @@ const HobbyIcon = ({ iconName }: { iconName: string }) => {
 
 export function Interests() {
   return (
-    <section id="hobbies" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
+    <section id="interests" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
        <ScrollAnimator>
         <h2 className="font-headline text-3xl md:text-4xl text-center">Hobbies & Interests</h2>
         <p className="mt-4 max-w-2xl mx-auto text-center text-muted-foreground">

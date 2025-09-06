@@ -4,7 +4,7 @@ import { About } from '@/components/about';
 import { Studio } from '@/components/studio';
 import { Work } from '@/components/work';
 import { Education } from '@/components/education';
-import { Hobbies } from '@/components/hobbies';
+import { Interests } from '@/components/interests';
 import { Events } from '@/components/events';
 import { Footer } from '@/components/footer';
 import { Press } from '@/components/press';
@@ -30,7 +30,7 @@ export default function Home() {
         <SectionSeparator />
         <Education />
         <SectionSeparator />
-        <Hobbies />
+        <Interests />
         <SectionSeparator />
         <Events />
         <SectionSeparator />

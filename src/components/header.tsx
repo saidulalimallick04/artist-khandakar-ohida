@@ -24,6 +24,7 @@ const navLinks = [
   { href: "#work", label: "Work" },
   { href: "#press", label: "Press" },
   { href: "#education", label: "Education" },
+  { href: "#interests", label: "Interests" },
   { href: "#events", label: "Events" },
   { href: "#profiles", label: "Profiles" },
   { href: "/journey", label: "Life Journey" },
@@ -64,7 +65,7 @@ export function Header() {
     }
   };
 
-  const desktopNavs = navLinks.filter(link => link.href !== '/');
+  const desktopNavs = navLinks.filter(link => link.href !== '/' && link.href !== '/journey');
   const mobileNavs = navLinks.filter(link => link.href.startsWith('/') || link.href.startsWith('#'));
 
 

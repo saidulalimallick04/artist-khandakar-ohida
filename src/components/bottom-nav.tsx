@@ -33,7 +33,7 @@ const desktopNavLinks = [
   { id: "#work", label: "Work", icon: Palette },
   { id: "#press", label: "Press", icon: Newspaper },
   { id: "#education", label: "Education", icon: BookOpen },
-  { id: "#hobbies", label: "Hobbies", icon: Heart },
+  { id: "#interests", label: "Interests", icon: Heart },
   { id: "#events", label: "Events", icon: Calendar },
   { id: "#profiles", label: "Profiles", icon: Link2 },
   { id: "/journey", label: "Life Journey", icon: Map },
