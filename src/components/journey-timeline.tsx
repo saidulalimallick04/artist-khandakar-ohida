@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useMemo } from "react";
 import { type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "./scroll-animator";
 import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film } from "lucide-react";
@@ -26,8 +27,22 @@ const JourneyIcon = ({ iconName, className }: { iconName: string, className?: st
   }
 };
 
+const groupItemsByYear = (items: JourneyItem[]): Record<string, JourneyItem[]> => {
+  return items.reduce((acc, item) => {
+    const year = item.year;
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(item);
+    return acc;
+  }, {} as Record<string, JourneyItem[]>);
+};
 
 export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
+
+  const groupedItems = useMemo(() => groupItemsByYear(items), [items]);
+  const years = Object.keys(groupedItems);
+
   return (
     <section id="journey" className="container mx-auto max-w-5xl px-4 py-16 md:py-24">
        <ScrollAnimator>
@@ -40,11 +55,11 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
         <div className="absolute left-4 w-0.5 h-full bg-border/70 md:left-1/2 md:-translate-x-1/2" />
 
         <div className="space-y-12">
-          {items.map((item, index) => (
-            <ScrollAnimator key={item.title + item.year} delay={100 * (index + 1)}>
+          {years.map((year, index) => (
+            <ScrollAnimator key={year} delay={100 * (index + 1)}>
               <div className="relative">
                 <div className="absolute top-1 left-4 w-9 h-9 bg-background border-2 border-primary rounded-full -translate-x-1/2 flex items-center justify-center md:left-1/2">
-                   <JourneyIcon iconName={item.icon} className="w-5 h-5 text-primary" />
+                   <JourneyIcon iconName={groupedItems[year][0].icon} className="w-5 h-5 text-primary" />
                 </div>
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
@@ -54,13 +69,19 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                     }`}
                   >
                     <div
-                      className={`p-6 rounded-lg border bg-card text-card-foreground shadow-sm ${
+                      className={`p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6 ${
                         index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                       }`}
                     >
-                      <p className="font-semibold text-primary">{item.year}</p>
-                      <h3 className="font-headline text-xl mt-2">{item.title}</h3>
-                      <p className="text-muted-foreground mt-1">{item.description}</p>
+                      <p className={`font-semibold text-primary text-2xl ${ index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>{year}</p>
+                      <div className="space-y-4">
+                        {groupedItems[year].map((item, itemIndex) => (
+                            <div key={item.title + itemIndex}>
+                                <h3 className="font-headline text-xl mt-2">{item.title}</h3>
+                                <p className="text-muted-foreground mt-1">{item.description}</p>
+                            </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
