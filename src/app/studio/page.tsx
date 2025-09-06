@@ -6,17 +6,15 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Marquee } from '@/components/marquee';
 import { studioData } from '@/lib/data';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { StudioBottomNav } from '@/components/studio-bottom-nav';
 
 export default function StudioPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <section className="relative flex h-svh w-full items-center justify-center">
+        <section id="top" className="relative flex h-svh w-full items-center justify-center pt-16">
           <div className="absolute inset-0 -z-10 bg-black">
             <Image
               src={studioData.imageUrl}
@@ -33,12 +31,6 @@ export default function StudioPage() {
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300">
               {studioData.description1}
             </p>
-            <Button asChild variant="outline" className="mt-8 bg-transparent text-white hover:bg-white hover:text-black">
-                <Link href="/">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Return Home
-                </Link>
-            </Button>
           </div>
         </section>
 
@@ -64,8 +56,9 @@ export default function StudioPage() {
             </p>
         </section>
 
-
+        <div id="bottom" />
       </main>
+      <StudioBottomNav />
       <Footer />
     </div>
   );
