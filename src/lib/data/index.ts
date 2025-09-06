@@ -9,4 +9,5 @@ export * from './press';
 export * from './profiles';
 export * from './socials';
 export * from './studio';
+export * from './studio-section';
 export * from './work';
