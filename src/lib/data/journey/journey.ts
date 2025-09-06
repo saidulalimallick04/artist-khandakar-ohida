@@ -1,3 +1,4 @@
+
 export type JourneyItem = {
     year: string;
     title: string;
@@ -15,7 +16,7 @@ export const journeyData = {
         "year": "1993",
         "title": "Birth",
         "description": "Born in the rural village of Kelepara, located in the Hooghly district of West Bengal, India. Her early experiences deeply shaped her artistic perspective.",
-        "icon": "Baby",
+        "icon": "Home",
         "type": "Personal",
         "location": "Hooghly, India"
       },
@@ -39,7 +40,7 @@ export const journeyData = {
         "year": "2016",
         "title": "Graduated: BFA in Painting",
         "description": "Completed Bachelor of Fine Arts from Govt. College of Art & Craft, Kolkata, laying the foundation for her artistic practice.",
-        "icon": "GraduationCap",
+        "icon": "University",
         "type": "Education",
         "location": "Kolkata, India"
       },
@@ -55,7 +56,7 @@ export const journeyData = {
         "year": "2019",
         "title": "Next Step Artist Residency",
         "description": "Participated in the Next Step Artist Residency program at 1Shanthi Road, Bangalore, gaining valuable experience and exposure.",
-        "icon": "Brush",
+        "icon": "Briefcase",
         "type": "Residency",
         "location": "Bangalore, India"
       },
@@ -63,7 +64,7 @@ export const journeyData = {
         "year": "2022",
         "title": "Film Screened at Berlin Biennale",
         "description": "My film 'Dream Your Museum' was screened at the 12th Berlin Biennale for Contemporary Art, marking a significant milestone in my career.",
-        "icon": "FilmCamera",
+        "icon": "Film",
         "type": "Exhibition",
         "location": "Berlin, Germany"
       },
@@ -71,7 +72,7 @@ export const journeyData = {
         "year": "2023",
         "title": "Recipient of Inlaks Fine Arts Award",
         "description": "Received the Inlaks Fine Arts Award, an important recognition of my work and potential.",
-        "icon": "Trophy",
+        "icon": "Award",
         "type": "Award",
         "location": "India"
       },

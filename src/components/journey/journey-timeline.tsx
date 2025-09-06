@@ -4,7 +4,7 @@
 import { useMemo } from "react";
 import { journeyData, type JourneyItem } from "@/lib/data";
 import { ScrollAnimator } from "@/components/scroll-animator";
-import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film, Baby, Book, Brush, Trophy } from "lucide-react";
+import { Briefcase, Building, GraduationCap, Milestone, Palette, Plane, Award, Film, Baby, Book, Brush, Trophy, Home, University } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconColorClasses: Record<string, string> = {
@@ -21,6 +21,8 @@ const iconColorClasses: Record<string, string> = {
     'Baby': 'text-pink-500',
     'Book': 'text-cyan-500',
     'Brush': 'text-teal-500',
+    'Home': 'text-amber-600',
+    'University': 'text-blue-600',
   };
   
 const borderColorClasses: Record<string, string> = {
@@ -37,6 +39,8 @@ const borderColorClasses: Record<string, string> = {
     'Baby': 'border-pink-500',
     'Book': 'border-cyan-500',
     'Brush': 'border-teal-500',
+    'Home': 'border-amber-600',
+    'University': 'border-blue-600',
 };
 
 
@@ -67,6 +71,10 @@ const JourneyIcon = ({ iconName, className }: { iconName: string, className?: st
         return <Trophy className={iconClass} />;
     case 'FilmCamera':
         return <Film className={iconClass} />;
+    case 'Home':
+        return <Home className={iconClass} />;
+    case 'University':
+        return <University className={iconClass} />;
     default:
       return <Milestone className={iconClass} />;
   }
@@ -116,15 +124,14 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
 
                 <div className="md:grid md:grid-cols-2 md:gap-8 items-start">
                   <div
-                    className={cn("pl-16 md:pl-0", {
-                        "md:pr-8": !isRightSide,
-                        "md:pl-8 md:col-start-2": isRightSide,
+                    className={cn("pl-16 text-left md:pl-0", {
+                        "md:pr-8 md:text-right": !isRightSide,
+                        "md:pl-8 md:col-start-2 md:text-left": isRightSide,
                     })}
                   >
                     <div
                       className={cn(
-                          "p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6",
-                          isRightSide ? "md:text-left" : "md:text-right"
+                          "p-6 rounded-lg border bg-card text-card-foreground shadow-sm space-y-6"
                       )}
                     >
                       <p className="font-semibold text-primary text-2xl md:text-center">{year}</p>
@@ -133,9 +140,9 @@ export function JourneyTimeline({ items }: { items: JourneyItem[] }) {
                             <div key={item.title + itemIndex}>
                                 <div className={cn(
                                     "flex items-center gap-3",
-                                    isRightSide ? 'md:justify-start' : 'md:justify-end'
+                                    isRightSide ? "md:justify-start" : "md:justify-end md:flex-row-reverse"
                                 )}>
-                                    <JourneyIcon iconName={item.icon} className="w-4 h-4" />
+                                    <JourneyIcon iconName={item.icon} className="w-4 h-4 flex-shrink-0" />
                                     <h3 className="font-headline text-xl mt-2">{item.title}</h3>
                                 </div>
                                 <p className="text-muted-foreground mt-1">{item.description}</p>
