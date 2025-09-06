@@ -53,7 +53,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 mt-16 md:mt-0">
         <div
           className={cn(
             'flex flex-col items-center text-center md:items-start md:text-left transition-all duration-1000 ease-out',

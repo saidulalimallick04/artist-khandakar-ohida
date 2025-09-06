@@ -51,7 +51,12 @@ const mobileNavLinks = [
 export function BottomNav() {
     const isMobile = useIsMobile();
     const [activeSection, setActiveSection] = useState("#home");
+    const [isClient, setIsClient] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     const navLinks = isMobile ? mobileNavLinks : desktopNavLinks;
 
@@ -100,6 +105,10 @@ export function BottomNav() {
             }
         }
     };
+    
+  if (!isClient) {
+    return null; // Don't render on the server to avoid hydration mismatch
+  }
 
   return (
     <TooltipProvider>

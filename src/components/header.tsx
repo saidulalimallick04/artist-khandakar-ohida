@@ -73,7 +73,7 @@ export function Header() {
   const isSecondaryPage = pathname === '/journey' || pathname === '/studio';
   
   const currentNavLinks = isSecondaryPage ? pageNavLinks : mainNavLinks;
-  const desktopNavs = isSecondaryPage ? pageNavLinks.filter(l => l.href !== pathname) : mainNavLinks.filter(link => !['/', '/journey', '/studio', '#contact', '#about', '#interests'].includes(link.href));
+  const desktopNavs = isSecondaryPage ? pageNavLinks.filter(l => l.href !== pathname) : mainNavLinks.filter(link => !['/', '/journey', '/studio', '#about', '#interests'].includes(link.href));
 
 
   return (
