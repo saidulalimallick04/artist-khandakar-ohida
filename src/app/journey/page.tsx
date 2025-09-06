@@ -18,7 +18,7 @@ export default function JourneyPage() {
   const sortedJourneyData = [...journeyData].sort((a, b) => {
     const yearA = parseInt(a.year, 10);
     const yearB = parseInt(b.year, 10);
-    return sortOrder === 'asc' ? yearA - yearB : yearB - a.year;
+    return sortOrder === 'asc' ? yearA - yearB : yearB - yearA;
   });
 
   return (
