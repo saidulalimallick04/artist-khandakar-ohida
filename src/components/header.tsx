@@ -17,7 +17,7 @@ import { Menu } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const navLinks = [
+const mainNavLinks = [
   { href: "/", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#studio", label: "Studio" },
@@ -29,6 +29,12 @@ const navLinks = [
   { href: "#profiles", label: "Profiles" },
   { href: "/journey", label: "Life Journey" },
   { href: "#contact", label: "Contact" },
+];
+
+const pageNavLinks = [
+    { href: "/", label: "Home" },
+    { href: "/studio", label: "KO Studio" },
+    { href: "/journey", label: "Life Journey" },
 ];
 
 export function Header() {
@@ -64,24 +70,10 @@ export function Header() {
     }
   };
   
-  const getNavLinks = () => {
-    if (pathname === '/journey') {
-        return [
-            { href: "/", label: "Home" },
-            { href: "/journey", label: "Life Journey" },
-        ];
-    }
-     if (pathname === '/studio') {
-        return [
-            { href: "/", label: "Home" },
-            { href: "/studio", label: "Studio" },
-        ];
-    }
-    return navLinks;
-  }
+  const isSecondaryPage = pathname === '/journey' || pathname === '/studio';
   
-  const currentNavLinks = getNavLinks();
-  const desktopNavs = navLinks.filter(link => !['/', '/journey', '/studio'].includes(link.href));
+  const currentNavLinks = isSecondaryPage ? pageNavLinks : mainNavLinks;
+  const desktopNavs = isSecondaryPage ? pageNavLinks.filter(l => l.href !== pathname) : mainNavLinks.filter(link => !['/', '/journey', '/studio', '#contact', '#about', '#interests'].includes(link.href));
 
 
   return (
