@@ -26,7 +26,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { Separator } from "./ui/separator";
 
 const desktopNavLinks = [
   { id: "#home", label: "Home", icon: Home },
@@ -103,24 +102,24 @@ export function BottomNav() {
 
   return (
     <TooltipProvider>
-      <nav className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-           <Tooltip>
-              <TooltipTrigger asChild>
-                 <Button asChild variant="ghost" size="icon">
-                  <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
-                    <ArrowLeft className="h-5 w-5" />
-                    <span className="sr-only">KO Studio</span>
-                  </Link>
-                 </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>KO Studio</p>
-              </TooltipContent>
-            </Tooltip>
+      <nav className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2">
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
+          <Tooltip>
+            <TooltipTrigger asChild>
+                <Button asChild variant="ghost" size="icon">
+                <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
+                  <ArrowLeft className="h-5 w-5" />
+                  <span className="sr-only">KO Studio</span>
+                </Link>
+                </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>KO Studio</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
 
-            <Separator orientation="vertical" className="h-6" />
-
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
           {navLinks.map((link) => (
             <Tooltip key={link.id}>
               <TooltipTrigger asChild>
@@ -136,22 +135,22 @@ export function BottomNav() {
               </TooltipContent>
             </Tooltip>
           ))}
+        </div>
 
-          <Separator orientation="vertical" className="h-6" />
-
-           <Tooltip>
-              <TooltipTrigger asChild>
-                <Button asChild variant="ghost" size="icon">
-                  <Link href="/journey" onClick={(e) => handleNavClick(e, '/journey')}>
-                    <ArrowRight className="h-5 w-5" />
-                    <span className="sr-only">Life Journey</span>
-                  </Link>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Life Journey</p>
-              </TooltipContent>
-            </Tooltip>
+        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button asChild variant="ghost" size="icon">
+                <Link href="/journey" onClick={(e) => handleNavClick(e, '/journey')}>
+                  <ArrowRight className="h-5 w-5" />
+                  <span className="sr-only">Life Journey</span>
+                </Link>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Life Journey</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
       </nav>
     </TooltipProvider>
