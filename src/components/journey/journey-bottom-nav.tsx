@@ -8,15 +8,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ArrowLeft, ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
+import { ArrowLeft, ArrowUp, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface JourneyBottomNavProps {
-    onSortToggle: () => void;
-    sortOrder: 'asc' | 'desc';
-}
-
-export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavProps) {
+export function JourneyBottomNav() {
     const router = useRouter();
 
     const scrollTo = (position: 'top' | 'bottom') => {
@@ -66,21 +61,6 @@ export function JourneyBottomNav({ onSortToggle, sortOrder }: JourneyBottomNavPr
               </TooltipTrigger>
               <TooltipContent side="top">
                 <p>Scroll to Bottom</p>
-              </TooltipContent>
-            </Tooltip>
-        </div>
-
-        {/* Section 3: Order */}
-        <div className="flex items-center gap-2 rounded-full border bg-background/50 p-2 backdrop-blur-sm">
-             <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" onClick={onSortToggle}>
-                    <ArrowUpDown className="h-5 w-5" />
-                    <span className="sr-only">Toggle Sort Order</span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>Sort by Year ({sortOrder === 'asc' ? 'Oldest First' : 'Newest First'})</p>
               </TooltipContent>
             </Tooltip>
         </div>
