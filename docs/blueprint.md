@@ -1,4 +1,4 @@
-# Chromatic Canvas - Project Blueprint
+# Ohida's Canvas - Project Blueprint
 
 ## 1. Core Features
 
