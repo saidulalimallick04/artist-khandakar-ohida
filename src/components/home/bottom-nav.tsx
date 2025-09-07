@@ -15,7 +15,7 @@ import {
   Newspaper,
   BookOpen,
   Calendar,
-  Link2,
+  ScrollText,
   Heart,
   Briefcase,
   Milestone,
@@ -30,21 +30,21 @@ import { useRouter } from "next/navigation";
 
 const desktopNavLinks = [
   { id: "#home", label: "Home", icon: Home },
-  { id: "#about", label: "About", icon: User },
+  { id: "#about", label: "About", icon: ScrollText },
   { id: "#studio", label: "Studio", icon: Briefcase },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#press", label: "Press", icon: Newspaper },
   { id: "#education", label: "Education", icon: BookOpen },
   { id: "#interests", label: "Interests", icon: Heart },
   { id: "#events", label: "Events", icon: Calendar },
-  { id: "#profiles", label: "Profiles", icon: Link2 },
+  { id: "#profiles", label: "Profiles", icon: User },
 ];
 
 const mobileNavLinks = [
   { id: "#home", label: "Home", icon: Home },
   { id: "#work", label: "Work", icon: Palette },
   { id: "#events", label: "Events", icon: Calendar },
-  { id: "#profiles", label: "Profiles", icon: Link2 },
+  { id: "#profiles", label: "Profiles", icon: User },
 ];
 
 
@@ -119,11 +119,11 @@ export function BottomNav() {
           <Tooltip>
             <TooltipTrigger asChild>
                 <Button asChild variant="ghost" size="icon">
-                <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
-                  <ChevronLeft className="h-5 w-5" />
-                  <Briefcase className="mr-2 h-4 w-4" />
-                  <span className="sr-only">KO Studio</span>
-                </Link>
+                  <Link href="/studio" onClick={(e) => handleNavClick(e, '/studio')}>
+                    <ChevronLeft className="h-5 w-5" />
+                    <Briefcase className="mr-2 h-4 w-4" />
+                    <span className="sr-only">KO Studio</span>
+                  </Link>
                 </Button>
             </TooltipTrigger>
             <TooltipContent side="top">
