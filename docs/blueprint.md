@@ -1,21 +1,54 @@
-# **App Name**: Chromatic Canvas
+# Chromatic Canvas - Project Blueprint
 
-## Core Features:
+## 1. Core Features
 
-- Hero Section Animation: Animated intro with name, tagline, fade-in and scaling effects.
-- Filter work by keywords: Enable searching or filtering the featured work, projects, gallery, and events by keywords, and provide search result highlighting. A tool will incorporate results only where truly relevant to the keywords entered.
-- Custom Pointer Effects: Implement a custom pointer with a glowing brush-like effect and click ripple animations.
-- Gallery Zoom & Lightbox: Enable zoom on hover and lightbox for detailed image viewing in the gallery section.
-- Dark/Light Mode Toggle: Implement a toggle to switch between dark and light themes with smooth transitions, saving user preference in localStorage.
-- Data-Driven Content Sections: Implement data arrays for Education, Events, Interests/Hobbies, Projects, etc., with sample placeholder values.
-- Scroll Reveal Animations: Add staggered fade/slide animations for content sections on scroll.
+This document outlines the features and technical implementation of the Chromatic Canvas portfolio website for Khandakar Ohida.
 
-## Style Guidelines:
+### 1.1. Main Page Sections
+The single-page homepage is divided into the following sections, accessible via the main header and a floating bottom navigation bar:
+- **Hero**: Introduces the artist with a tagline and a prominent profile picture.
+- **About**: A brief biography and artist statement.
+- **Studio**: A description of the artist's creative space and process.
+- **Work**: A filterable gallery of featured projects and artworks.
+- **Press**: A collection of press mentions and recognitions.
+- **Education**: A timeline of academic and professional qualifications.
+- **Hobbies**: A visual grid of personal interests.
+- **Events**: A filterable list of past and upcoming exhibitions and talks.
+- **Public Profiles**: Links to official profiles on institutional websites.
+- **Contact**: A contact form and social media links.
 
-- Primary color: Desaturated Yellow-Gold (#F2EDD1) to reflect sophistication.
-- Background color: Very light Yellow-Gold (#FDFCF7), almost white, creating a subtle and elegant canvas.
-- Accent color: Muted Teal (#689B8A) for interactive elements and highlights.
-- Body font: 'PT Sans', a humanist sans-serif suitable for body text
-- Headline font: 'Playfair', a modern sans-serif with an elegant, high-end feel; use 'PT Sans' for body
-- Use minimalist, artistic icons for Interests/Hobbies section.
-- Employ subtle hover animations on buttons and micro-interactions for navigation elements.
+### 1.2. Life Journey Page
+- A dedicated, separate page (`/journey`) that presents the artist's career milestones in a vertical timeline format.
+- Features a unique, simplified bottom navigation with controls to **Return**, **Toggle Sort Order**, and scroll to the **Top/Bottom**.
+- Accessed via a prominent button on the hero section and links in the navigation bars.
+
+### 1.3. Interactive & UX Features
+- **Page Transitions**: Implemented smooth, animated transitions between the main page and the journey page. The journey page slides in from the right, and slides back out to the right when returning.
+- **Scroll Animations**: Sections and elements animate into view (fade and slide up) as the user scrolls, creating a dynamic browsing experience.
+- **Filter & Search**: The "Work" and "Events" sections include a search bar that filters the content in real-time, with search terms highlighted in the results.
+- **Image Lightbox**: Clicking on an image in the "Work" or "Press" sections opens it in a full-screen, animated lightbox viewer. The lightbox can be closed with an 'X' button, a "Back" button at the bottom, or by pressing the Escape key.
+- **Responsive Design**: The layout is fully responsive, with dedicated mobile-friendly navigation, including a slide-out menu and a horizontal scrolling view for gallery sections.
+- **Dark/Light Mode**: A theme toggle allows users to switch between dark and light modes, with the preference saved.
+
+## 2. Technical Stack
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: ShadCN/UI
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+
+## 3. Component Structure
+
+The application is built with a modular component architecture located in `src/components`.
+
+- **Layout Components**: `header.tsx`, `footer.tsx`, `bottom-nav.tsx`, `page-transition.tsx`
+- **Page Sections**: `hero.tsx`, `about.tsx`, `work.tsx`, `events.tsx`, etc.
+- **UI Elements**: `lightbox.tsx`, `scroll-animator.tsx`, `horizontal-scroll.tsx`, and various UI components from ShadCN in `src/components/ui`.
+- **Data**: All text and image content is centralized in `src/lib/data.ts` for easy management.
+- **State Management**: Primarily uses React hooks (`useState`, `useEffect`). Page-level state is managed in the respective page components (e.g., `journey/page.tsx`).
+- **Navigation**:
+  - `header.tsx`: Standard top navigation bar with a hamburger menu on mobile.
+  - `bottom-nav.tsx`: Floating navigation bar on the main page.
+  - `journey-bottom-nav.tsx`: A specialized navigation bar for the journey page.
