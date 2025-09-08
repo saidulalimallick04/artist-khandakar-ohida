@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Briefcase, Milestone } from 'lucide-react';
 import { heroData } from '@/lib/data';
+import { AnimatedText } from "../animated-text";
 
 export function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -60,7 +61,16 @@ export function Hero() {
             isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           )}
         >
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl">{heroData.name}</h1>
+          <AnimatedText
+            text={heroData.firstName}
+            el="h1"
+            className="font-headline text-5xl md:text-7xl"
+          />
+          <AnimatedText
+            text={heroData.lastName}
+            el="h1"
+            className="font-headline text-5xl md:text-7xl"
+          />
           <p
             className={cn(
               'mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl transition-all duration-1000 delay-300 ease-out',
