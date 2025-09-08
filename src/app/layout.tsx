@@ -27,9 +27,7 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          <PageTransition>
-            {children}
-          </PageTransition>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
