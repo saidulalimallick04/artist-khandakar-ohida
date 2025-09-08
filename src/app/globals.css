@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 39 33% 95%; /* #F2EFE7 */
-    --foreground: 183 100% 12%;
-    --card: 186 38% 88%;
-    --card-foreground: 183 100% 12%;
-    --popover: 39 33% 95%;
-    --popover-foreground: 183 100% 12%;
-    --primary: 183 100% 22%; /* #006A71 */
-    --primary-foreground: 39 33% 95%;
-    --secondary: 186 38% 91%;
-    --secondary-foreground: 183 100% 12%;
-    --muted: 186 38% 93%;
-    --muted-foreground: 183 100% 25%;
-    --accent: 181 39% 47%; /* #48A6A7 */
-    --accent-foreground: 39 33% 98%;
+    --background: 40 50% 96%; /* Soft Cream */
+    --foreground: 20 10% 10%;
+    --card: 40 50% 99%;
+    --card-foreground: 20 10% 10%;
+    --popover: 40 50% 96%;
+    --popover-foreground: 20 10% 10%;
+    --primary: 20 70% 55%; /* Terracotta */
+    --primary-foreground: 40 50% 98%;
+    --secondary: 40 30% 93%;
+    --secondary-foreground: 20 10% 10%;
+    --muted: 40 30% 94%;
+    --muted-foreground: 20 10% 30%;
+    --accent: 45 85% 55%; /* Gold */
+    --accent-foreground: 20 10% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 186 38% 85%;
-    --input: 186 38% 88%;
-    --ring: 183 100% 22%;
+    --border: 40 30% 88%;
+    --input: 40 30% 92%;
+    --ring: 220 100% 60%; /* Electric Blue */
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 183 100% 5%;
-    --foreground: 39 33% 95%;
-    --card: 183 100% 10%;
-    --card-foreground: 39 33% 95%;
-    --popover: 183 100% 5%;
-    --popover-foreground: 39 33% 95%;
-    --primary: 181 39% 47%; /* #48A6A7 */
-    --primary-foreground: 183 100% 95%;
-    --secondary: 183 100% 12%;
-    --secondary-foreground: 39 33% 95%;
-    --muted: 183 100% 10%;
-    --muted-foreground: 39 33% 70%;
-    --accent: 183 100% 22%; /* #006A71 */
-    --accent-foreground: 39 33% 98%;
+    --background: 210 10% 15%; /* Deep Charcoal */
+    --foreground: 40 30% 95%;
+    --card: 210 10% 18%;
+    --card-foreground: 40 30% 95%;
+    --popover: 210 10% 15%;
+    --popover-foreground: 40 30% 95%;
+    --primary: 20 60% 60%; /* Terracotta */
+    --primary-foreground: 20 10% 5%;
+    --secondary: 210 10% 20%;
+    --secondary-foreground: 40 30% 95%;
+    --muted: 210 10% 18%;
+    --muted-foreground: 40 30% 70%;
+    --accent: 45 85% 60%; /* Gold */
+    --accent-foreground: 20 10% 5%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 183 100% 12%;
-    --input: 183 100% 12%;
-    --ring: 181 39% 47%;
+    --border: 210 10% 25%;
+    --input: 210 10% 25%;
+    --ring: 220 100% 70%; /* Electric Blue */
   }
 }
 
