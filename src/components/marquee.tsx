@@ -42,6 +42,16 @@ export function Marquee({
         })}
       >
         {children}
+      </div>
+       <div
+        className={cn("flex w-max animate-marquee items-stretch gap-[--gap]", {
+          "flex-row": !vertical,
+          "flex-col": vertical,
+          "group-hover:[animation-play-state:paused]": pauseOnHover,
+          "[animation-direction:reverse]": reverse,
+        })}
+        aria-hidden="true"
+      >
         {children}
       </div>
     </div>
