@@ -30,6 +30,8 @@ export function StudioHero() {
           <h1 className="font-headline text-5xl md:text-7xl">
             {studioData.hero.title}
           </h1>
+        </ScrollAnimator>
+        <ScrollAnimator delay={200}>
           <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-neutral-300">
             {studioData.hero.description1}
           </p>
@@ -45,4 +47,3 @@ export function StudioHero() {
     </section>
   );
 }
-
