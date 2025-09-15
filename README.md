@@ -60,29 +60,34 @@ The project is organized with a page-centric approach for components and data to
 
 ```
 .
-├── src
-│   ├── app                     # Main application routes (pages)
-│   │   ├── journey/page.tsx    # The /journey page
-│   │   ├── studio/page.tsx     # The /studio page
-│   │   ├── layout.tsx          # Root layout
-│   │   └── page.tsx            # Main homepage
-│   ├── components              # React components
-│   │   ├── home/               # Components used only on the homepage
-│   │   ├── journey/            # Components used only on the journey page
-│   │   ├── studio/             # Components used only on the studio page
-│   │   ├── ui/                 # ShadCN UI library components
-│   │   └── ...                 # Shared components (Header, Footer, etc.)
-│   ├── hooks                   # Custom React hooks
-│   │   └── use-mobile.ts
-│   └── lib                     # Utility functions and data
-│       ├── data/               # Centralized content for the site
-│       │   ├── home/           # Data for homepage sections
-│       │   ├── journey/        # Data for the journey page
-│       │   ├── studio/         # Data for the studio page
-│       │   └── index.ts        # Exports all data
-│       └── utils.ts            # Helper functions (e.g., cn)
-├── public                      # Static assets
-└── ...                         # Configuration files
+├── public/               # Static assets (images, fonts, etc.)
+├── src/
+│   ├── app/                # Next.js App Router: main application routes (pages)
+│   │   ├── journey/        # Contains the /journey page route
+│   │   │   └── page.tsx
+│   │   ├── studio/         # Contains the /studio page route
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx      # Root layout for the entire application
+│   │   └── page.tsx        # The main homepage route (/)
+│   │
+│   ├── components/         # Reusable React components
+│   │   ├── home/           # Components used only on the homepage (e.g., about.tsx)
+│   │   ├── journey/        # Components used on the journey page (e.g., journey-timeline.tsx)
+│   │   ├── studio/         # Components used on the studio page (e.g., studio-hero.tsx)
+│   │   └── ui/             # Core UI components from ShadCN (e.g., button.tsx, card.tsx)
+│   │
+│   ├── hooks/              # Custom React hooks
+│   │   └── use-mobile.ts   # Hook to detect if the user is on a mobile device
+│   │
+│   └── lib/                # Library files: data, utilities, and helper functions
+│       ├── data/           # Centralized content and data for the site
+│       │   ├── home/       # Data for homepage sections (e.g., about.ts, work.ts)
+│       │   ├── journey/    # Data for the journey page
+│       │   ├── studio/     # Data for the studio page
+│       │   └── index.ts    # Barrel file to export all data
+│       └── utils.ts        # Utility functions (e.g., cn for classnames)
+│
+└── ...                   # Other configuration files (tailwind.config.ts, next.config.ts, etc.)
 ```
 
 ## Customization
