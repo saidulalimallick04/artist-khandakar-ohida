@@ -96,14 +96,14 @@ All the text, images, and data points for the portfolio sections are centralized
 
 ---
 ---
+
 ## 👨‍💻 Author
 
-|Profile                                                                                                   | Member Name                   | Role                                              | GitHub                                                            | LinkedIn                                                          |
-|----------------------------------------------------------------------------------------------------------|-------------------------------|---------------------------------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------|
-| [![Sami](https://github.com/saidulalimallick04.png?size=75)](https://github.com/saidulalimallick04)      | Saidul Ali Mallick (Sami)     | Backend Developer & AIML Engineer & Team Lead     | [@saidulalimallick04](https://github.com/saidulalimallick04)      | [@saidulalimallick04](https://linkedin.com/in/saidulalimallick04) |
+| Profile | Developer Name | Role | GitHub | LinkedIn | X |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| [![Sami](https://github.com/saidulalimallick04.png?size=75)](https://github.com/saidulalimallick04) | Saidul Ali Mallick (Sami) | Backend Developer & AIML Engineer & Team Lead | [@saidulalimallick04](https://github.com/saidulalimallick04) | [@saidulalimallick04](https://linkedin.com/in/saidulalimallick04) | [@saidulmallick04](https://x.com/saidulmallick04) |
 
 > ❤️ I believe in building impact, not just writing code.
-> _💚 Backend Sage signing off.._
-
+> *💚 Backend Sage signing off..*
 ---
 ---
